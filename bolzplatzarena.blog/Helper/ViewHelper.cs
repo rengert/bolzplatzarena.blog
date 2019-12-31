@@ -15,7 +15,7 @@ namespace Bolzplatzarena.Blog.Helper
 
 			if (string.IsNullOrWhiteSpace(_configuration["base:url"]) || !_configuration["base:url"].EndsWith("/"))
 			{
-				throw new ArgumentException("base:url is not in expected format");
+				throw new ArgumentException("base:url is not in expected format. (should be not empty and should end with'/'");
 			}
 		}
 		

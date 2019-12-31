@@ -9,7 +9,7 @@ using Piranha;
 using Piranha.AspNetCore.Identity.SQLite;
 using Piranha.AttributeBuilder;
 
-namespace Website
+namespace Bolzplatzarena.Blog
 {
 	public class Startup
 	{

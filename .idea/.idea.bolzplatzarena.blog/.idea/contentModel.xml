@@ -7,7 +7,6 @@
         <e p="appsettings.json" t="Include" />
         <e p="assets" t="Include">
           <e p="images" t="Include" />
-          <e p="scss" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="Blocks" t="Include" />
@@ -25,7 +24,9 @@
           <e p="ViewHelper.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
+          <e p="ArchivePage.cs" t="Include" />
           <e p="Icon.cs" t="Include" />
+          <e p="Post.cs" t="Include" />
           <e p="StandardPage.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -36,6 +37,7 @@
             </e>
           </e>
         </e>
+        <e p="piranha.blog.db" t="Include" />
         <e p="Program.cs" t="Include" />
         <e p="Services" t="Include" />
         <e p="Startup.cs" t="Include" />
@@ -43,6 +45,7 @@
           <e p="_ViewImports.cshtml" t="Include" />
           <e p="_ViewStart.cshtml" t="Include" />
           <e p="Cms" t="Include">
+            <e p="Archive.cshtml" t="Include" />
             <e p="Page.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">

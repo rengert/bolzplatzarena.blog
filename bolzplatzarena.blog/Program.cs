@@ -1,11 +1,7 @@
-using System.IO;
-using System.Reflection;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
 
-namespace Website
+namespace Bolzplatzarena.Blog
 {
 	public class Program
 	{

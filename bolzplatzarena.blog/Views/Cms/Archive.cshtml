@@ -1,0 +1,11 @@
+@model Bolzplatzarena.Blog.Models.ArchivePage
+@{
+    ViewBag.Title = Model.Title;
+}
+<main>
+    @if (Model.NavigationTitle != "Startseite")
+    {
+        <h1>@Model.Title</h1>   
+    }
+    @Html.DisplayFor(m => m.Blocks)
+</main>
