@@ -1,0 +1,30 @@
+@using Bolzplatzarena.Blog.Helper
+@model Piranha.Models.PageBase;
+@inject IViewHelper viewHelper;
+@{
+    var imageUrl = "";
+}
+<title>@Model.Title</title>
+<meta name="robots" content="index,follow" >
+<meta name="keywords" content="@Model.MetaKeywords">
+<meta name="description" content="@Model.MetaDescription">
+
+<meta property="og:site_name" content="">
+<meta property="og:title" content="@Model.Title">
+<meta property="og:description" content="@Model.MetaDescription">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:url" content="@viewHelper.ToAbsoluteUrl(Model)">
+<meta property="og:image" content="@viewHelper.ToAbsoluteUrl(imageUrl)">
+<meta property="og:image:alt" content="@Model.Title">
+<meta property="og:locality" content="Karlsruhe">
+<meta property="og:country-name" content="Germany">
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="@Model.Title">
+<meta property="twitter:description" content="@Model.MetaDescription">
+<meta property="twitter:image" content="@viewHelper.ToAbsoluteUrl(imageUrl)">
+<meta property="twitter:image:src" content="@viewHelper.ToAbsoluteUrl(imageUrl)">
+<meta property="twitter:url" content="@viewHelper.ToAbsoluteUrl(Model)">
+
+<link rel="canonical" href="@viewHelper.ToAbsoluteUrl(Model)">

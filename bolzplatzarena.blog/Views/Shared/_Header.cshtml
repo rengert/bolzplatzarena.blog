@@ -1,0 +1,11 @@
+@using Bolzplatzarena.Blog.Helper
+@using Bolzplatzarena.Blog.Models
+@inject IViewHelper viewHelper;
+@{
+    var email = viewHelper.Icon(WellknownIcons.Mail);
+    var phone = viewHelper.Icon(WellknownIcons.Phone);
+    var contact = viewHelper.Icon(WellknownIcons.Contact);
+}
+<header>
+    @await Html.PartialAsync("_Navigation")
+</header>

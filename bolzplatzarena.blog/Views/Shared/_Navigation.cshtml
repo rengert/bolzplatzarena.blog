@@ -1,0 +1,25 @@
+@using Piranha
+@inject IApi api
+@{
+    var sitemap = await api.Sites.GetSitemapAsync();
+    var footer = sitemap.Find(x => x.Title == "MainNavigation");
+    var links = footer?.Items;
+}
+
+<div class="row navigation">
+    <input type="checkbox" id="hamburg">
+    <label for="hamburg" class="hamburg">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+    </label>
+    <h5>Navigation / @ViewBag.Title</h5>
+    <nav class="topmenu">
+        <ul>
+            @foreach (var item in links)
+            {
+                <li>@Html.DisplayFor(_ => item)</li>
+            }
+        </ul>
+   </nav>
+</div>

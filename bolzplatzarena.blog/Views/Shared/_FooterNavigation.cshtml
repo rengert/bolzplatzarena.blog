@@ -1,0 +1,14 @@
+@using Piranha
+@inject IApi api
+@{
+    var sitemap = await api.Sites.GetSitemapAsync();
+    var footer = sitemap.Find(x => x.Title == "Footer");
+    var links = footer?.Items;
+}
+
+<nav>
+    @foreach (var item in links)
+    {
+        @Html.DisplayFor(_ => item)
+    }
+</nav>

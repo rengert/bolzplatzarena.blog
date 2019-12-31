@@ -1,0 +1,16 @@
+@model Piranha.Models.PageBase
+<!doctype html>
+<html lang="de">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="~/css/styles.css" asp-append-version="true"/>
+    @await Html.PartialAsync("_Meta", Model)
+</head>
+<body>
+<div class="container">
+    @await Html.PartialAsync("_Header")
+    @RenderBody()
+</div>
+@await Html.PartialAsync("_Footer")
+</body>
+</html>
