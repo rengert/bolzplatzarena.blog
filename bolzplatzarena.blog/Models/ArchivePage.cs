@@ -7,6 +7,6 @@ namespace Bolzplatzarena.Blog.Models
 	[PageTypeRoute(Title = "Cms archive", Route = "/archive")]
 	public class ArchivePage  : Page<ArchivePage>
 	{
-		public PostArchive<DynamicPost> Archive { get; set; }
+		public PostArchive<Post> Archive { get; set; }
 	}
 }

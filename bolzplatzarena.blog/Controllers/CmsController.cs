@@ -36,9 +36,15 @@ namespace Bolzplatzarena.Blog.Controllers
 		public async Task<IActionResult> archive(Guid id) 
 		{
 			var model = await _api.Pages.GetByIdAsync<ArchivePage>(id);
-			ViewBag.CurrentPage = model.Id;
 
-			return View(model);
+			if(model != null)
+			{
+				model.Archive = await _api.Archives.GetByIdAsync<Post>(id);
+				ViewBag.CurrentPage = model.Id;
+				return View(model);
+			}
+
+			return NotFound();
 		}
 	}
 }

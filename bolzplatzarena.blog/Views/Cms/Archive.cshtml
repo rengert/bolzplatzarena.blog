@@ -1,3 +1,4 @@
+@using Bolzplatzarena.Blog.Models
 @model Bolzplatzarena.Blog.Models.ArchivePage
 @{
     ViewBag.Title = Model.Title;
@@ -7,5 +8,11 @@
     {
         <h1>@Model.Title</h1>   
     }
+    
+    @foreach (var post in Model.Archive.Posts)
+    {
+        @Html.DisplayFor(_ => post, "Post")
+    }
+    
     @Html.DisplayFor(m => m.Blocks)
 </main>

@@ -59,6 +59,7 @@
               <e p="ColumnBlock.cshtml" t="Include" />
               <e p="HtmlBlock.cshtml" t="Include" />
               <e p="Icon.cshtml" t="Include" />
+              <e p="Post.cshtml" t="Include" />
               <e p="SitemapItem.cshtml" t="Include" />
             </e>
           </e>
