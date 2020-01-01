@@ -72,7 +72,9 @@
           </e>
           <e p="favicon.ico" t="Include" />
           <e p="fonts" t="Include" />
-          <e p="images" t="Include" />
+          <e p="images" t="Include">
+            <e p="author_thomas_renger.jpg" t="Include" />
+          </e>
           <e p="uploads" t="Include" />
         </e>
       </e>

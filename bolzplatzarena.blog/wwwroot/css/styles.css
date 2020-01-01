@@ -1,5 +1,89 @@
-* {
-  display: none;
+body {
+  background: #FBFBFB;
+  font: 16px sans-serif;
+  color: #3E3F42;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  height: 70px;
+  border-bottom: 1px solid #EAEDF3;
+}
+
+footer {
+  height: 70px;
+  border-top: 1px solid #EAEDF3;
+}
+footer .container {
+  max-width: 1170px;
+  padding: 15px;
+  margin: auto;
+}
+
+main {
+  max-width: 1170px;
+  padding: 15px;
+  margin: auto;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+.post {
+  display: flex;
+  border: 1px solid #EAEDF3;
+  border-radius: 4px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
+  background: #FFFFFF;
+}
+.post .icon {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  flex-grow: 0;
+  margin: 0 auto;
+  font-size: 0.8rem;
+  line-height: 60px;
+  text-align: center;
+}
+.post .icon.violet {
+  background-color: #6977FF;
+  color: white;
+}
+.post .avatar {
+  height: 60px;
+  width: 60px;
+  border: 2px solid #E6492D;
+  border-radius: 50%;
+  flex-grow: 0;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.post .avatar img {
+  max-width: 100%;
+}
+.post .content {
+  flex: 1;
+  padding: 0 15px;
+}
+.post .content p {
+  color: #ADADAD;
+  font-size: 0.8rem;
+}
+
+@media only screen and (max-width: 500px) {
+  main .post {
+    display: block;
+    text-align: center;
+  }
+  main .post .content {
+    width: 100%;
+    padding: 15px 0;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
