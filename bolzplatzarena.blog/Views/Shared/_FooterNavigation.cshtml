@@ -4,6 +4,10 @@
     var sitemap = await api.Sites.GetSitemapAsync();
     var footer = sitemap.Find(x => x.Title == "Footer");
     var links = footer?.Items;
+    if (links == null)
+    {
+        return;
+    }
 }
 
 <nav>
