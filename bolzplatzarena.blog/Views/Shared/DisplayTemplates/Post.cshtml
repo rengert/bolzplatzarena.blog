@@ -1,12 +1,19 @@
 @model Bolzplatzarena.Blog.Models.Post
 <div class="post">
-    <div class="icon category violet">
-       @Model.Category.Title
-    </div>
+    @await Html.PartialAsync("_Icon", Model.Category)
     <div class="content">
         <h3>@Model.Title</h3>
+        @if (Model.Tags?.Count > 0)
+        {
+            <div class="tags">
+            @foreach (var tag in Model.Tags)
+            {
+                <span>@tag.Title</span>
+            }
+            </div>
+        }
         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam e</p>
-        <p>Veröffentlich: 01.01.2020 18:19, kategorie: ASP.NET</p>
+        <p>Veröffentlich: @Model.Published.GetValueOrDefault().ToString("dd. MMMM yyyy, HH:mm"), Kategorie: @Model.Category.Title</p>
     </div>
     <div class="avatar">
         <img src="/images/author_thomas_renger.jpg" alt="Autor von: @Model.Category.Title"/>

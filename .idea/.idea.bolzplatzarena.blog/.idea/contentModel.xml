@@ -52,6 +52,7 @@
             <e p="_Footer.cshtml" t="Include" />
             <e p="_FooterNavigation.cshtml" t="Include" />
             <e p="_Header.cshtml" t="Include" />
+            <e p="_Icon.cshtml" t="Include" />
             <e p="_Layout.cshtml" t="Include" />
             <e p="_Meta.cshtml" t="Include" />
             <e p="_Navigation.cshtml" t="Include" />
