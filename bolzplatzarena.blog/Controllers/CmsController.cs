@@ -42,6 +42,7 @@ namespace Bolzplatzarena.Blog.Controllers
 			var model = await _api.Pages.GetByIdAsync<ArchivePage>(id);
 			if (model == null) return NotFound();
 
+			model.SearchTerm = term;
 			model.Archive = await _service.Find(model, tag, category, term);
 			model.Categories = await _service.GetCategoriesAsync(model);
 			model.Tags = await _service.GetTagsAsync(model);

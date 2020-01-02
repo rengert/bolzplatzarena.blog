@@ -52,7 +52,6 @@
             <e p="Page.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
-            <e p="_ArchiveNavigation.cshtml" t="Include" />
             <e p="_Footer.cshtml" t="Include" />
             <e p="_FooterNavigation.cshtml" t="Include" />
             <e p="_Header.cshtml" t="Include" />
@@ -61,6 +60,10 @@
             <e p="_Meta.cshtml" t="Include" />
             <e p="_Navigation.cshtml" t="Include" />
             <e p="_Search.cshtml" t="Include" />
+            <e p="Archive" t="Include">
+              <e p="_Navigation.cshtml" t="Include" />
+              <e p="_Summary.cshtml" t="Include" />
+            </e>
             <e p="DisplayTemplates" t="Include">
               <e p="ColumnBlock.cshtml" t="Include" />
               <e p="HtmlBlock.cshtml" t="Include" />

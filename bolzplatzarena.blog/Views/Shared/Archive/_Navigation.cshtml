@@ -1,4 +1,4 @@
-@model Bolzplatzarena.Blog.Models.ArchivePage
+@model ArchivePage
 
 <div class="navigation">
     <div class="categories box">
@@ -15,7 +15,7 @@
         <div class="inner">
         @foreach (var tag in Model.Tags)
         {
-            <a href="/blog/category/@tag.Slug">@tag.Title</a>
+            <a href="/blog/tag/@tag.Slug">@tag.Title</a>
         }
         </div>
     </div>

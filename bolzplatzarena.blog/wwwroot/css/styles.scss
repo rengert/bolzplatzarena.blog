@@ -112,6 +112,17 @@ main {
 .archive {
   display: flex;
   flex-direction: row-reverse;
+  
+  section.summary {
+    h5 {
+      display: inline-block;
+      margin-right: 5px;
+
+      span {
+        font-weight: normal;
+      }
+    }
+  }
  
   .navigation {
     width: 350px;

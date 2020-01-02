@@ -13,5 +13,11 @@ namespace Bolzplatzarena.Blog.Models
 		public IEnumerable<Taxonomy> Tags { get; set; }
 		
 		public IEnumerable<Taxonomy> Categories { get; set; }
+
+		public Taxonomy Category => Archive.Category;
+
+		public Taxonomy Tag => Archive.Tag;
+
+		public string SearchTerm { get; set; }
 	}
 }

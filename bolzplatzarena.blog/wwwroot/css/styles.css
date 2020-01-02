@@ -94,6 +94,13 @@ main {
   display: flex;
   flex-direction: row-reverse;
 }
+.archive section.summary h5 {
+  display: inline-block;
+  margin-right: 5px;
+}
+.archive section.summary h5 span {
+  font-weight: normal;
+}
 .archive .navigation {
   width: 350px;
   margin: 20px 0 0 20px;
