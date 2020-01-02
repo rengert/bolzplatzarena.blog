@@ -11,9 +11,52 @@ body {
   padding: 0;
 }
 
+h1, h2, h3, p {
+   margin: .5rem 0;
+ }
+
+h3 {
+  margin-top: 0;
+}
+
 header {
   height: 70px;
   border-bottom: 1px solid $border-color;
+
+  .container {
+    display: flex;
+    max-width: 1170px;
+    padding: 15px;
+    margin: auto;
+    align-content: space-between;
+    
+    h4 {
+      flex: 1;
+      margin: 0;
+      line-height: 40px;
+    }
+
+    .search {
+      svg {
+        width: 20px;
+        height: 20px;
+        margin: 10px 5px;
+        float: left;
+      }
+      
+      input {
+        width: 120px;
+        height: 40px;
+        padding: 0 10px;
+        border: none;
+        background: none;
+        
+        font-size: .8rem;
+        line-height: 40px;
+        
+      }
+    }
+  }
 }
 
 footer {
@@ -33,14 +76,43 @@ main {
   margin: auto;
 }
 
-h1, h2, h3, p {
-  margin: .5rem 0;
-}
+.archive {
+  display: flex;
+  flex-direction: row-reverse;
+ 
+  .navigation {
+    width: 350px;
+    margin: 20px 0 0 20px;
+    
+    .box {
+      border: 1px solid $border-color;
+      border-radius: 4px;
+      margin: 0 0 20px 0;
+      
+      background: #fff;
+    }
+    
+    h3 {
+      display: block;
+      height: 60px;
+      padding: 0 15px;
+      
+      line-height: 65px;
+    }
+    
+    a {
+      display: block;
+      height: 60px;
+      border-top: 1px solid $border-color;
+      
+      line-height: 60px;
+    }
+  }
 
-h3 {
-  margin-top: 0;
+  .posts {
+    flex: 1;
+  }
 }
-
 
 .post {
   display: flex;
@@ -124,6 +196,14 @@ h3 {
      }
    }
  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .archive {
+    .navigation {
+      display: none;
+    }
+  }
 }
 
 @media only screen and (min-width: 0) {

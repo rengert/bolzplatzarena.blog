@@ -6,9 +6,44 @@ body {
   padding: 0;
 }
 
+h1, h2, h3, p {
+  margin: 0.5rem 0;
+}
+
+h3 {
+  margin-top: 0;
+}
+
 header {
   height: 70px;
   border-bottom: 1px solid #EAEDF3;
+}
+header .container {
+  display: flex;
+  max-width: 1170px;
+  padding: 15px;
+  margin: auto;
+  align-content: space-between;
+}
+header .container h4 {
+  flex: 1;
+  margin: 0;
+  line-height: 40px;
+}
+header .container .search svg {
+  width: 20px;
+  height: 20px;
+  margin: 10px 5px;
+  float: left;
+}
+header .container .search input {
+  width: 120px;
+  height: 40px;
+  padding: 0 10px;
+  border: none;
+  background: none;
+  font-size: 0.8rem;
+  line-height: 40px;
 }
 
 footer {
@@ -27,12 +62,34 @@ main {
   margin: auto;
 }
 
-h1, h2, h3, p {
-  margin: 0.5rem 0;
+.archive {
+  display: flex;
+  flex-direction: row-reverse;
 }
-
-h3 {
-  margin-top: 0;
+.archive .navigation {
+  width: 350px;
+  margin: 20px 0 0 20px;
+}
+.archive .navigation .box {
+  border: 1px solid #EAEDF3;
+  border-radius: 4px;
+  margin: 0 0 20px 0;
+  background: #fff;
+}
+.archive .navigation h3 {
+  display: block;
+  height: 60px;
+  padding: 0 15px;
+  line-height: 65px;
+}
+.archive .navigation a {
+  display: block;
+  height: 60px;
+  border-top: 1px solid #EAEDF3;
+  line-height: 60px;
+}
+.archive .posts {
+  flex: 1;
 }
 
 .post {
@@ -101,6 +158,11 @@ h3 {
   main .post .content {
     width: 100%;
     padding: 15px 0;
+  }
+}
+@media only screen and (max-width: 1023px) {
+  .archive .navigation {
+    display: none;
   }
 }
 

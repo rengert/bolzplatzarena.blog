@@ -3,16 +3,19 @@
 @{
     ViewBag.Title = Model.Title;
 }
-<main>
-    @if (Model.NavigationTitle != "Startseite")
-    {
-        <h1>@Model.Title</h1>   
-    }
-    
+
+@if (Model.NavigationTitle != "Startseite")
+{
+    <h1>@Model.Title</h1>   
+}
+
+<div class="archive">
+    @await Html.PartialAsync("_ArchiveNavigation")
+    <div class="posts">
     @foreach (var post in Model.Archive.Posts)
     {
         @Html.DisplayFor(_ => post, "Post")
     }
-    
-    @Html.DisplayFor(m => m.Blocks)
-</main>
+    </div>
+</div>
+@Html.DisplayFor(m => m.Blocks)

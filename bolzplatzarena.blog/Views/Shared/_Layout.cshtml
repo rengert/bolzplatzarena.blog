@@ -7,10 +7,10 @@
     @await Html.PartialAsync("_Meta", Model)
 </head>
 <body>
-<div class="container">
-    @await Html.PartialAsync("_Header")
+@await Html.PartialAsync("_Header")
+<main>
     @RenderBody()
-</div>
+</main>
 @await Html.PartialAsync("_Footer")
 </body>
 </html>
