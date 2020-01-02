@@ -35,7 +35,6 @@
   <ItemGroup>
     <Folder Include="assets\images" />
     <Folder Include="Blocks" />
-    <Folder Include="Services" />
     <Folder Include="wwwroot\fonts" />
     <Folder Include="wwwroot\images" />
     <Folder Include="wwwroot\uploads" />

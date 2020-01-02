@@ -10,7 +10,7 @@
 }
 
 <div class="archive">
-    @await Html.PartialAsync("_ArchiveNavigation")
+    @await Html.PartialAsync("_ArchiveNavigation", Model)
     <div class="posts">
     @foreach (var post in Model.Archive.Posts)
     {

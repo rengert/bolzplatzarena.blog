@@ -1,14 +1,22 @@
+@model Bolzplatzarena.Blog.Models.ArchivePage
+
 <div class="navigation">
-  <div class="categories box">
+    <div class="categories box">
       <h3>Kategorien</h3>
-      <a href="#">Test</a>
-      <a href="#">Test 1</a>
-      <a href="#">Test 2</a>
-  </div>  
-  <div class="tags box">
-      <h3>Tags</h3>
-      <a href="#">Test</a>
-      <a href="#">Test 1</a>
-      <a href="#">Test 2</a>
+      @foreach (var category in Model.Categories)
+      {
+          <a href="/blog/category/@category.Slug">
+              @await Html.PartialAsync("_Icon", category) @category.Title
+          </a>
+      }
   </div>
+    <div class="tags box">
+        <h3>Tags</h3>
+        <div class="inner">
+        @foreach (var tag in Model.Tags)
+        {
+            <a href="/blog/category/@tag.Slug">@tag.Title</a>
+        }
+        </div>
+    </div>
 </div>

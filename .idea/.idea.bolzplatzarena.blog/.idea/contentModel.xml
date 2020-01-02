@@ -39,7 +39,10 @@
         </e>
         <e p="piranha.blog.db" t="Include" />
         <e p="Program.cs" t="Include" />
-        <e p="Services" t="Include" />
+        <e p="Services" t="Include">
+          <e p="BlogService.cs" t="Include" />
+          <e p="IBlogService.cs" t="Include" />
+        </e>
         <e p="Startup.cs" t="Include" />
         <e p="Views" t="Include">
           <e p="_ViewImports.cshtml" t="Include" />

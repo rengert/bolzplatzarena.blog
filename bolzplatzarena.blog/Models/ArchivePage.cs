@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Piranha.AttributeBuilder;
 using Piranha.Models;
 
@@ -8,5 +9,9 @@ namespace Bolzplatzarena.Blog.Models
 	public class ArchivePage  : Page<ArchivePage>
 	{
 		public PostArchive<Post> Archive { get; set; }
+		
+		public IEnumerable<Taxonomy> Tags { get; set; }
+		
+		public IEnumerable<Taxonomy> Categories { get; set; }
 	}
 }

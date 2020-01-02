@@ -1,4 +1,5 @@
 using Bolzplatzarena.Blog.Helper;
+using Bolzplatzarena.Blog.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -37,7 +38,7 @@ namespace Bolzplatzarena.Blog
 				options.UseIdentityWithSeed<IdentitySQLiteDb>(db =>
 					db.UseSqlite(Configuration.GetConnectionString("piranha")));
 			});
-
+			services.AddScoped<IBlogService, BlogService>();
 			services.AddSingleton<IViewHelper, ViewHelper>();
 		}
 
