@@ -140,14 +140,15 @@ main {
   color: #ADADAD;
   font-size: 0.8rem;
 }
-.post .tags span {
+.post .tags a {
+  padding: 0 7px;
   border: 1px solid #38B249;
   border-radius: 4px;
+  font-size: 0.8rem;
   color: #38B249;
   line-height: 18px;
-  padding: 0 7px;
+  text-decoration: none;
   text-transform: uppercase;
-  font-size: 0.8rem;
 }
 
 @media only screen and (max-width: 500px) {

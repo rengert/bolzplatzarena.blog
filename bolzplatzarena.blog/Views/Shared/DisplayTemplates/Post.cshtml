@@ -8,7 +8,7 @@
             <div class="tags">
             @foreach (var tag in Model.Tags)
             {
-                <span>@tag.Title</span>
+                <a href="/blog/tag/@tag.Slug">@tag.Title</a>
             }
             </div>
         }

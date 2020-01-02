@@ -172,14 +172,15 @@ main {
   }
 
   .tags {
-    span {
+    a {
+      padding: 0 7px;
       border: 1px solid $tagColor;
       border-radius: 4px;
+      font-size: .8rem;
       color: $tagColor;
       line-height: 18px;
-      padding: 0 7px;
+      text-decoration: none;
       text-transform: uppercase;
-      font-size: .8rem;
     }
   }
 }
