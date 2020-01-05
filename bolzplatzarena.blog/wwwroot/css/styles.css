@@ -192,6 +192,7 @@ main {
 }
 
 .ui-hamburger {
+  display: none;
   width: 30px;
   height: 26px;
   margin: 6px 15px auto 0;
@@ -245,6 +246,10 @@ main {
   }
 }
 @media only screen and (max-width: 1023px) {
+  .ui-hamburger {
+    display: block;
+  }
+
   .archive .navigation {
     position: absolute;
     top: 0;
