@@ -14,6 +14,10 @@ h3 {
   margin-top: 0;
 }
 
+h1 {
+  margin-bottom: 2rem;
+}
+
 a {
   color: #3E3F42;
   text-decoration: none;
@@ -70,6 +74,11 @@ main {
   padding: 15px;
   margin: auto;
 }
+main p {
+  line-height: 1.25rem;
+  text-align: justify;
+}
+
 .icon {
   height: 60px;
   width: 60px;

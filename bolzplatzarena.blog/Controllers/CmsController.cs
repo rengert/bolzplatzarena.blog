@@ -37,7 +37,7 @@ namespace Bolzplatzarena.Blog.Controllers
 		}
 
 		[Route("archive")]
-		public async Task<IActionResult> archive(Guid id, Guid? tag, Guid? category, string term = null) 
+		public async Task<IActionResult> Archive(Guid id, Guid? tag, Guid? category, string term = null) 
 		{
 			var model = await _api.Pages.GetByIdAsync<ArchivePage>(id);
 			if (model == null) return NotFound();
@@ -49,6 +49,15 @@ namespace Bolzplatzarena.Blog.Controllers
 			ViewBag.CurrentPage = model.Id;
 			return View(model);
 
+		}
+		[Route("detail")]
+		public async Task<IActionResult> Detail(Guid id)
+		{
+			var model = await _api.Posts.GetByIdAsync<Post>(id);
+			if (model == null) return NotFound();
+			
+			ViewBag.CurrentPage = model.Id;
+			return View(model);
 		}
 	}
 }

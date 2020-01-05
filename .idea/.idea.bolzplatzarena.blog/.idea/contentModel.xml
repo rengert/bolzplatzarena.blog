@@ -51,6 +51,7 @@
           <e p="_ViewStart.cshtml" t="Include" />
           <e p="Cms" t="Include">
             <e p="Archive.cshtml" t="Include" />
+            <e p="Detail.cshtml" t="Include" />
             <e p="Page.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">

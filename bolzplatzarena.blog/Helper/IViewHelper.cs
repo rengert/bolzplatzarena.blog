@@ -9,6 +9,8 @@ namespace Bolzplatzarena.Blog.Helper
 
 		string ToAbsoluteUrl(PageBase page);
 
+		string ToAbsoluteUrl(RoutedContent page);
+		
 		string Content(string key);
 
 		Icon Icon(WellknownIcons key);

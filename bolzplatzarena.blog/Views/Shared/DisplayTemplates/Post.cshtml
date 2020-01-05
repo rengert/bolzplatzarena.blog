@@ -2,7 +2,7 @@
 <div class="post">
     @await Html.PartialAsync("_Icon", Model.Category)
     <div class="content">
-        <h3>@Model.Title</h3>
+        <h3><a href="@Model.Permalink">@Model.Title</a></h3>
         @if (Model.Tags?.Count > 0)
         {
             <div class="tags">

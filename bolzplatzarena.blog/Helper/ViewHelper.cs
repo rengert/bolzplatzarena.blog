@@ -29,6 +29,11 @@ namespace Bolzplatzarena.Blog.Helper
 			return ToAbsoluteUrl(page.IsStartPage() ? "" : page.Permalink);
 		}
 
+		public string ToAbsoluteUrl(RoutedContent page)
+		{
+			return ToAbsoluteUrl(page.Permalink);
+		}
+		
 		public string Content(string key)
 		{
 			return _configuration[$"content:{key}"] ?? key;

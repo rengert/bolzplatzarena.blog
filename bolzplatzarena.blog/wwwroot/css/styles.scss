@@ -20,6 +20,10 @@ h3 {
   margin-top: 0;
 }
 
+h1 {
+  margin-bottom: 2rem;
+}
+
 a {
   color: $fontColor;
   text-decoration: none;
@@ -86,8 +90,9 @@ main {
   padding: 15px;
   margin: auto;
   
-  &.show-navigation {
-    
+  p {
+    line-height: 1.25rem;
+    text-align: justify;
   }
 }
 
