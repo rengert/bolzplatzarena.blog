@@ -29,6 +29,8 @@
           <e p="Post.cs" t="Include" />
           <e p="StandardPage.cs" t="Include" />
         </e>
+        <e p="mono_crash.0.0.json" t="Include" />
+        <e p="mono_crash.mem.8543.1.blob" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -83,6 +85,9 @@
           <e p="fonts" t="Include" />
           <e p="images" t="Include">
             <e p="author_thomas_renger.jpg" t="Include" />
+          </e>
+          <e p="js" t="Include">
+            <e p="scripts.js" t="Include" />
           </e>
           <e p="uploads" t="Include" />
         </e>

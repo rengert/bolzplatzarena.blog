@@ -1,8 +1,8 @@
 @inject IViewHelper viewHelper;
 <header>
     <div class="container">
+        @await Html.PartialAsync("_Navigation")
         <h4><a href="/">Bolzplatzarena</a></h4>
         @await Html.PartialAsync("_Search")
-        @await Html.PartialAsync("_Navigation")
     </div>
 </header>
