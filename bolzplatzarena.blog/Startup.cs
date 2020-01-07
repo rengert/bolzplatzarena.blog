@@ -1,3 +1,4 @@
+using Bolzplatzarena.Blog.Blocks;
 using Bolzplatzarena.Blog.Helper;
 using Bolzplatzarena.Blog.Services;
 using Microsoft.AspNetCore.Builder;
@@ -61,6 +62,10 @@ namespace Bolzplatzarena.Blog
 				.AddAssembly(typeof(Startup).Assembly)
 				.Build()
 				.DeleteOrphans();
+
+			App.Blocks.Register<CodeBlock>();
+			App.Modules.Get<Piranha.Manager.Module>()
+				.Scripts.Add("~/js/manager.js");
 
 			// Configure Tiny MCE
 			// EditorConfig.FromFile("editorconfig.json");

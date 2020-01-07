@@ -244,6 +244,47 @@ main p {
   transition-delay: 0.15s;
 }
 
+.code-block {
+  border: 1px solid #3E3F42;
+  font-size: 0.8rem;
+}
+.code-block .caption {
+  height: 20px;
+  background: #EAEDF3;
+  border-bottom: 1px solid #3E3F42;
+}
+.code-block .caption h4 {
+  display: inline-block;
+  padding: 0 4px;
+  margin: 0;
+  line-height: 20px;
+}
+.code-block .formatted-code {
+  display: flex;
+}
+.code-block .formatted-code .lines {
+  width: 30px;
+  padding: 0 0 0 5px;
+  background-color: #EAEDF3;
+  border-right: 1px solid #3E3F42;
+}
+.code-block .formatted-code .lines span {
+  display: block;
+  height: 18px;
+}
+.code-block .formatted-code .code {
+  overflow: auto;
+  flex: 1;
+}
+.code-block .formatted-code .code pre {
+  height: 18px;
+  margin: 0;
+  padding: 0 5px;
+}
+.code-block .formatted-code .code pre:nth-child(odd) {
+  background: #f1f1f1;
+}
+
 @media only screen and (max-width: 500px) {
   main .post {
     display: block;

@@ -9,7 +9,9 @@
           <e p="images" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
-        <e p="Blocks" t="Include" />
+        <e p="Blocks" t="Include">
+          <e p="CodeBlock.cs" t="Include" />
+        </e>
         <e p="bolzplatzarena.blog.csproj" t="IncludeRecursive" />
         <e p="bolzplatzarena.blog.csproj.DotSettings" t="Include" />
         <e p="Controllers" t="Include">
@@ -52,6 +54,9 @@
           <e p="Cms" t="Include">
             <e p="Archive.cshtml" t="Include" />
             <e p="Detail.cshtml" t="Include" />
+            <e p="DisplayTemplates" t="Include">
+              <e p="CodeBlock.cshtml" t="Include" />
+            </e>
             <e p="Page.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
@@ -88,6 +93,7 @@
             <e p="author_thomas_renger.jpg" t="Include" />
           </e>
           <e p="js" t="Include">
+            <e p="manager.js" t="Include" />
             <e p="scripts.js" t="Include" />
           </e>
           <e p="uploads" t="Include" />

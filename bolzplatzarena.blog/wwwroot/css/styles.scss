@@ -294,6 +294,58 @@ main {
   }
 }
 
+.code-block {
+  border: 1px solid $fontColor;
+  font-size: .8rem;
+  
+  .caption {
+    height: 20px;
+    background: $border-color;
+    border-bottom: 1px solid $fontColor;
+    
+    h4 {
+      display: inline-block;
+      padding: 0 4px;
+      margin: 0;
+      
+      line-height: 20px;
+    }
+  } 
+  
+  .formatted-code {
+  display: flex;
+
+  
+  .lines {
+    width: 30px;
+    padding: 0 0 0 5px;
+    background-color: $border-color;
+    border-right: 1px solid $fontColor;
+    
+    span {
+      display: block;
+      height: 18px;
+    }
+  }
+  
+  .code {
+    overflow: auto;
+    flex: 1;
+
+    pre {
+      height: 18px;
+      margin: 0;
+      padding: 0 5px;
+
+      &:nth-child(odd) {
+        background: #f1f1f1;
+      }
+    }
+  }
+}
+}
+
+
 @media only screen and (max-width: 500px) {
  main {
    .post {

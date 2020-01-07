@@ -1,0 +1,17 @@
+@model Bolzplatzarena.Blog.Blocks.CodeBlock
+<div class="code-block">
+	<div class="caption">
+	@if (!string.IsNullOrEmpty(Model.Filename))
+	{
+		<h4>@Model.Filename</h4>
+	}
+	@if (!string.IsNullOrEmpty(Model.Language))
+    {
+    	<span>@Model.Language</span>
+    }
+	</div>
+	<div class="formatted-code" data-language="@Model.Language">
+		@Html.Raw(Model.RunCode.Value ? Model.RawCode.Value : Model.ToHtml())
+	</div>
+	<div class="tools"></div>
+</div>
