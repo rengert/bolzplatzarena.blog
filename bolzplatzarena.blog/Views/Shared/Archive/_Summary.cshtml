@@ -1,0 +1,18 @@
+@model ArchivePage
+
+<section class="summary">
+    @if (Model.Category != null)
+    {
+        <h5>Kategorie: <span>@Model.Category.Title</span></h5>   
+    }
+
+    @if (Model.Tag != null)
+    {
+        <h5>Tag: <span>@Model.Tag.Title</span></h5>   
+    }
+
+    @if (!string.IsNullOrEmpty(Model.SearchTerm))
+    {
+        <h5>Suchterm: <span>@Model.SearchTerm</span></h5>   
+    }
+</section>

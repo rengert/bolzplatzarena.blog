@@ -1,0 +1,17 @@
+@model Piranha.Models.RoutedContent
+<!doctype html>
+<html lang="de">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="~/css/styles.css" asp-append-version="true"/>
+    @await Html.PartialAsync("_Meta", Model)
+</head>
+<body>
+@await Html.PartialAsync("_Header")
+<main>
+    @RenderBody()
+</main>
+@await Html.PartialAsync("_Footer")
+<script type="text/javascript" async="async" defer="defer" src="~/js/scripts.js" asp-append-version="true"></script>
+</body>
+</html>

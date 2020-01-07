@@ -1,0 +1,21 @@
+@model Bolzplatzarena.Blog.Models.Post
+<div class="post">
+    @await Html.PartialAsync("_Icon", Model.Category)
+    <div class="content">
+        <h3><a href="@Model.Permalink">@Model.Title</a></h3>
+        @if (Model.Tags?.Count > 0)
+        {
+            <div class="tags">
+            @foreach (var tag in Model.Tags)
+            {
+                <a href="/blog/tag/@tag.Slug">@tag.Title</a>
+            }
+            </div>
+        }
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam e</p>
+        <p>Veröffentlich: @Model.Published.GetValueOrDefault().ToString("dd. MMMM yyyy, HH:mm"), Kategorie: @Model.Category.Title</p>
+    </div>
+    <div class="avatar">
+        <img src="/images/author_thomas_renger.jpg" alt="Autor von: @Model.Category.Title"/>
+    </div>
+</div>

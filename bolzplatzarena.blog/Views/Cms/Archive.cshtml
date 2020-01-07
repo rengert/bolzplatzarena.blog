@@ -1,0 +1,12 @@
+@model ArchivePage
+<div class="archive">
+    @await Html.PartialAsync("Archive/_Navigation", Model)
+    <div class="posts">
+        @await Html.PartialAsync("Archive/_Summary", Model)
+        @foreach (var post in Model.Archive.Posts)
+        {
+            @Html.DisplayFor(_ => post, "Post")
+        }
+    </div>
+</div>
+@Html.DisplayFor(m => m.Blocks)
