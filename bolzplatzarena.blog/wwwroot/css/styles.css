@@ -12,6 +12,7 @@ h1, h2, h3, p {
 
 h3 {
   margin-top: 0;
+  font-size: 1.5rem;
 }
 
 h1 {
@@ -66,6 +67,11 @@ footer .container {
   max-width: 1170px;
   padding: 15px;
   margin: auto;
+}
+footer .container nav a {
+  display: block;
+  width: auto;
+  padding: 3px 0;
 }
 
 main {
@@ -162,7 +168,7 @@ main p {
 }
 
 .tags a {
-  padding: 0 7px;
+  padding: 7px;
   border: 1px solid #38B249;
   border-radius: 4px;
   font-size: 0.8rem;
