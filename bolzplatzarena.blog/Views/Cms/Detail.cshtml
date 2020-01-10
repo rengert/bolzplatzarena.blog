@@ -2,6 +2,12 @@
 @{
     ViewBag.Title = Model.Title;
 }
-
-<h1>@Model.Title</h1>
-@Html.DisplayFor(m => m.Blocks)
+<div class="page">
+    <div class="navigation">
+        @await Html.PartialAsync("_ContentNavigation")
+    </div>
+    <div class="content">
+        <h1>@Model.Title</h1>
+        @Html.DisplayFor(m => m.Blocks)
+    </div>
+</div>

@@ -18,6 +18,7 @@ h1, h2, h3, p {
 
 h3 {
   margin-top: 0;
+  font-size: 1.5rem;
 }
 
 h1 {
@@ -81,6 +82,14 @@ footer {
     max-width: 1170px;
     padding: 15px;
     margin: auto;
+    
+    nav {
+      a {
+        display:block;
+        width: auto;
+        padding: 3px 0;
+      }
+    }
   }
 }
 
@@ -119,7 +128,7 @@ main {
   }
 }
 
-.archive {
+.page {
   display: flex;
   flex-direction: row-reverse;
   
@@ -135,7 +144,8 @@ main {
   }
  
   .navigation {
-    width: 350px;
+    width: 330px;
+    min-width: 330px;
     margin: 20px 0 0 20px;
     
     .box {
@@ -168,14 +178,14 @@ main {
           margin-top: 10px;
         }
       }
-
-      a {
-        display: block;
-        height: 40px;
-        border-top: 1px solid $border-color;
-        padding: 15px;
-        line-height: 40px;
-      }
+    }
+    .categories a,
+    .content-navigation a {
+       display: block;
+       height: 40px;
+       border-top: 1px solid $border-color;
+       padding: 15px;
+       line-height: 40px;
     }
     
     .tags {
@@ -194,14 +204,14 @@ main {
     }
   }
 
-  .posts {
+  .posts, .content {
     flex: 1;
   }
 }
 
 .tags {
   a {
-    padding: 0 7px;
+    padding: 7px;
     border: 1px solid $tagColor;
     border-radius: 4px;
     font-size: .8rem;
@@ -329,6 +339,7 @@ main {
   }
   
   .code {
+    width: 1px;
     overflow: auto;
     flex: 1;
 
@@ -365,7 +376,9 @@ main {
     display: block;
   }
   
-  .archive {
+  .page {
+    display: block;
+
     .navigation {
       position: absolute;
       top: 0;
@@ -385,7 +398,7 @@ main {
     }
   }
   main.show-navigation {
-    .archive {
+    .page {
       .navigation {
         transform: scale(1);
       }
