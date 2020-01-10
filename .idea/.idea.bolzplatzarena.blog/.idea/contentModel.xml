@@ -60,6 +60,7 @@
             <e p="Page.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
+            <e p="_ContentNavigation.cshtml" t="Include" />
             <e p="_Footer.cshtml" t="Include" />
             <e p="_FooterNavigation.cshtml" t="Include" />
             <e p="_Header.cshtml" t="Include" />

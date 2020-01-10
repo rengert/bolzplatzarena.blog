@@ -1,17 +1,4 @@
-@inject IApi api
-@{
-    var sitemap = await api.Sites.GetSitemapAsync();
-    var footer = sitemap.Find(x => x.Title == "Footer");
-    var links = footer?.Items;
-    if (links == null)
-    {
-        return;
-    }
-}
-
 <nav>
-    @foreach (var item in links)
-    {
-        @Html.DisplayFor(_ => item)
-    }
+    <a href="https://www.pendlergeschichten.de">https://www.pendlergeschichten.de</a>
+    <a href="https://www.fruehstueck-karlsruhe.de">https://www.fruehstueck-karlsruhe.de</a>
 </nav>

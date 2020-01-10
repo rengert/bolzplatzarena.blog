@@ -99,63 +99,65 @@ main p {
   width: 30px;
 }
 
-.archive {
+.page {
   display: flex;
   flex-direction: row-reverse;
 }
-.archive section.summary h5 {
+.page section.summary h5 {
   display: inline-block;
   margin-right: 5px;
 }
-.archive section.summary h5 span {
+.page section.summary h5 span {
   font-weight: normal;
 }
-.archive .navigation {
-  width: 350px;
+.page .navigation {
+  width: 330px;
+  min-width: 330px;
   margin: 20px 0 0 20px;
 }
-.archive .navigation .box {
+.page .navigation .box {
   border: 1px solid #EAEDF3;
   border-radius: 4px;
   margin: 0 0 20px 0;
   background: #fff;
 }
-.archive .navigation h3 {
+.page .navigation h3 {
   display: block;
   height: 60px;
   padding: 0 15px;
   line-height: 65px;
 }
-.archive .navigation .categories .icon {
+.page .navigation .categories .icon {
   float: left;
   height: 40px;
   width: 40px;
   line-height: 40px;
   margin-right: 15px;
 }
-.archive .navigation .categories .icon svg {
+.page .navigation .categories .icon svg {
   height: 20px;
   width: 20px;
   margin-top: 10px;
 }
-.archive .navigation .categories a {
+.page .navigation .categories a,
+.page .navigation .content-navigation a {
   display: block;
   height: 40px;
   border-top: 1px solid #EAEDF3;
   padding: 15px;
   line-height: 40px;
 }
-.archive .navigation .tags .inner {
+.page .navigation .tags .inner {
   padding: 15px;
 }
-.archive .navigation .tags .inner a {
+.page .navigation .tags .inner a {
   display: inline-block;
   margin: 0 5px 5px 0;
 }
-.archive .navigation .tags h3 {
+.page .navigation .tags h3 {
   border-bottom: 1px solid #EAEDF3;
 }
-.archive .posts {
+.page .posts, .page .content {
   flex: 1;
 }
 
@@ -273,6 +275,7 @@ main p {
   height: 18px;
 }
 .code-block .formatted-code .code {
+  width: 1px;
   overflow: auto;
   flex: 1;
 }
@@ -300,7 +303,10 @@ main p {
     display: block;
   }
 
-  .archive .navigation {
+  .page {
+    display: block;
+  }
+  .page .navigation {
     position: absolute;
     top: 0;
     left: 0;
@@ -313,11 +319,11 @@ main p {
     transform: scale(0);
     transition: 0.4s;
   }
-  .archive .navigation .box {
+  .page .navigation .box {
     margin: 15px;
   }
 
-  main.show-navigation .archive .navigation {
+  main.show-navigation .page .navigation {
     transform: scale(1);
   }
 }
