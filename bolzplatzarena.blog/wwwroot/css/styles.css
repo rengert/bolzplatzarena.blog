@@ -167,6 +167,9 @@ main p {
   flex: 1;
 }
 
+.tags {
+  padding: 0.5rem 0;
+}
 .tags a {
   padding: 7px;
   border: 1px solid #38B249;
