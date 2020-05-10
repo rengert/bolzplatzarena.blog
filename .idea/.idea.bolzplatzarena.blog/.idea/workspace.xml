@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e7cb0ae-9275-499b-bab1-a59d2bb91cdd" name="Default Changelist" comment="added base implementation for the blog">
-      <change afterPath="$PROJECT_DIR$/bolzplatzarena.blog/Models/Regions/Teaser.cs" afterDir="false" />
+    <list default="true" id="8e7cb0ae-9275-499b-bab1-a59d2bb91cdd" name="Default Changelist" comment="archive teaser">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.bolzplatzarena.blog/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.bolzplatzarena.blog/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.bolzplatzarena.blog/.idea/markdown-navigator-enh.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.bolzplatzarena.blog/.idea/markdown-navigator-enh.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.bolzplatzarena.blog/.idea/markdown-navigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.bolzplatzarena.blog/.idea/markdown-navigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.bolzplatzarena.blog/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.bolzplatzarena.blog/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bolzplatzarena.blog/Models/Post.cs" beforeDir="false" afterPath="$PROJECT_DIR$/bolzplatzarena.blog/Models/Post.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/DisplayTemplates/Post.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/DisplayTemplates/Post.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bolzplatzarena.blog/piranha.blog.db" beforeDir="false" afterPath="$PROJECT_DIR$/bolzplatzarena.blog/piranha.blog.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bolzplatzarena.blog/wwwroot/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/bolzplatzarena.blog/wwwroot/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bolzplatzarena.blog/wwwroot/css/styles.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/bolzplatzarena.blog/wwwroot/css/styles.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bolzplatzarena.blog/wwwroot/css/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/bolzplatzarena.blog/wwwroot/css/styles.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,38 +37,38 @@
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/DisplayTemplates/Post.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/DisplayTemplates/Icon.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/DisplayTemplates/HtmlBlock.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/DisplayTemplates/SitemapItem.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/DisplayTemplates/ColumnBlock.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/_ViewImports.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/Archive/_Summary.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/_Navigation.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/_Header.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Helper/IViewHelper.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/_FooterNavigation.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Helper/ViewHelper.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/_Footer.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/_Meta.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Startup.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B2ADDA10-8ABE-4915-AFD1-234CE5F60F02/31/c3080c49/PostBase.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2050C92A-D081-4D01-836E-66C4768FC8A5/1D8/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Models/Regions/Teaser.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Models/Post.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B2ADDA10-8ABE-4915-AFD1-234CE5F60F02/29/6c86556b/IArchiveService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Models/ArchivePage.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Models/StandardPage.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Models/Icon.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Cms/Page.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B2ADDA10-8ABE-4915-AFD1-234CE5F60F02/13/0685c33b/HtmlField.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Cms/Detail.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Controllers/CmsController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/_Header.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/_Navigation.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Cms/Archive.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Models/ArchivePage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B2ADDA10-8ABE-4915-AFD1-234CE5F60F02/13/0685c33b/HtmlField.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/Archive/_Summary.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/DisplayTemplates/ColumnBlock.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/_Meta.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Helper/ViewHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/DisplayTemplates/HtmlBlock.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Helper/IViewHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/DisplayTemplates/Icon.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Controllers/CmsController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Extensions/PageBaseExtension.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Models/Regions/Teaser.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/_ViewImports.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2050C92A-D081-4D01-836E-66C4768FC8A5/1D8/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Cms/Detail.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Models/Post.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/_FooterNavigation.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Models/StandardPage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/DisplayTemplates/Post.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/_Footer.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/DisplayTemplates/SitemapItem.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Startup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B2ADDA10-8ABE-4915-AFD1-234CE5F60F02/31/c3080c49/PostBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Cms/Page.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -90,8 +84,8 @@
         <option value="$PROJECT_DIR$/bolzplatzarena.blog/Models/ArchivePage.cs" />
         <option value="$PROJECT_DIR$/bolzplatzarena.blog/Models/Regions/Teaser.cs" />
         <option value="$PROJECT_DIR$/bolzplatzarena.blog/Models/Post.cs" />
-        <option value="$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/DisplayTemplates/Post.cshtml" />
         <option value="$PROJECT_DIR$/bolzplatzarena.blog/wwwroot/css/styles.scss" />
+        <option value="$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/DisplayTemplates/Post.cshtml" />
       </list>
     </option>
   </component>
@@ -102,11 +96,13 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Rider.SolutionExplorerActivator" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TWShift.3" value="true" />
     <property name="TWShift.4" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
-  <component name="RunManager" selected=".NET Project.bolzplatzarena.blog">
+  <component name="RunManager" selected="Publish to IIS.Publish bolzplatzarena.blog to IIS">
     <configuration name="Publish bolzplatzarena.blog to folder (1)" type="DotNetFolderPublish" factoryName="Publish to folder" temporary="true">
       <riderPublish runtime="Portable" target_folder="$PROJECT_DIR$/../../Publish/bolzplatzarena.blog" target_framework="netcoreapp3.1" uuid_high="1776316285610639895" uuid_low="-7724694516770474125" />
       <method v="2" />
@@ -142,14 +138,14 @@
       <option name="PROJECT_KIND" value="DotNetCore" />
       <option name="PROJECT_TFM" value="" />
       <method v="2">
-        <option name="Build" enabled="true" />
+        <option name="Build" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Publish to IIS.Publish bolzplatzarena.blog to IIS" />
         <item itemvalue="Publish to folder.Publish bolzplatzarena.blog to folder (3)" />
         <item itemvalue="Publish to IIS.Publish bolzplatzarena.blog to IIS (1)" />
-        <item itemvalue="Publish to IIS.Publish bolzplatzarena.blog to IIS" />
         <item itemvalue="Publish to folder.Publish bolzplatzarena.blog to folder (2)" />
         <item itemvalue="Publish to folder.Publish bolzplatzarena.blog to folder (1)" />
       </list>
@@ -180,7 +176,8 @@
       <workItem from="1577806449509" duration="3259000" />
       <workItem from="1577886864290" duration="813000" />
       <workItem from="1578823809099" duration="3282000" />
-      <workItem from="1580482218164" duration="1670000" />
+      <workItem from="1580482218164" duration="3410000" />
+      <workItem from="1582396220791" duration="845000" />
     </task>
     <task id="LOCAL-00001" summary="added base implementation for the blog">
       <created>1577809285840</created>
@@ -189,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577809285840</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="archive teaser">
+      <created>1580487551767</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1580487551767</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,7 +214,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added base implementation for the blog" />
-    <option name="LAST_COMMIT_MESSAGE" value="added base implementation for the blog" />
+    <MESSAGE value="archive teaser" />
+    <option name="LAST_COMMIT_MESSAGE" value="archive teaser" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2066" y="399" key="#Deployment" timestamp="1578824176812">
@@ -249,117 +254,143 @@
     </state>
     <state x="2184" y="423" key="#Publish_bolzplatzarena.blog_to_folder_(3)/0.23.3440.1337/791.1463.1680.1027@0.23.3440.1337" timestamp="1578826426990" />
     <state x="2184" y="447" key="#Publish_bolzplatzarena.blog_to_folder_(3)/0.23.3440.1417/791.1463.1680.947@0.23.3440.1417" timestamp="1578827684424" />
-    <state width="1906" height="376" key="GridCell.Tab.0.bottom" timestamp="1580486639433">
+    <state x="304" y="160" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582396257067">
+      <screen x="0" y="23" width="1792" height="1017" />
+    </state>
+    <state x="304" y="160" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1792.1017@0.23.1792.1017" timestamp="1582396257067" />
+    <state width="2261" height="376" key="GridCell.Tab.0.bottom" timestamp="1580487581686">
       <screen x="0" y="23" width="3440" height="1417" />
     </state>
     <state width="1666" height="321" key="GridCell.Tab.0.bottom/0.23.3440.1417/791.1463.1680.947@0.23.3440.1417" timestamp="1577887757782" />
     <state width="1638" height="313" key="GridCell.Tab.0.bottom/0.23.3440.1417/791.1463.1680.947@791.1463.1680.947" timestamp="1577882279833" />
-    <state width="1906" height="376" key="GridCell.Tab.0.bottom/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580486639433" />
-    <state width="1906" height="376" key="GridCell.Tab.0.center" timestamp="1580486639432">
+    <state width="2261" height="376" key="GridCell.Tab.0.bottom/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580487581686" />
+    <state width="2261" height="376" key="GridCell.Tab.0.center" timestamp="1580487581684">
       <screen x="0" y="23" width="3440" height="1417" />
     </state>
     <state width="1666" height="321" key="GridCell.Tab.0.center/0.23.3440.1417/791.1463.1680.947@0.23.3440.1417" timestamp="1577887757781" />
     <state width="1638" height="313" key="GridCell.Tab.0.center/0.23.3440.1417/791.1463.1680.947@791.1463.1680.947" timestamp="1577882279833" />
-    <state width="1906" height="376" key="GridCell.Tab.0.center/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580486639432" />
-    <state width="1906" height="376" key="GridCell.Tab.0.left" timestamp="1580486639432">
+    <state width="2261" height="376" key="GridCell.Tab.0.center/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580487581684" />
+    <state width="2261" height="376" key="GridCell.Tab.0.left" timestamp="1580487581684">
       <screen x="0" y="23" width="3440" height="1417" />
     </state>
     <state width="1666" height="321" key="GridCell.Tab.0.left/0.23.3440.1417/791.1463.1680.947@0.23.3440.1417" timestamp="1577887757780" />
     <state width="1638" height="313" key="GridCell.Tab.0.left/0.23.3440.1417/791.1463.1680.947@791.1463.1680.947" timestamp="1577882279832" />
-    <state width="1906" height="376" key="GridCell.Tab.0.left/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580486639432" />
-    <state width="1906" height="376" key="GridCell.Tab.0.right" timestamp="1580486639433">
+    <state width="2261" height="376" key="GridCell.Tab.0.left/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580487581684" />
+    <state width="2261" height="376" key="GridCell.Tab.0.right" timestamp="1580487581685">
       <screen x="0" y="23" width="3440" height="1417" />
     </state>
     <state width="1666" height="321" key="GridCell.Tab.0.right/0.23.3440.1417/791.1463.1680.947@0.23.3440.1417" timestamp="1577887757781" />
     <state width="1638" height="313" key="GridCell.Tab.0.right/0.23.3440.1417/791.1463.1680.947@791.1463.1680.947" timestamp="1577882279833" />
-    <state width="1906" height="376" key="GridCell.Tab.0.right/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580486639433" />
-    <state width="1666" height="321" key="GridCell.Tab.1.bottom" timestamp="1577887757671">
+    <state width="2261" height="376" key="GridCell.Tab.0.right/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580487581685" />
+    <state width="2261" height="376" key="GridCell.Tab.1.bottom" timestamp="1580487581687">
       <screen x="0" y="23" width="3440" height="1417" />
     </state>
     <state width="1666" height="321" key="GridCell.Tab.1.bottom/0.23.3440.1417/791.1463.1680.947@0.23.3440.1417" timestamp="1577887757671" />
     <state width="1638" height="313" key="GridCell.Tab.1.bottom/0.23.3440.1417/791.1463.1680.947@791.1463.1680.947" timestamp="1577882279834" />
-    <state width="1666" height="321" key="GridCell.Tab.1.center" timestamp="1577887757670">
+    <state width="2261" height="376" key="GridCell.Tab.1.bottom/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580487581687" />
+    <state width="2261" height="376" key="GridCell.Tab.1.center" timestamp="1580487581687">
       <screen x="0" y="23" width="3440" height="1417" />
     </state>
     <state width="1666" height="321" key="GridCell.Tab.1.center/0.23.3440.1417/791.1463.1680.947@0.23.3440.1417" timestamp="1577887757670" />
     <state width="1638" height="313" key="GridCell.Tab.1.center/0.23.3440.1417/791.1463.1680.947@791.1463.1680.947" timestamp="1577882279833" />
-    <state width="1666" height="321" key="GridCell.Tab.1.left" timestamp="1577887757670">
+    <state width="2261" height="376" key="GridCell.Tab.1.center/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580487581687" />
+    <state width="2261" height="376" key="GridCell.Tab.1.left" timestamp="1580487581686">
       <screen x="0" y="23" width="3440" height="1417" />
     </state>
     <state width="1666" height="321" key="GridCell.Tab.1.left/0.23.3440.1417/791.1463.1680.947@0.23.3440.1417" timestamp="1577887757670" />
     <state width="1638" height="313" key="GridCell.Tab.1.left/0.23.3440.1417/791.1463.1680.947@791.1463.1680.947" timestamp="1577882279833" />
-    <state width="1666" height="321" key="GridCell.Tab.1.right" timestamp="1577887757671">
+    <state width="2261" height="376" key="GridCell.Tab.1.left/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580487581686" />
+    <state width="2261" height="376" key="GridCell.Tab.1.right" timestamp="1580487581687">
       <screen x="0" y="23" width="3440" height="1417" />
     </state>
     <state width="1666" height="321" key="GridCell.Tab.1.right/0.23.3440.1417/791.1463.1680.947@0.23.3440.1417" timestamp="1577887757671" />
     <state width="1638" height="313" key="GridCell.Tab.1.right/0.23.3440.1417/791.1463.1680.947@791.1463.1680.947" timestamp="1577882279833" />
-    <state width="1666" height="321" key="GridCell.Tab.2.bottom" timestamp="1577887757673">
+    <state width="2261" height="376" key="GridCell.Tab.1.right/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580487581687" />
+    <state width="2261" height="376" key="GridCell.Tab.2.bottom" timestamp="1580487581688">
       <screen x="0" y="23" width="3440" height="1417" />
     </state>
     <state width="1666" height="321" key="GridCell.Tab.2.bottom/0.23.3440.1417/791.1463.1680.947@0.23.3440.1417" timestamp="1577887757673" />
     <state width="1638" height="313" key="GridCell.Tab.2.bottom/0.23.3440.1417/791.1463.1680.947@791.1463.1680.947" timestamp="1577882279834" />
-    <state width="1666" height="321" key="GridCell.Tab.2.center" timestamp="1577887757672">
+    <state width="2261" height="376" key="GridCell.Tab.2.bottom/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580487581688" />
+    <state width="2261" height="376" key="GridCell.Tab.2.center" timestamp="1580487581688">
       <screen x="0" y="23" width="3440" height="1417" />
     </state>
     <state width="1666" height="321" key="GridCell.Tab.2.center/0.23.3440.1417/791.1463.1680.947@0.23.3440.1417" timestamp="1577887757672" />
     <state width="1638" height="313" key="GridCell.Tab.2.center/0.23.3440.1417/791.1463.1680.947@791.1463.1680.947" timestamp="1577882279834" />
-    <state width="1666" height="321" key="GridCell.Tab.2.left" timestamp="1577887757672">
+    <state width="2261" height="376" key="GridCell.Tab.2.center/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580487581688" />
+    <state width="2261" height="376" key="GridCell.Tab.2.left" timestamp="1580487581688">
       <screen x="0" y="23" width="3440" height="1417" />
     </state>
     <state width="1666" height="321" key="GridCell.Tab.2.left/0.23.3440.1417/791.1463.1680.947@0.23.3440.1417" timestamp="1577887757672" />
     <state width="1638" height="313" key="GridCell.Tab.2.left/0.23.3440.1417/791.1463.1680.947@791.1463.1680.947" timestamp="1577882279834" />
-    <state width="1666" height="321" key="GridCell.Tab.2.right" timestamp="1577887757672">
+    <state width="2261" height="376" key="GridCell.Tab.2.left/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580487581688" />
+    <state width="2261" height="376" key="GridCell.Tab.2.right" timestamp="1580487581688">
       <screen x="0" y="23" width="3440" height="1417" />
     </state>
     <state width="1666" height="321" key="GridCell.Tab.2.right/0.23.3440.1417/791.1463.1680.947@0.23.3440.1417" timestamp="1577887757672" />
     <state width="1638" height="313" key="GridCell.Tab.2.right/0.23.3440.1417/791.1463.1680.947@791.1463.1680.947" timestamp="1577882279834" />
-    <state width="1666" height="321" key="GridCell.Tab.3.bottom" timestamp="1577887757675">
+    <state width="2261" height="376" key="GridCell.Tab.2.right/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580487581688" />
+    <state width="2261" height="376" key="GridCell.Tab.3.bottom" timestamp="1580487581690">
       <screen x="0" y="23" width="3440" height="1417" />
     </state>
     <state width="1666" height="321" key="GridCell.Tab.3.bottom/0.23.3440.1417/791.1463.1680.947@0.23.3440.1417" timestamp="1577887757675" />
     <state width="1638" height="313" key="GridCell.Tab.3.bottom/0.23.3440.1417/791.1463.1680.947@791.1463.1680.947" timestamp="1577882279835" />
-    <state width="1666" height="321" key="GridCell.Tab.3.center" timestamp="1577887757674">
+    <state width="2261" height="376" key="GridCell.Tab.3.bottom/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580487581690" />
+    <state width="2261" height="376" key="GridCell.Tab.3.center" timestamp="1580487581689">
       <screen x="0" y="23" width="3440" height="1417" />
     </state>
     <state width="1666" height="321" key="GridCell.Tab.3.center/0.23.3440.1417/791.1463.1680.947@0.23.3440.1417" timestamp="1577887757674" />
     <state width="1638" height="313" key="GridCell.Tab.3.center/0.23.3440.1417/791.1463.1680.947@791.1463.1680.947" timestamp="1577882279835" />
-    <state width="1666" height="321" key="GridCell.Tab.3.left" timestamp="1577887757673">
+    <state width="2261" height="376" key="GridCell.Tab.3.center/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580487581689" />
+    <state width="2261" height="376" key="GridCell.Tab.3.left" timestamp="1580487581689">
       <screen x="0" y="23" width="3440" height="1417" />
     </state>
     <state width="1666" height="321" key="GridCell.Tab.3.left/0.23.3440.1417/791.1463.1680.947@0.23.3440.1417" timestamp="1577887757673" />
     <state width="1638" height="313" key="GridCell.Tab.3.left/0.23.3440.1417/791.1463.1680.947@791.1463.1680.947" timestamp="1577882279835" />
-    <state width="1666" height="321" key="GridCell.Tab.3.right" timestamp="1577887757674">
+    <state width="2261" height="376" key="GridCell.Tab.3.left/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580487581689" />
+    <state width="2261" height="376" key="GridCell.Tab.3.right" timestamp="1580487581689">
       <screen x="0" y="23" width="3440" height="1417" />
     </state>
     <state width="1666" height="321" key="GridCell.Tab.3.right/0.23.3440.1417/791.1463.1680.947@0.23.3440.1417" timestamp="1577887757674" />
     <state width="1638" height="313" key="GridCell.Tab.3.right/0.23.3440.1417/791.1463.1680.947@791.1463.1680.947" timestamp="1577882279835" />
-    <state width="1666" height="321" key="GridCell.Tab.4.bottom" timestamp="1577887757676">
+    <state width="2261" height="376" key="GridCell.Tab.3.right/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580487581689" />
+    <state width="2261" height="376" key="GridCell.Tab.4.bottom" timestamp="1580487581691">
       <screen x="0" y="23" width="3440" height="1417" />
     </state>
     <state width="1666" height="321" key="GridCell.Tab.4.bottom/0.23.3440.1417/791.1463.1680.947@0.23.3440.1417" timestamp="1577887757676" />
     <state width="1638" height="313" key="GridCell.Tab.4.bottom/0.23.3440.1417/791.1463.1680.947@791.1463.1680.947" timestamp="1577882279836" />
-    <state width="1666" height="321" key="GridCell.Tab.4.center" timestamp="1577887757676">
+    <state width="2261" height="376" key="GridCell.Tab.4.bottom/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580487581691" />
+    <state width="2261" height="376" key="GridCell.Tab.4.center" timestamp="1580487581691">
       <screen x="0" y="23" width="3440" height="1417" />
     </state>
     <state width="1666" height="321" key="GridCell.Tab.4.center/0.23.3440.1417/791.1463.1680.947@0.23.3440.1417" timestamp="1577887757676" />
     <state width="1638" height="313" key="GridCell.Tab.4.center/0.23.3440.1417/791.1463.1680.947@791.1463.1680.947" timestamp="1577882279835" />
-    <state width="1666" height="321" key="GridCell.Tab.4.left" timestamp="1577887757675">
+    <state width="2261" height="376" key="GridCell.Tab.4.center/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580487581691" />
+    <state width="2261" height="376" key="GridCell.Tab.4.left" timestamp="1580487581690">
       <screen x="0" y="23" width="3440" height="1417" />
     </state>
     <state width="1666" height="321" key="GridCell.Tab.4.left/0.23.3440.1417/791.1463.1680.947@0.23.3440.1417" timestamp="1577887757675" />
     <state width="1638" height="313" key="GridCell.Tab.4.left/0.23.3440.1417/791.1463.1680.947@791.1463.1680.947" timestamp="1577882279835" />
-    <state width="1666" height="321" key="GridCell.Tab.4.right" timestamp="1577887757676">
+    <state width="2261" height="376" key="GridCell.Tab.4.left/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580487581690" />
+    <state width="2261" height="376" key="GridCell.Tab.4.right" timestamp="1580487581691">
       <screen x="0" y="23" width="3440" height="1417" />
     </state>
     <state width="1666" height="321" key="GridCell.Tab.4.right/0.23.3440.1417/791.1463.1680.947@0.23.3440.1417" timestamp="1577887757676" />
     <state width="1638" height="313" key="GridCell.Tab.4.right/0.23.3440.1417/791.1463.1680.947@791.1463.1680.947" timestamp="1577882279836" />
-    <state x="1231" y="1678" key="Vcs.Push.Dialog.v2" timestamp="1577809293419">
-      <screen x="791" y="1463" width="1680" height="947" />
-    </state>
-    <state x="1231" y="1678" key="Vcs.Push.Dialog.v2/0.23.3440.1417/791.1463.1680.947@791.1463.1680.947" timestamp="1577809293419" />
-    <state x="1565" y="635" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1580482482860">
+    <state width="2261" height="376" key="GridCell.Tab.4.right/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580487581691" />
+    <state x="1680" y="428" key="RollbackChangesDialog" timestamp="1580487513408">
       <screen x="0" y="23" width="3440" height="1417" />
     </state>
+    <state x="1680" y="428" key="RollbackChangesDialog/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580487513408" />
+    <state x="901" y="345" key="Vcs.Push.Dialog.v2" timestamp="1580487556150">
+      <screen x="0" y="23" width="3440" height="1417" />
+    </state>
+    <state x="1231" y="1678" key="Vcs.Push.Dialog.v2/0.23.3440.1417/791.1463.1680.947@791.1463.1680.947" timestamp="1577809293419" />
+    <state x="901" y="345" key="Vcs.Push.Dialog.v2/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580487556150" />
+    <state x="815" y="462" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1582403774482">
+      <screen x="0" y="23" width="1792" height="1017" />
+    </state>
+    <state x="815" y="462" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1792.1017@0.23.1792.1017" timestamp="1582403774482" />
     <state x="1565" y="635" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580482482860" />
   </component>
 </project>

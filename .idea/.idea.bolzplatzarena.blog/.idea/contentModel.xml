@@ -29,10 +29,11 @@
           <e p="ArchivePage.cs" t="Include" />
           <e p="Icon.cs" t="Include" />
           <e p="Post.cs" t="Include" />
+          <e p="Regions" t="Include">
+            <e p="Teaser.cs" t="Include" />
+          </e>
           <e p="StandardPage.cs" t="Include" />
         </e>
-        <e p="mono_crash.0.0.json" t="Include" />
-        <e p="mono_crash.mem.8543.1.blob" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -103,7 +104,7 @@
       <e p="bolzplatzarena.blog.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />
     </e>
-    <e p="$USER_HOME$/Library/Caches/Rider2019.3/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/Library/Caches/Rider2019.3/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_bolzplatzarena.blog.-1860380102.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/JetBrains/Rider2020.1/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/JetBrains/Rider2020.1/resharper-host/local/Transient/ReSharperHost/v201/SolutionCaches/_bolzplatzarena.blog.-1860380102.00" t="ExcludeRecursive" />
   </component>
 </project>
