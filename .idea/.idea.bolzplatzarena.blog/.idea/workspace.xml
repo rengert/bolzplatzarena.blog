@@ -1,11 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e7cb0ae-9275-499b-bab1-a59d2bb91cdd" name="Default Changelist" comment="archive teaser">
+    <list default="true" id="3d39be62-e809-4290-b764-b6280ec4e068" name="Default Changelist" comment="project stuff teaser">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.bolzplatzarena.blog/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.bolzplatzarena.blog/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.bolzplatzarena.blog/.idea/markdown-navigator-enh.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.bolzplatzarena.blog/.idea/markdown-navigator-enh.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.bolzplatzarena.blog/.idea/markdown-navigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.bolzplatzarena.blog/.idea/markdown-navigator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.bolzplatzarena.blog/.idea/projectSettingsUpdater.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.bolzplatzarena.blog/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.bolzplatzarena.blog/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bolzplatzarena.blog/Helper/IViewHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/bolzplatzarena.blog/Helper/IViewHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bolzplatzarena.blog/Helper/ViewHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/bolzplatzarena.blog/Helper/ViewHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bolzplatzarena.blog/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/bolzplatzarena.blog/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/_Meta.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/_Meta.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bolzplatzarena.blog/bolzplatzarena.blog.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/bolzplatzarena.blog/bolzplatzarena.blog.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/DisplayTemplates/Post.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/DisplayTemplates/Post.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -13,30 +36,21 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand />
-    <select />
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2050C92A-D081-4D01-836E-66C4768FC8A5/1D8/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Helper/ViewHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2B376518-AC47-4777-B6E3-1B2DC96226B5/F/RazorPageOfT.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B2ADDA10-8ABE-4915-AFD1-234CE5F60F02/29/6c86556b/IArchiveService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B2ADDA10-8ABE-4915-AFD1-234CE5F60F02/31/c3080c49/PostBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Helper/IViewHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Startup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/_Meta.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/54998C30-5FBD-4E60-87BE-2F78229957FB/3A/HtmlHelperPartialExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B2ADDA10-8ABE-4915-AFD1-234CE5F60F02/13/0685c33b/HtmlField.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B2ADDA10-8ABE-4915-AFD1-234CE5F60F02/29/6c86556b/IArchiveService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Models/Icon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/_Header.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
@@ -73,9 +87,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/bolzplatzarena.blog/Startup.cs" />
-        <option value="$PROJECT_DIR$/bolzplatzarena.blog/Program.cs" />
-        <option value="$PROJECT_DIR$/bolzplatzarena.blog/appsettings.json" />
+        <option value="$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/_Layout.cshtml" />
+        <option value="$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/_Meta.cshtml" />
+        <option value="$PROJECT_DIR$/bolzplatzarena.blog/Helper/IViewHelper.cs" />
         <option value="$PROJECT_DIR$/bolzplatzarena.blog/Helper/ViewHelper.cs" />
         <option value="$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/_FooterNavigation.cshtml" />
         <option value="$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/_Navigation.cshtml" />
@@ -86,22 +100,24 @@
         <option value="$PROJECT_DIR$/bolzplatzarena.blog/Models/Post.cs" />
         <option value="$PROJECT_DIR$/bolzplatzarena.blog/wwwroot/css/styles.scss" />
         <option value="$PROJECT_DIR$/bolzplatzarena.blog/Views/Shared/DisplayTemplates/Post.cshtml" />
+        <option value="$PROJECT_DIR$/bolzplatzarena.blog/Startup.cs" />
       </list>
     </option>
   </component>
-  <component name="ProjectId" id="1VkoRmfWVInHSCkPddk7VMcZA7c" />
+  <component name="ProjectId" id="1bj5VpX58pFqGFRE8arEiSZIuqA" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="Rider.SolutionExplorerActivator" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TWShift.3" value="true" />
     <property name="TWShift.4" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
+  <component name="RunManager">
   <component name="RunManager" selected="Publish to IIS.Publish bolzplatzarena.blog to IIS">
     <configuration name="Publish bolzplatzarena.blog to folder (1)" type="DotNetFolderPublish" factoryName="Publish to folder" temporary="true">
       <riderPublish runtime="Portable" target_folder="$PROJECT_DIR$/../../Publish/bolzplatzarena.blog" target_framework="netcoreapp3.1" uuid_high="1776316285610639895" uuid_low="-7724694516770474125" />
@@ -168,10 +184,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8e7cb0ae-9275-499b-bab1-a59d2bb91cdd" name="Default Changelist" comment="" />
-      <created>1577806447968</created>
+      <changelist id="3d39be62-e809-4290-b764-b6280ec4e068" name="Default Changelist" comment="project stuff teaser" />
+      <created>1589132689029</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
+      <updated>1589132689029</updated>
+      <workItem from="1589132691823" duration="1017000" />
       <updated>1577806447968</updated>
       <workItem from="1577806449509" duration="3259000" />
       <workItem from="1577886864290" duration="813000" />
@@ -197,27 +215,29 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="added base implementation for the blog" />
     <MESSAGE value="archive teaser" />
     <option name="LAST_COMMIT_MESSAGE" value="archive teaser" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="496" y="179" key="#Plugins" timestamp="1589132714843">
+      <screen x="0" y="23" width="1792" height="1017" />
     <state x="2066" y="399" key="#Deployment" timestamp="1578824176812">
       <screen x="0" y="23" width="3440" height="1417" />
     </state>
@@ -333,12 +353,16 @@
     <state width="2261" height="376" key="GridCell.Tab.3.bottom" timestamp="1580487581690">
       <screen x="0" y="23" width="3440" height="1417" />
     </state>
+    <state x="496" y="179" key="#Plugins/0.23.1792.1017@0.23.1792.1017" timestamp="1589132714843" />
+    <state x="544" y="164" width="703" height="735" key="find.popup" timestamp="1589132935669">
+      <screen x="0" y="23" width="1792" height="1017" />
     <state width="1666" height="321" key="GridCell.Tab.3.bottom/0.23.3440.1417/791.1463.1680.947@0.23.3440.1417" timestamp="1577887757675" />
     <state width="1638" height="313" key="GridCell.Tab.3.bottom/0.23.3440.1417/791.1463.1680.947@791.1463.1680.947" timestamp="1577882279835" />
     <state width="2261" height="376" key="GridCell.Tab.3.bottom/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580487581690" />
     <state width="2261" height="376" key="GridCell.Tab.3.center" timestamp="1580487581689">
       <screen x="0" y="23" width="3440" height="1417" />
     </state>
+    <state x="544" y="164" width="703" height="735" key="find.popup/0.23.1792.1017@0.23.1792.1017" timestamp="1589132935669" />
     <state width="1666" height="321" key="GridCell.Tab.3.center/0.23.3440.1417/791.1463.1680.947@0.23.3440.1417" timestamp="1577887757674" />
     <state width="1638" height="313" key="GridCell.Tab.3.center/0.23.3440.1417/791.1463.1680.947@791.1463.1680.947" timestamp="1577882279835" />
     <state width="2261" height="376" key="GridCell.Tab.3.center/0.23.3440.1417/896.1463.1680.947@0.23.3440.1417" timestamp="1580487581689" />
