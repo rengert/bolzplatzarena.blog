@@ -24,9 +24,9 @@ namespace Bolzplatzarena.Blog.Helper
 			return _configuration["base:url"] + relativeUrl.TrimStart('/');
 		}
 
-		public string ToAbsoluteUrl(PageBase page)
+		public string ToAbsoluteUrl(RoutedContentBase page)
 		{
-			return ToAbsoluteUrl(page.IsStartPage() ? "" : page.Permalink);
+			return ToAbsoluteUrl(page is PageBase pageBase && pageBase.IsStartPage() ? "" : page.Permalink);
 		}
 
 		public string Content(string key)
