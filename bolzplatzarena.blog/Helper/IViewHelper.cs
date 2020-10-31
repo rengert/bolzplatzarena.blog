@@ -7,7 +7,7 @@ namespace Bolzplatzarena.Blog.Helper
 	{
 		string ToAbsoluteUrl(string relativeUrl);
 
-		string ToAbsoluteUrl(PageBase page);
+		string ToAbsoluteUrl(RoutedContentBase page);
 
 		string Content(string key);
 
