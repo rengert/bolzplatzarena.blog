@@ -10,13 +10,13 @@ h1, h2, h3, p {
   margin: 0.5rem 0;
 }
 
+h1 {
+  margin-bottom: 2rem;
+}
+
 h3 {
   margin-top: 0;
   font-size: 1.5rem;
-}
-
-h1 {
-  margin-bottom: 2rem;
 }
 
 a {

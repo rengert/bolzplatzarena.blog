@@ -35,7 +35,7 @@ namespace Bolzplatzarena.Blog.TagHelpers
 
 			output.TagName = "style";
 			output.Attributes.RemoveAll("href");
-			output.Content.AppendHtml(fileContent);
+			output.Content.AppendHtml(Minify(fileContent));
 		}
 
 		private async Task<string> Get(ICacheEntry entry, string path)
@@ -63,6 +63,21 @@ namespace Bolzplatzarena.Blog.TagHelpers
 			{
 				return await textReader.ReadToEndAsync();
 			}
+		}
+
+		private string Minify(string content)
+		{
+			return content
+				.Replace(": ", ":")
+				.Replace("\n", "")
+				.Replace("  ", "")
+				.Replace("  ", "")
+				.Replace("  ", "")
+				.Replace("{ ", "{")
+				.Replace("} ", "}")
+				.Replace(" {", "{")
+				.Replace(" }", "}")
+				.Replace(";  ", ";");;
 		}
 	}
 }
