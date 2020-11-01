@@ -1,6 +1,6 @@
-@inject IApi api
+@inject IApi Api
 @{
-    var sitemap = await api.Sites.GetSitemapAsync();
+    var sitemap = await Api.Sites.GetSitemapAsync();
     if (!sitemap.Any())
     {
         return;
