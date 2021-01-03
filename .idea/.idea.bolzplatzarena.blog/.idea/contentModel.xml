@@ -36,7 +36,7 @@
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
-            <e p="netcoreapp3.1" t="Include">
+            <e p="net5.0" t="Include">
               <e p="bolzplatzarena.blog.AssemblyInfo.cs" t="Include" />
               <e p="bolzplatzarena.blog.RazorAssemblyInfo.cs" t="Include" />
             </e>
