@@ -13,7 +13,7 @@
             </div>
         }
         @Html.Raw(Model.Teaser?.Body.Value)
-        <p>Veröffentlich: @Model.Published.GetValueOrDefault().ToString("dd. MMMM yyyy, HH:mm"), Kategorie: @Model.Category.Title</p>
+        <p class="small">Veröffentlich: @Model.Published.GetValueOrDefault().ToString("dd. MMMM yyyy, HH:mm"), Kategorie: @Model.Category.Title</p>
     </div>
     <div class="avatar">
         <inline-image src="images/author_thomas_renger.jpg" alt="Autor von: @Model.Category.Title"></inline-image>

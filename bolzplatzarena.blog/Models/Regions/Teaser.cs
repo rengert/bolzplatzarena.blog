@@ -6,6 +6,9 @@ namespace Bolzplatzarena.Blog.Models.Regions
 	public class Teaser
 	{
 		[Field]
+		public StringField Author { get; set; }
+
+		[Field]
 		public ImageField Image { get; set; }
 
 		[Field]

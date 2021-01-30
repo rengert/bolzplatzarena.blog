@@ -230,7 +230,6 @@ main {
 	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
 	background: #FFFFFF;
 
-
 	.avatar {
 		height: 60px;
 		width: 60px;
@@ -251,7 +250,11 @@ main {
 
 		p {
 			color: #ADADAD;
-			font-size: .8rem;
+			font-size: 1rem;
+			
+			&.small {
+				font-size: 0.8rem;
+			}
 		}
 	}
 }
@@ -308,10 +311,10 @@ main {
 
 .code-block {
 	border: 1px solid $fontColor;
-	font-size: .8rem;
+	font-size: 1rem;
 
 	.caption {
-		height: 20px;
+		height: 1.5rem;
 		background: $border-color;
 		border-bottom: 1px solid $fontColor;
 
@@ -319,7 +322,7 @@ main {
 			display: inline-block;
 			padding: 0 4px;
 			margin: 0;
-			line-height: 20px;
+			line-height: 1.5rem;
 		}
 	}
 
@@ -327,14 +330,15 @@ main {
 		display: flex;
 
 		.lines {
-			width: 30px;
+			width: 2rem;
 			padding: 0 0 0 5px;
 			background-color: $border-color;
 			border-right: 1px solid $fontColor;
 
 			span {
 				display: block;
-				height: 18px;
+				height: 1.75rem;
+				line-height: 1.75rem;
 			}
 		}
 
@@ -344,7 +348,8 @@ main {
 			flex: 1;
 
 			pre {
-				height: 18px;
+				height: 1.75rem;
+				line-height: 1.75rem;
 				margin: 0;
 				padding: 0 5px;
 
