@@ -257,10 +257,10 @@ main p {
 
 .code-block {
   border: 1px solid #3E3F42;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 .code-block .caption {
-  height: 20px;
+  height: 1.5rem;
   background: #EAEDF3;
   border-bottom: 1px solid #3E3F42;
 }
@@ -268,20 +268,21 @@ main p {
   display: inline-block;
   padding: 0 4px;
   margin: 0;
-  line-height: 20px;
+  line-height: 1.5rem;
 }
 .code-block .formatted-code {
   display: flex;
 }
 .code-block .formatted-code .lines {
-  width: 30px;
+  width: 2rem;
   padding: 0 0 0 5px;
   background-color: #EAEDF3;
   border-right: 1px solid #3E3F42;
 }
 .code-block .formatted-code .lines span {
   display: block;
-  height: 18px;
+  height: 1.75rem;
+  line-height: 1.75rem;
 }
 .code-block .formatted-code .code {
   width: 1px;
@@ -289,7 +290,8 @@ main p {
   flex: 1;
 }
 .code-block .formatted-code .code pre {
-  height: 18px;
+  height: 1.75rem;
+  line-height: 1.75rem;
   margin: 0;
   padding: 0 5px;
 }
