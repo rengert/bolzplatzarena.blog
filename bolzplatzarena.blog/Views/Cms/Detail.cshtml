@@ -11,3 +11,15 @@
         @Html.DisplayFor(m => m.Blocks)
     </div>
 </div>
+
+<script type="application/ld+json">
+{
+"@@context": "https://schema.org", 
+"@@type": "BlogPosting",
+ "headline": "@Model.Title",
+ "alternativeHeadline": "@Model.Title",
+ "genre": "@Model.Category.Title", 
+ "keywords": "@string.Join(',', Model.Tags.Select(item => item.Title))", 
+ "description": "@Model.Excerpt"
+ }
+</script>
