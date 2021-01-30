@@ -208,6 +208,9 @@ main p {
 }
 .post .content p {
   color: #ADADAD;
+  font-size: 1rem;
+}
+.post .content p.small {
   font-size: 0.8rem;
 }
 
