@@ -201,6 +201,7 @@ main {
 	}
 
 	.posts, .content {
+		max-width: 820px;
 		flex: 1;
 	}
 }
@@ -326,38 +327,8 @@ main {
 		}
 	}
 
-	.formatted-code {
-		display: flex;
-
-		.lines {
-			width: 2rem;
-			padding: 0 0 0 5px;
-			background-color: $border-color;
-			border-right: 1px solid $fontColor;
-
-			span {
-				display: block;
-				height: 1.75rem;
-				line-height: 1.75rem;
-			}
-		}
-
-		.code {
-			width: 1px;
-			overflow: auto;
-			flex: 1;
-
-			pre {
-				height: 1.75rem;
-				line-height: 1.75rem;
-				margin: 0;
-				padding: 0 5px;
-
-				&:nth-child(odd) {
-					background: #f1f1f1;
-				}
-			}
-		}
+	pre {
+		margin: 0;
 	}
 }
 
@@ -376,13 +347,17 @@ main {
 	}
 }
 
-@media only screen and (max-width: 1023px) {
+@media only screen and (max-width: 1199px) {
 	.ui-hamburger {
 		display: block;
 	}
 
 	.page {
 		display: block;
+
+		.posts, .content {
+			max-width: 100%;
+		}
 
 		.navigation {
 			position: absolute;

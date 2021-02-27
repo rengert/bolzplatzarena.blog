@@ -9,7 +9,7 @@ namespace Bolzplatzarena.Blog.Blocks
 	public class CodeBlock : Block
 	{
 		
-		public StringField RawCode { get; set; }
+		public TextField RawCode { get; set; }
 
 		[Field()]
 		public StringField Filename { get; set; }
