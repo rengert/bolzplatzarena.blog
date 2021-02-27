@@ -5,9 +5,10 @@ using Piranha.Extend.Fields;
 
 namespace Bolzplatzarena.Blog.Blocks
 {
-	[BlockType(Name = "Code", Category = "Content", Icon = "fas fa-font", Component = "code-block")]
+	[BlockType(Name = "Code", Category = "Content", Icon = "fas fa-font")]
 	public class CodeBlock : Block
 	{
+		
 		public StringField RawCode { get; set; }
 
 		[Field()]

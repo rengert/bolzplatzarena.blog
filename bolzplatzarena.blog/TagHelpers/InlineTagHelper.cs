@@ -38,38 +38,28 @@ namespace Bolzplatzarena.Blog.TagHelpers
 
 		protected Task<string> GetFileContentAsync(string path)
 		{
-			return _cache.GetOrCreateAsync(CacheKeyPrefix + path, entry =>
-			{
-				return GetContentAsync(entry, path, ReadFileContentAsStringAsync);
-			});
+			return _cache.GetOrCreateAsync(CacheKeyPrefix + path, entry => GetContentAsync(entry, path, ReadFileContentAsStringAsync));
 		}
 
 		protected Task<string> GetFileContentBase64Async(string path)
 		{
-			return _cache.GetOrCreateAsync(CacheKeyPrefix + path, entry =>
-			{
-				return GetContentAsync(entry, path, ReadFileContentAsBase64Async);
-			});
+			return _cache.GetOrCreateAsync(CacheKeyPrefix + path, entry => GetContentAsync(entry, path, ReadFileContentAsBase64Async));
 		}
 
 		private static async Task<string> ReadFileContentAsStringAsync(IFileInfo file)
 		{
-			using (var stream = file.CreateReadStream())
-			using (var textReader = new StreamReader(stream))
-			{
-				return await textReader.ReadToEndAsync();
-			}
+			await using var stream = file.CreateReadStream();
+			using var textReader = new StreamReader(stream);
+			return await textReader.ReadToEndAsync();
 		}
 
 		private static async Task<string> ReadFileContentAsBase64Async(IFileInfo file)
 		{
-			using (var stream = file.CreateReadStream())
-			using (var writer = new MemoryStream())
-			{
-				await stream.CopyToAsync(writer);
-				writer.Seek(0, SeekOrigin.Begin);
-				return Convert.ToBase64String(writer.ToArray());
-			}
+			await using var stream = file.CreateReadStream();
+			await using var writer = new MemoryStream();
+			await stream.CopyToAsync(writer);
+			writer.Seek(0, SeekOrigin.Begin);
+			return Convert.ToBase64String(writer.ToArray());
 		}
 	}
 }

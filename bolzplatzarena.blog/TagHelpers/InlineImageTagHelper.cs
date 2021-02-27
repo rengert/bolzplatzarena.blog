@@ -8,7 +8,7 @@ namespace Bolzplatzarena.Blog.TagHelpers
 {
 	public class InlineImageTagHelper : InlineTagHelper
 	{
-		private static readonly FileExtensionContentTypeProvider contentTypeProvider = new FileExtensionContentTypeProvider();
+		private static readonly FileExtensionContentTypeProvider contentTypeProvider = new();
 
 		[HtmlAttributeName("src")]
 		public string Src { get; set; }
