@@ -22,7 +22,6 @@ namespace Bolzplatzarena.Blog.TagHelpers
 			Cache = cache;
 		}
 
-
 		public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
 		{
 			var path = Href;
@@ -53,17 +52,14 @@ namespace Bolzplatzarena.Blog.TagHelpers
 				return null;
 			}
 
-
 			return await ReadFileContent(file);
 		}
 
 		private static async Task<string> ReadFileContent(IFileInfo file)
 		{
-			using (var stream = file.CreateReadStream())
-			using (var textReader = new StreamReader(stream))
-			{
-				return await textReader.ReadToEndAsync();
-			}
+			await using var stream = file.CreateReadStream();
+			using var textReader = new StreamReader(stream);
+			return await textReader.ReadToEndAsync();
 		}
 	}
 }

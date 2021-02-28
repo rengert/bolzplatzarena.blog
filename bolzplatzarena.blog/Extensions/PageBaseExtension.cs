@@ -1,10 +1,11 @@
+// ReSharper disable once CheckNamespace
 namespace Piranha.Models
 {
 	public static class PageBaseExtension
 	{
 		public static bool IsStartPage(this PageBase page)
 		{
-				return !page.ParentId.HasValue && page.SortOrder == 0;
+			return !page.ParentId.HasValue && page.SortOrder == 0;
 		}
 	}
 }

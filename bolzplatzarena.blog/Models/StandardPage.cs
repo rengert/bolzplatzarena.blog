@@ -4,7 +4,7 @@ using Piranha.Models;
 namespace Bolzplatzarena.Blog.Models
 {
 	[PageType(Title = "Standard page")]
-	public class StandardPage  : Page<StandardPage>
+	public class StandardPage : Page<StandardPage>
 	{
 	}
 }

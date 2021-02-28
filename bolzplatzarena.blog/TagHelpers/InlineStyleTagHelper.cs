@@ -46,23 +46,20 @@ namespace Bolzplatzarena.Blog.TagHelpers
 			entry.SetPriority(CacheItemPriority.NeverRemove);
 			entry.AddExpirationToken(changeToken);
 
-			IFileInfo file = fileProvider.GetFileInfo(path);
+			var file = fileProvider.GetFileInfo(path);
 			if (!file.Exists)
 			{
 				return null;
 			}
-
 
 			return await ReadFileContent(file);
 		}
 
 		private static async Task<string> ReadFileContent(IFileInfo file)
 		{
-			using (var stream = file.CreateReadStream())
-			using (var textReader = new StreamReader(stream))
-			{
-				return await textReader.ReadToEndAsync();
-			}
+			await using var stream = file.CreateReadStream();
+			using var textReader = new StreamReader(stream);
+			return await textReader.ReadToEndAsync();
 		}
 
 		private string Minify(string content)
