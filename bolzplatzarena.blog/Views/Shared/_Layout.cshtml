@@ -2,8 +2,8 @@
 <html lang="de">
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-	<inline-style href="css/styles.css"></inline-style>
-	<inline-style href="highlight/styles/github.css"></inline-style>
+	<inline-style src="css/styles.css"></inline-style>
+	<inline-style src="highlight/styles/github.css"></inline-style>
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
 	@await Html.PartialAsync("_Meta", Model as Piranha.Models.IMeta)
 </head>
@@ -14,6 +14,6 @@
 	</main>
 	@await Html.PartialAsync("_Footer")
 	<script src="/highlight/highlight.pack.js"></script>
-	<inline-script href="js/scripts.js"></inline-script>
+	<inline-script src="js/scripts.js"></inline-script>
 </body>
 </html>
