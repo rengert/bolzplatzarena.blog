@@ -387,6 +387,15 @@ main {
 	}
 }
 
+.content.block pre {
+	display: block;
+	background: #ededed;
+	padding: .5rem;
+	font-style: italic;
+	max-width: 100%;
+	overflow: auto;
+}
+
 @media only screen and (min-width: 0) {
 }
 
