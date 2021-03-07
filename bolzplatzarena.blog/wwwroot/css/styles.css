@@ -320,5 +320,13 @@ main p {
     transform: scale(1);
   }
 }
+.content.block pre {
+  display: block;
+  background: #ededed;
+  padding: 0.5rem;
+  font-style: italic;
+  max-width: 100%;
+  overflow: auto;
+}
 
 /*# sourceMappingURL=styles.css.map */
