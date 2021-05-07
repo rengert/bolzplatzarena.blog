@@ -25,7 +25,7 @@ namespace Bolzplatzarena.Blog.Controllers
 		/// Gets the page with the given id.
 		/// </summary>
 		/// <param name="id">The unique page id</param>
-		[Route("page")]
+		///[Route("page")]
 		public async Task<IActionResult> Page(Guid id) 
 		{
 			var model = await _api.Pages.GetByIdAsync<StandardPage>(id);
@@ -34,7 +34,7 @@ namespace Bolzplatzarena.Blog.Controllers
 			return View(model);
 		}
 
-		[Route("archive")]
+		///[Route("archive")]
 		public async Task<IActionResult> Archive(Guid id, Guid? tag, Guid? category, string term = null) 
 		{
 			var model = await _api.Pages.GetByIdAsync<ArchivePage>(id);
@@ -51,7 +51,7 @@ namespace Bolzplatzarena.Blog.Controllers
 			return View(model);
 		}
 
-		[Route("detail")]
+		///[Route("detail")]
 		public async Task<IActionResult> Detail(Guid id)
 		{
 			var model = await _api.Posts.GetByIdAsync<Post>(id);
