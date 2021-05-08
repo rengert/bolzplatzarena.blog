@@ -24,5 +24,10 @@ namespace Bolzplatzarena.Blog.Controllers
 		{
 			return _api.Pages.GetBySlugAsync(slug);
 		}
+
+		public Task<Sitemap> Sitemap()
+		{
+			return _api.Sites.GetSitemapAsync();
+		}
 	}
 }

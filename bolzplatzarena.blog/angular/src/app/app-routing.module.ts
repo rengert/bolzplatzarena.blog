@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {CmsComponent} from "./components/cms-component/cms.component";
+import { CmsComponent } from './components/cms/cms.component';
 
 const routes: Routes = [
-  { path: '**', component: CmsComponent }
+  { path: '**', component: CmsComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

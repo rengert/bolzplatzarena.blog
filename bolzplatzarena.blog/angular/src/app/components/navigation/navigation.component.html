@@ -1,0 +1,5 @@
+<nav class="border">
+  <h3 class="h-16 p-4 flex flex-col justify-center">Navigation</h3>
+  <a *ngFor="let item of navigation | async" [routerLink]="[item.permalink]"
+     class="h-16 p-4 flex flex-col justify-center border-t border-gray-300">{{item.title }}</a>
+</nav>
