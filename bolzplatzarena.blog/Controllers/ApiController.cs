@@ -52,7 +52,10 @@ namespace Bolzplatzarena.Blog.Controllers
 			{
 				var model = await _api.Pages.GetByIdAsync<ArchivePage>(page.Id);
 				var archive = await _service.Find(model, null, null, "");
-				result.Posts = archive.Posts;
+				result.Posts = archive.Posts.Select(post => new Post
+				{
+					Teaser = post.Teaser
+				}).ToList();
 			}
 
 			return result;
