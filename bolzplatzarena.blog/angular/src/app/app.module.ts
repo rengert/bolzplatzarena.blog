@@ -9,6 +9,9 @@ import { CmsComponent } from './components/cms/cms.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { PostComponent } from './components/blocks/post/post.component';
+import { ArchiveComponent } from './components/pages/archive/archive.component';
+import { TeaserComponent } from './components/pages/archive/teaser/teaser.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     HeaderComponent,
     HtmlBlockComponent,
     NavigationComponent,
+    PostComponent,
+    ArchiveComponent,
+    TeaserComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,6 @@
 <ng-container *ngIf="data$ | async as data">
   <h1 class="text-2xl">{{ data.title }}</h1>
   <app-block *ngFor="let block of data.blocks" [block]="block"></app-block>
+
+  <app-archive *ngIf="data?.type === PageType.Archive" [page]="data"></app-archive>
 </ng-container>
