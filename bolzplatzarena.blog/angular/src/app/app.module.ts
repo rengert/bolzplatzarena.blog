@@ -6,6 +6,7 @@ import { CmsComponent } from "./components/cms-component/cms.component";
 import { HttpClientModule } from "@angular/common/http";
 import { BlockComponent } from './components/blocks/block/block.component';
 import { HtmlBlockComponent } from './components/blocks/html-block/html-block.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { HtmlBlockComponent } from './components/blocks/html-block/html-block.co
     CmsComponent,
     BlockComponent,
     HtmlBlockComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
