@@ -7,6 +7,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { BlockComponent } from './components/blocks/block/block.component';
 import { HtmlBlockComponent } from './components/blocks/html-block/html-block.component';
 import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { HeaderComponent } from './components/header/header.component';
     BlockComponent,
     HtmlBlockComponent,
     HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
