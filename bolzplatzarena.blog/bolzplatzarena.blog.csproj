@@ -37,6 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="angular\src\app\components" />
     <Folder Include="assets\images" />
     <Folder Include="wwwroot\fonts" />
     <Folder Include="wwwroot\images" />

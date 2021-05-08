@@ -1,0 +1,7 @@
+<a routerLink="/impressum">test</a>
+<a routerLink="/datenschutzerklarung">test2</a>
+
+<ng-container *ngIf="data$ | async as data">
+  <h1>{{ data.title }}</h1>
+  <app-block *ngFor="let block of data.blocks" [block]="block"></app-block>
+</ng-container>
