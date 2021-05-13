@@ -5,7 +5,6 @@ import { BlockType } from '../../../models/block-type.enum';
 @Component({
   selector: 'app-block',
   templateUrl: './block.component.html',
-  styleUrls: ['./block.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlockComponent {

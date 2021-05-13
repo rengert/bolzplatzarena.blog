@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map, startWith, switchMap } from 'rxjs/operators';
@@ -9,7 +9,7 @@ import { PageService } from '../../services/page.service';
 @Component({
   selector: 'app-cms-component',
   templateUrl: './cms.component.html',
-  styleUrls: ['./cms.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CmsComponent implements OnInit {
   data$: Observable<Page | undefined>;
