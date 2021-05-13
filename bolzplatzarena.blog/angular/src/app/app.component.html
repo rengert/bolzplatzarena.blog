@@ -1,10 +1,16 @@
-<app-header></app-header>
+<app-header class="block sticky top-0 left-0"></app-header>
 <main class="px-6 py-8">
   <div class="flex justify-between container mx-auto">
     <section class="w-full lg:w-8/12">
       <router-outlet></router-outlet>
+      <nav>
+        <h4 class="pt-4 pb-4">Interessante Projekte</h4>
+        <a href="https://www.pendlergeschichten.de" class="block">https://www.pendlergeschichten.de</a>
+        <a href="https://www.fruehstueck-karlsruhe.de" class="block">https://www.fruehstueck-karlsruhe.de</a>
+        <a href="https://www.beratung-und-mediation-karlsruhe.de" class="block">https://www.beratung-und-mediation-karlsruhe.de</a>
+      </nav>
     </section>
     <app-navigation class="-mx-8 w-4/12 hidden lg:block"></app-navigation>
   </div>
 </main>
-<footer class="p-4 border-t border-gray-300"></footer>
+<footer class="block sticky bottom-0 left-0 p-4 border-t border-gray-300"></footer>
