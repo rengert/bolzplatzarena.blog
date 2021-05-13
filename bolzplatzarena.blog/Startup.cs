@@ -31,6 +31,16 @@ namespace Bolzplatzarena.Blog
 		// For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
 		public void ConfigureServices(IServiceCollection services)
 		{
+			services.AddCors(options =>
+			{
+				options.AddPolicy("Debug",
+					builder =>
+					{
+						builder.AllowAnyOrigin()
+							.AllowAnyHeader()
+							.AllowAnyMethod();
+					});
+			});
 			services.AddResponseCompression(options => { options.EnableForHttps = true; });
 			services.Configure<GzipCompressionProviderOptions>(options =>
 			{
@@ -58,9 +68,9 @@ namespace Bolzplatzarena.Blog
 		{
 			if (env.IsDevelopment())
 			{
+				app.UseCors("Debug");
 				app.UseDeveloperExceptionPage();
 			}
-
 			// Initialize Piranha
 			App.Init(api);
 
@@ -107,6 +117,7 @@ namespace Bolzplatzarena.Blog
 					spa.UseAngularCliServer(npmScript: "start");
 				}
 			});
+			app.UseRouting();
 			app.UseEndpoints(endpoints =>
 			{
 				endpoints.MapControllerRoute(
@@ -116,4 +127,3 @@ namespace Bolzplatzarena.Blog
 		}
 	}
 }
-                   
