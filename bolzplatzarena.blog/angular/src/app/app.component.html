@@ -1,8 +1,10 @@
 <app-header></app-header>
-<main class="flex p-4">
-  <section class="flex-1">
-    <router-outlet></router-outlet>
-  </section>
-  <app-navigation class="w-48 ml-4"></app-navigation>
+<main class="px-6 py-8">
+  <div class="flex justify-between container mx-auto">
+    <section class="w-full lg:w-8/12">
+      <router-outlet></router-outlet>
+    </section>
+    <app-navigation class="-mx-8 w-4/12 hidden lg:block"></app-navigation>
+  </div>
 </main>
 <footer class="p-4 border-t border-gray-300"></footer>

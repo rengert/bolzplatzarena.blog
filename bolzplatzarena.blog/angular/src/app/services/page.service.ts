@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { catchError, first } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 import { Page } from '../models/page';
 import { PageStorageService } from './page-storage.service';
 
@@ -18,7 +19,7 @@ export class PageService {
     if (page) {
       return page;
     }
-    const remotePage = await this.http.get<Page>('/api/byslug' + slug)
+    const remotePage = await this.http.get<Page>(`${environment.apiUrl}/api/byslug${slug}`)
       .pipe(catchError(error => of(undefined)), first()).toPromise();
     if (remotePage) {
       void this.pageStorage.addPage(remotePage);
