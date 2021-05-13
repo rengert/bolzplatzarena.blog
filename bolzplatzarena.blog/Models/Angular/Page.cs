@@ -12,5 +12,7 @@ namespace Bolzplatzarena.Blog.Models.Angular
 		public string Type { get; set; }
 		public Piranha.Extend.Block[] Blocks { get; set; }
 		public IList<Teaser> Posts { get; set; }
+
+		public int SortOrder { get; set; }
 	}
 }

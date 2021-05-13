@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Bolzplatzarena.Blog.Models;
@@ -72,9 +73,16 @@ namespace Bolzplatzarena.Blog.Controllers
 			return result;
 		}
 
-		public Task<Sitemap> Sitemap()
+		public async Task<IEnumerable<Page>> Sitemap()
 		{
-			return _api.Sites.GetSitemapAsync();
+			var sitemap = await _api.Sites.GetSitemapAsync();
+			return sitemap.Select(page => new Page
+			{
+				Id = page.Id,
+				Link = page.Permalink,
+				Title = page.Title,
+				SortOrder = page.SortOrder,
+			});
 		}
 	}
 }

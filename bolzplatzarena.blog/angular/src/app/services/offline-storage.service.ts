@@ -8,9 +8,9 @@ export class OfflineStorageService {
 
   constructor() {
     this.db = new Dexie('offline');
-    this.db.version(3).stores({
+    this.db.version(4).stores({
       pages: '++id, link',
-      navigation: '++id',
+      navigation: '++id, sortOrder',
     });
   }
 
@@ -27,7 +27,7 @@ export class OfflineStorageService {
   }
 
   sitemap(): Promise<Page[]> {
-    return this.db.table<Page>('navigation').toArray();
+    return this.db.table<Page>('navigation').orderBy('sortOrder').toArray();
   }
 
   async updateSitemap(pages: Page[]): Promise<void> {
