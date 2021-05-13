@@ -48,6 +48,9 @@ namespace Bolzplatzarena.Blog.Controllers
 
 			var result = new Page
 			{
+				Id = page.Id,
+				Slug = page.Slug,
+				Link = page.Permalink,
 				Title = page.Title,
 				Type = page.TypeId,
 				Blocks = page.Blocks.ToArray(),

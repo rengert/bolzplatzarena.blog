@@ -1,10 +1,10 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { catchError, filter, map, startWith, switchMap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { filter, map, startWith, switchMap } from 'rxjs/operators';
 import { Page } from '../../models/page';
 import { PageType } from '../../models/page-type.enum';
+import { PageService } from '../../services/page.service';
 
 @Component({
   selector: 'app-cms-component',
@@ -16,15 +16,14 @@ export class CmsComponent implements OnInit {
 
   readonly PageType = PageType;
 
-  constructor(http: HttpClient, router: Router) {
+  constructor(page: PageService, router: Router) {
     this.data$ = router.events.pipe(
       filter(event => event instanceof NavigationEnd),
       map(event => (event as NavigationEnd).url),
       startWith(router.url),
-      switchMap(url => http.get<Page>('/api/byslug' + url).pipe(catchError(error => of(undefined)))),
-    );
+      switchMap(url => page.bySlug(url)));
   }
 
   ngOnInit(): void {
-  }
+  };
 }

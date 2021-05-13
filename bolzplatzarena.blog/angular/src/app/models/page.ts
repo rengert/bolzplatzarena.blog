@@ -6,6 +6,6 @@ export interface Page {
   title: string;
   blocks: Block[];
   posts: Teaser[];
-  permalink: string;
+  link: string;
   type: PageType;
 }
