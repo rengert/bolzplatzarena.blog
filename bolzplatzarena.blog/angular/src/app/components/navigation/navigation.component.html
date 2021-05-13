@@ -1,5 +1,5 @@
 <h3 class="mb-4 text-xl font-bold text-gray-700">Navigation</h3>
-<nav class="flex flex-col bg-white px-4 py-6 max-w-sm mx-auto rounded-lg shadow-md">
+<nav class="flex flex-col bg-white px-4 py-6 rounded-lg shadow-md">
   <ul>
     <li *ngFor="let item of navigation | async">
       <a [routerLink]="item.link?.startsWith('http') ? undefined : [item.link]"

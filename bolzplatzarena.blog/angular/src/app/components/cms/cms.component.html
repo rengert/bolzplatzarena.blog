@@ -1,6 +1,12 @@
 <ng-container *ngIf="data$ | async as data">
-  <h1 class="text-2xl">{{ data.title }}</h1>
-  <app-block *ngFor="let block of data.blocks" [block]="block"></app-block>
-
-  <app-archive *ngIf="data?.type === PageType.Archive" [page]="data"></app-archive>
+  <ng-container *ngIf="data?.type !== PageType.Archive else archive">
+    <div class="<max-w-4xl px-5 py-6 bg-white rounded-lg shadow-md lg:px-10">
+      <h1 class="text-2xl">{{ data.title }}</h1>
+      <app-block *ngFor="let block of data.blocks" [block]="block"></app-block>
+    </div>
+  </ng-container>
+  <ng-template #archive>
+    <h1 class="text-2xl">{{ data.title }}</h1>
+    <app-archive [page]="data"></app-archive>
+  </ng-template>
 </ng-container>

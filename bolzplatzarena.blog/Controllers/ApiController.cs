@@ -33,7 +33,7 @@ namespace Bolzplatzarena.Blog.Controllers
 				page = await _api.Pages.GetBySlugAsync(slug);
 				if (page == null)
 				{
-					var post = await _api.Posts.GetBySlugAsync("blog", slug.Replace("blog/", "/"));
+					var post = await _api.Posts.GetBySlugAsync("blog", slug.Replace("blog/", ""));
 					return new Page
 					{
 						Id = post.Id,
