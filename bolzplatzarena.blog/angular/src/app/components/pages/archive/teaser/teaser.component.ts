@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Post } from '../../../../models/post';
+import { Teaser } from '../../../../models/teaser';
 
 @Component({
   selector: 'app-teaser',
@@ -8,5 +8,5 @@ import { Post } from '../../../../models/post';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TeaserComponent {
-  @Input() post!: Post;
+  @Input() teaser!: Teaser;
 }

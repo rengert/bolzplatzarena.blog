@@ -1,2 +1,2 @@
-<h3 [routerLink]="[post.permalink]">{{ post.title }}</h3>
-<span [outerHTML]="post.teaser.body.value"></span>
+<h3 [routerLink]="[teaser.link]" class="text-2xl hover:text-purple-600">{{ teaser.title }}</h3>
+<span [outerHTML]="teaser.body.value"></span>

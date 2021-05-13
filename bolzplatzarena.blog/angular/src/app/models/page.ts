@@ -1,11 +1,11 @@
 import { Block } from './block';
 import { PageType } from './page-type.enum';
-import { Post } from './post';
+import { Teaser } from './teaser';
 
 export interface Page {
   title: string;
   blocks: Block[];
-  posts: Post[];
+  posts: Teaser[];
   permalink: string;
   type: PageType;
 }

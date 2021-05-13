@@ -29,6 +29,11 @@ namespace Bolzplatzarena.Blog.Controllers
 			if (!string.IsNullOrWhiteSpace(slug))
 			{
 				page = await _api.Pages.GetBySlugAsync(slug);
+				if (page == null)
+				{
+					var post = await _api.Posts.GetBySlugAsync("blog", slug.Replace("blog/", "/"));
+					Console.WriteLine(post);
+				}
 			}
 			else
 			{
@@ -52,9 +57,11 @@ namespace Bolzplatzarena.Blog.Controllers
 			{
 				var model = await _api.Pages.GetByIdAsync<ArchivePage>(page.Id);
 				var archive = await _service.Find(model, null, null, "");
-				result.Posts = archive.Posts.Select(post => new Post
+				result.Posts = archive.Posts.Select(post => new Teaser
 				{
-					Teaser = post.Teaser
+					Title = post.Title,
+					Link = post.Permalink,
+					Body = post.Teaser.Body
 				}).ToList();
 			}
 

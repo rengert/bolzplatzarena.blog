@@ -8,6 +8,6 @@ namespace Bolzplatzarena.Blog.Models.Angular
 		public string Link { get; set; }
 		public string Type { get; set; }
 		public Piranha.Extend.Block[] Blocks { get; set; }
-		public IList<Post> Posts { get; set; }
+		public IList<Teaser> Posts { get; set; }
 	}
 }
