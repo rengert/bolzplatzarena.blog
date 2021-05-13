@@ -12,6 +12,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { PostComponent } from './components/blocks/post/post.component';
 import { ArchiveComponent } from './components/pages/archive/archive.component';
 import { TeaserComponent } from './components/pages/archive/teaser/teaser.component';
+import { CodeBlockComponent } from './components/blocks/code-block/code-block.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { TeaserComponent } from './components/pages/archive/teaser/teaser.compon
     PostComponent,
     ArchiveComponent,
     TeaserComponent,
+    CodeBlockComponent,
   ],
   imports: [
     BrowserModule,
