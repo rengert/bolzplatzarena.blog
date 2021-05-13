@@ -34,7 +34,15 @@ namespace Bolzplatzarena.Blog.Controllers
 				if (page == null)
 				{
 					var post = await _api.Posts.GetBySlugAsync("blog", slug.Replace("blog/", "/"));
-					Console.WriteLine(post);
+					return new Page
+					{
+						Id = post.Id,
+						Slug = post.Slug,
+						Link = post.Permalink,
+						Title = post.Title,
+						Type = post.TypeId,
+						Blocks = post.Blocks.ToArray(),
+					};
 				}
 			}
 			else
@@ -66,7 +74,10 @@ namespace Bolzplatzarena.Blog.Controllers
 				{
 					Title = post.Title,
 					Link = post.Permalink,
-					Body = post.Teaser.Body
+					Body = post.Teaser.Body,
+					Date = post.Created,
+					Tags = post.Tags,
+					Category = post.Category
 				}).ToList();
 			}
 
