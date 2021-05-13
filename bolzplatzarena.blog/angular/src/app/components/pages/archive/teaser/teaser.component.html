@@ -1,2 +1,24 @@
-<h3 [routerLink]="[teaser.link]" class="text-2xl hover:text-purple-600">{{ teaser.title }}</h3>
-<span [outerHTML]="teaser.body.value"></span>
+<div class="max-w-4xl px-10 py-6 bg-white rounded-lg shadow-md">
+  <div class="flex justify-between items-center">
+    <span class="font-light text-gray-600">Jun 1, 2020</span>
+    <a href="#" class="px-2 py-1 bg-gray-600 text-gray-100 font-bold rounded hover:bg-gray-500">Laravel</a>
+  </div>
+  <div class="mt-2">
+    <h3 [routerLink]="[teaser.link]" class="text-2xl text-gray-700 font-bold hover:underline">
+      {{ teaser.title }}
+    </h3>
+    <p [innerHTML]="teaser.body.value" class="mt-2 text-gray-600"></p>
+  </div>
+  <div class="flex justify-between items-center mt-4">
+    <a [routerLink]="[teaser.link]" class="text-blue-500 hover:underline">Hier geht es zum Artikel</a>
+    <div>
+      <span class="flex items-center">
+        <img
+          src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEBLAEsAAD/4gIcSUNDX1BST0ZJTEUAAQEAAAIMbGNtcwIQAABtbnRyUkdCIFhZWiAH3AABABkAAwApADlhY3NwQVBQTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWxjbXMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApkZXNjAAAA/AAAAF5jcHJ0AAABXAAAAAt3dHB0AAABaAAAABRia3B0AAABfAAAABRyWFlaAAABkAAAABRnWFlaAAABpAAAABRiWFlaAAABuAAAABRyVFJDAAABzAAAAEBnVFJDAAABzAAAAEBiVFJDAAABzAAAAEBkZXNjAAAAAAAAAANjMgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB0ZXh0AAAAAEZCAABYWVogAAAAAAAA9tYAAQAAAADTLVhZWiAAAAAAAAADFgAAAzMAAAKkWFlaIAAAAAAAAG&#x2B;iAAA49QAAA5BYWVogAAAAAAAAYpkAALeFAAAY2lhZWiAAAAAAAAAkoAAAD4QAALbPY3VydgAAAAAAAAAaAAAAywHJA2MFkghrC/YQPxVRGzQh8SmQMhg7kkYFUXdd7WtwegWJsZp8rGm/fdPD6TD////bAEMACgcHCAcGCggICAsKCgsOGBAODQ0OHRUWERgjHyUkIh8iISYrNy8mKTQpISIwQTE0OTs&#x2B;Pj4lLkRJQzxINz0&#x2B;O//bAEMBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIADwAPAMBIgACEQEDEQH/xAAaAAACAwEBAAAAAAAAAAAAAAAFBwIDBAYB/8QALxAAAgEDAwIGAgEDBQAAAAAAAQIDAAQRBRIhQVEGEyIxYXEHgTIUM0JSkaGxwf/EABgBAAMBAQAAAAAAAAAAAAAAAAECAwAE/8QAHREAAgICAwEAAAAAAAAAAAAAAAECIREiAzFBEv/aAAwDAQACEQMRAD8AqmA5BH1Q25wQc&#x2B;1E7iRHHPGetC5/g8UmclAXOqp/MgL1PaidkIBtit9uOjd6xSWst&#x2B;r20C5kZSQPgDJ/4BpseHvCWjaTEiizaZjyZnO7B&#x2B;sVlnw1eii1hJHcT29rKCoY71UgMoHOeOlZoI1niRgvpIDH5Panvrenx3djcQ2doglaFkWVsKBke31Sp1LRZNDMNvOYSzJkbCSB06gVnlAfz4ByvGBgDsBVZQZ5JrU&#x2B;Cv8AL/aqioz70pjpb63VP7bkfBoNPvjPI47jmil/LtXh8fugc10SpO4YFBBNWjamunarFdlBIEyGXuCCD/3TYtdQuWiDWsSSoQrD1eognk49uM0koZmupxDAoklkIRO248DmnfaWQ0KwW3uGJt0jGyQ&#x2B;2OOD802ysMfl0zLq&#x2B;t6hZxTzLbxiBcACThyv69qXeu6q&#x2B;r3KTSII9ibQFz3J/wDa67xxM0Xhw3keUtjMpc7cbgeM/WcUuJLpZDlCGHcGi3LFgajnUk20DkmonGetQ3lhzivDk/5UuQYDF7dek&#x2B;k4HXFctJI9xKXkJIzwOgFF9VvR/TlQcFzt/XWgocFmA6Cq8a9Em/Ar4dtLi912zhtELS&#x2B;crDsADkk/Qp9X/n3lhNCcwoQQHVgGz0wCKSPgK6a28TxzKM7EYkd/anRc69YWunNqFzKIYkX1bh6voUs5bYKQjrkGeMbGdvxzdRXkyXM8cUZaYJtD4YHOOnFJHhAFUninnq12uofje&#x2B;nWNo1NoxVH/koHsD84ApDyvhqtHqyD7o0RXI83y35yOK0&#x2B;Ynagc02yaNhztOf1RPJ7VGaspF0UX0mbgLn2GaxrLmUheeKheOXuXJ74qKnAwKpGkK&#x2B;xkeAtNtW0a4vy6rKJCrMT7AY4qPiDxFC9qGAjmiSQ&#x2B;Wu7PnOvtkf6VPJ7kAdap8BQJeaUbeXPlyXoRgD0IWhmiQxnTYpmQM1gl1NEG5BYbCM9xk5pIce7kysuTRRR32ktMv4u1SG6k3XKW8xmBzkMwL4Pz6xn5NJqebBb4pkaDdTL&#x2B;NddlLl3meTeX5ySqgn75pXTsdzfdWdHOisyFnPfpRa2kD2655I4P64oLATl39zitVtK6Iyg8buv0KlK0Oj/2Q=="
+          [alt]="'Autor von: ' + teaser.title"
+          class="mx-4 w-10 h-10 object-cover rounded-full hidden sm:block">
+        <h1 class="text-gray-700 font-bold">T.R.</h1>
+      </span>
+    </div>
+  </div>
+</div>
