@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Page } from '../../models/page';
 import { NavigationService } from '../../services/navigation.service';
 
@@ -8,6 +8,8 @@ import { NavigationService } from '../../services/navigation.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavigationComponent {
+  @Input() header = false;
+
   readonly navigation: Promise<Page[]>;
 
   constructor(navigation: NavigationService) {
