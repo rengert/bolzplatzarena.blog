@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost/5001',
+  apiUrl: 'https://www.bolzplatzarena.net',
 };
