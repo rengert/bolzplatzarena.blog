@@ -13,4 +13,5 @@ export interface Page {
   keywords: string;
   description: string;
   robots: string;
+  metaTitle: string;
 }

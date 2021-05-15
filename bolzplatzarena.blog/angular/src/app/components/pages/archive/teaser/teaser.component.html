@@ -3,7 +3,7 @@
     <span class="font-light text-gray-600">{{ teaser.date | date : 'dd. MMM YYYY' }}</span>
     <div>
       <span *ngFor="let tag of teaser.tags"
-            class="lg:ml-2 lg:mr-0 mr-2 mb-2 px-2 py-1 bg-blue-500 text-gray-100 font-bold rounded hover:bg-gray-500 inline-block">
+            class="lg:ml-2 lg:mr-0 mr-2 mb-2 px-2 py-1 bg-blue-600 text-gray-100 font-bold rounded hover:bg-gray-500 inline-block">
         {{ tag.title }}
       </span>
     </div>
@@ -15,7 +15,7 @@
     <p [innerHTML]="teaser.body.value" class="mt-2 text-gray-600"></p>
   </div>
   <div class="flex justify-between items-center mt-4">
-    <a [routerLink]="[teaser.link]" class="text-blue-500 hover:underline">Hier geht es zum Artikel</a>
+    <a [routerLink]="[teaser.link]" class="text-blue-600 hover:underline">Hier geht es zum Artikel</a>
     <div>
       <span class="flex items-center">
         <img

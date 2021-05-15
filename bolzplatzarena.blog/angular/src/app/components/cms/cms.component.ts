@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 import { NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map, startWith, switchMap, tap } from 'rxjs/operators';
@@ -19,6 +19,7 @@ export class CmsComponent {
 
   constructor(
     private readonly meta: Meta,
+    private readonly title: Title,
     page: PageService,
     router: Router,
   ) {
@@ -42,11 +43,13 @@ export class CmsComponent {
     this.meta.updateTag({ name: 'robots', content: page.robots });
     // open graph
     this.meta.updateTag({ property: 'og-description', content: page.description });
-    this.meta.updateTag({ property: 'og-title', content: page.title });
+    this.meta.updateTag({ property: 'og-title', content: page.metaTitle });
     this.meta.updateTag({ property: 'og-url', content: url });
     // twitter
     this.meta.updateTag({ property: 'twitter:url', content: url });
-    this.meta.updateTag({ property: 'twitter:title', content: page.title });
+    this.meta.updateTag({ property: 'twitter:title', content: page.metaTitle });
     this.meta.updateTag({ property: 'twitter:description', content: page.description });
+
+    this.title.setTitle(page.title);
   }
 }
