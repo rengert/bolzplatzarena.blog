@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -12,7 +12,7 @@ import { PageService } from '../../services/page.service';
   templateUrl: './cms.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CmsComponent implements OnInit {
+export class CmsComponent {
   data$: Observable<Page | undefined>;
 
   readonly PageType = PageType;
@@ -31,9 +31,6 @@ export class CmsComponent implements OnInit {
     );
   }
 
-  ngOnInit(): void {
-  };
-
   private updateMeta(page: Page | undefined): void {
     if (!page) {
       return;
@@ -51,6 +48,5 @@ export class CmsComponent implements OnInit {
     this.meta.updateTag({ property: 'twitter:url', content: url });
     this.meta.updateTag({ property: 'twitter:title', content: page.title });
     this.meta.updateTag({ property: 'twitter:description', content: page.description });
-
   }
 }
