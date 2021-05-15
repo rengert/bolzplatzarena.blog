@@ -8,4 +8,9 @@ export interface Page {
   posts: Teaser[];
   link: string;
   type: PageType;
+
+  //meta
+  keywords: string;
+  description: string;
+  robots: string;
 }

@@ -42,6 +42,10 @@ namespace Bolzplatzarena.Blog.Controllers
 						Title = post.Title,
 						Type = post.TypeId,
 						Blocks = post.Blocks.ToArray(),
+						Description = post.MetaDescription,
+						Keywords = post.MetaKeywords,
+						MetaTitle = post.MetaTitle,
+						Robots = "index,follow"
 					};
 				}
 			}
@@ -64,6 +68,10 @@ namespace Bolzplatzarena.Blog.Controllers
 				Title = page.Title,
 				Type = page.TypeId,
 				Blocks = page.Blocks.ToArray(),
+				Description = page.MetaDescription,
+				Keywords = page.MetaKeywords,
+				MetaTitle = page.MetaTitle,
+				Robots = "index,follow"
 			};
 
 			if (result.Type == "ArchivePage")

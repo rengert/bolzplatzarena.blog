@@ -38,7 +38,19 @@ export class CmsComponent implements OnInit {
     if (!page) {
       return;
     }
-    this.meta.updateTag({ name: 'description', content: page.title });
-    this.meta.updateTag({ name: 'og-title', content: page.title });
+
+    const url = document.URL; //window.location.pathname;
+    this.meta.updateTag({ name: 'description', content: page.description });
+    this.meta.updateTag({ name: 'keywords', content: page.keywords });
+    this.meta.updateTag({ name: 'robots', content: page.robots });
+    // open graph
+    this.meta.updateTag({ property: 'og-description', content: page.description });
+    this.meta.updateTag({ property: 'og-title', content: page.title });
+    this.meta.updateTag({ property: 'og-url', content: url });
+    // twitter
+    this.meta.updateTag({ property: 'twitter:url', content: url });
+    this.meta.updateTag({ property: 'twitter:title', content: page.title });
+    this.meta.updateTag({ property: 'twitter:description', content: page.description });
+
   }
 }
