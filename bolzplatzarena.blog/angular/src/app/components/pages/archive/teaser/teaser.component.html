@@ -2,10 +2,10 @@
   <div class="lg:flex justify-between items-center">
     <span class="font-light text-gray-600">{{ teaser.date | date : 'dd. MMM YYYY' }}</span>
     <div>
-      <a *ngFor="let tag of teaser.tags"
-         class="lg:ml-2 lg:mr-0 mr-2 mb-2 px-2 py-1 bg-blue-500 text-gray-100 font-bold rounded hover:bg-gray-500 inline-block">
+      <span *ngFor="let tag of teaser.tags"
+            class="lg:ml-2 lg:mr-0 mr-2 mb-2 px-2 py-1 bg-blue-500 text-gray-100 font-bold rounded hover:bg-gray-500 inline-block">
         {{ tag.title }}
-      </a>
+      </span>
     </div>
   </div>
   <div class="mt-2">
