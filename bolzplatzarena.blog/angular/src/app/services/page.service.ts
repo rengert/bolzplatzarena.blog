@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-import { catchError, first } from 'rxjs/operators';
+import { catchError, filter, first, switchMap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Page } from '../models/page';
 import { OfflineStorageService } from './offline-storage.service';
@@ -17,6 +17,7 @@ export class PageService {
   async bySlug(slug: string): Promise<Page | undefined> {
     const page = await this.pageStorage.pageBySlug(slug);
     if (page) {
+      this.update(slug);
       return page;
     }
     const remotePage = await this.http.get<Page>(`${environment.apiUrl}/api/byslug${slug}`)
@@ -25,5 +26,15 @@ export class PageService {
       void this.pageStorage.addPage(remotePage);
     }
     return remotePage;
+  }
+
+  private update(slug: string): void {
+    void this.http.get<Page>(`${environment.apiUrl}/api/byslug${slug}`)
+      .pipe(
+        catchError(error => of(undefined)),
+        first(),
+        filter(page => !!page),
+        switchMap(page => this.pageStorage.addPage(page !)),
+      ).toPromise();
   }
 }
