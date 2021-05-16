@@ -7,13 +7,17 @@ import { Page } from '../../models/page';
 import { PageType } from '../../models/page-type.enum';
 import { PageService } from '../../services/page.service';
 
+interface Content {
+  page?: Page;
+}
+
 @Component({
   selector: 'app-cms-component',
   templateUrl: './cms.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CmsComponent {
-  data$: Observable<Page | undefined>;
+  data$: Observable<Content>;
 
   readonly PageType = PageType;
 
@@ -29,11 +33,13 @@ export class CmsComponent {
       startWith(router.url),
       switchMap(url => page.bySlug(url)),
       tap(page => this.updateMeta(page)),
+      map(page => ({ page })),
     );
   }
 
   private updateMeta(page: Page | undefined): void {
     if (!page) {
+      this.emptyMeta();
       return;
     }
 

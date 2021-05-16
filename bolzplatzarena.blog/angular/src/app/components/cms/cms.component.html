@@ -1,12 +1,25 @@
 <ng-container *ngIf="data$ | async as data">
-  <ng-container *ngIf="data?.type !== PageType.Archive else archive">
-    <div class="<max-w-4xl px-5 py-6 bg-white rounded-lg shadow-md lg:px-10">
-      <h1 class="text-2xl">{{ data.title }}</h1>
-      <app-block *ngFor="let block of data.blocks" [block]="block"></app-block>
-    </div>
+  <ng-container *ngIf="data.page as page else notFound">
+    <ng-container *ngIf="page.type !== PageType.Archive else archive">
+      <div class="max-w-4xl px-5 py-6 bg-white rounded-lg shadow-md lg:px-10">
+        <h1 class="text-2xl">{{ page.title }}</h1>
+        <app-block *ngFor="let block of page.blocks" [block]="block"></app-block>
+      </div>
+    </ng-container>
+    <ng-template #archive>
+      <h1 class="mb-4 text-xl font-bold">{{ page.title }}</h1>
+      <app-archive [page]="page"></app-archive>
+    </ng-template>
   </ng-container>
-  <ng-template #archive>
-    <h1 class="mb-4 text-xl font-bold">{{ data.title }}</h1>
-    <app-archive [page]="data"></app-archive>
+  <ng-template #notFound>
+    <div class="max-w-4xl px-5 py-6 bg-white rounded-lg shadow-md lg:px-10">
+      <h1 class="text-2xl">Hier gibt es scheinbar nichts zu sehen</h1>
+      <p>Wir haben uns wirklich bemüht aber scheinbar haben wir vergessen eine Seite hochzuladen oder das Internet war
+        leider schon alle.</p>
+      <p>Am Besten ist es, wenn du es erneut probierst und einen der Links in der Navigation benutzt.</p>
+      <p>Wenn es dann leider immer noch nicht funktioniert, habe ich es einfach verbockt und du könntest meinen Tag
+        retten, indem du mir sagst, wie du den Fehler produziert hast. So kann ich den Fehler schnellstmöglich
+        korrigieren, so dass du möglichst der/ die Einzige bleibst mit dieser durchaus negativen Erfahrung.</p>
+    </div>
   </ng-template>
 </ng-container>
