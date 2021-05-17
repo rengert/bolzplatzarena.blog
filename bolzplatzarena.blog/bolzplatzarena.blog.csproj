@@ -8,18 +8,19 @@
 
   <ItemGroup>
     <PackageReference Include="Bolzplatzarena.AspNetCore" Version="0.0.4" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.2" />
-    <PackageReference Include="Piranha" Version="9.0.0-rc2" />
-    <PackageReference Include="Piranha.AspNetCore" Version="9.0.0-rc2" />
-    <PackageReference Include="Piranha.AspNetCore.Identity.SQLite" Version="9.0.0-rc2" />
-    <PackageReference Include="Piranha.AttributeBuilder" Version="9.0.0-rc2" />
-    <PackageReference Include="Piranha.Data.EF" Version="9.0.0-rc2" />
-    <PackageReference Include="Piranha.Data.EF.SQLite" Version="9.0.0-rc2" />
-    <PackageReference Include="Piranha.ImageSharp" Version="9.0.0-rc2" />
-    <PackageReference Include="Piranha.Local.FileStorage" Version="9.0.0-rc2" />
-    <PackageReference Include="Piranha.Manager" Version="9.0.0-rc2" />
-    <PackageReference Include="Piranha.Manager.TinyMCE" Version="9.0.0-rc2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="5.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.6" />
+    <PackageReference Include="Piranha" Version="9.0.1" />
+    <PackageReference Include="Piranha.AspNetCore" Version="9.0.1" />
+    <PackageReference Include="Piranha.AspNetCore.Identity.SQLite" Version="9.0.0" />
+    <PackageReference Include="Piranha.AttributeBuilder" Version="9.0.1" />
+    <PackageReference Include="Piranha.Data.EF" Version="9.0.0" />
+    <PackageReference Include="Piranha.Data.EF.SQLite" Version="9.0.0" />
+    <PackageReference Include="Piranha.ImageSharp" Version="9.0.0" />
+    <PackageReference Include="Piranha.Local.FileStorage" Version="9.0.0" />
+    <PackageReference Include="Piranha.Manager" Version="9.0.1" />
+    <PackageReference Include="Piranha.Manager.TinyMCE" Version="9.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,6 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="angular\src\app\components" />
     <Folder Include="assets\images" />
     <Folder Include="wwwroot\fonts" />
     <Folder Include="wwwroot\images" />

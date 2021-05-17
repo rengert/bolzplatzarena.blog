@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,11 +31,19 @@ namespace Bolzplatzarena.Blog
 		// For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddResponseCompression(options =>
+			services.AddCors(options =>
 			{
-				options.EnableForHttps = true;
+				options.AddPolicy("Debug",
+					builder =>
+					{
+						builder.AllowAnyOrigin()
+							.AllowAnyHeader()
+							.AllowAnyMethod();
+					});
 			});
-			services.Configure<GzipCompressionProviderOptions>(options => {
+			services.AddResponseCompression(options => { options.EnableForHttps = true; });
+			services.Configure<GzipCompressionProviderOptions>(options =>
+			{
 				options.Level = CompressionLevel.Optimal;
 			});
 			// Service setup
@@ -59,9 +68,9 @@ namespace Bolzplatzarena.Blog
 		{
 			if (env.IsDevelopment())
 			{
+				app.UseCors("Debug");
 				app.UseDeveloperExceptionPage();
 			}
-
 			// Initialize Piranha
 			App.Init(api);
 
@@ -99,7 +108,22 @@ namespace Bolzplatzarena.Blog
 				options.UseTinyMCE();
 				options.UseIdentity();
 			});
+
+			app.UseSpa(spa =>
+			{
+				spa.Options.SourcePath = "angular";
+				if (env.IsDevelopment())
+				{
+					spa.UseAngularCliServer(npmScript: "start");
+				}
+			});
+			app.UseRouting();
+			app.UseEndpoints(endpoints =>
+			{
+				endpoints.MapControllerRoute(
+					name: "default",
+					pattern: "{controller=Home}/{action=Spa}/{id?}");
+			});
 		}
 	}
 }
-                   

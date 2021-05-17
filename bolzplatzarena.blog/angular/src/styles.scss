@@ -1,0 +1,21 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+p {
+  margin: 1rem 0;
+}
+
+[ng-reflect-router-link] {
+  cursor: pointer;
+}
+
+pre {
+  padding-left: 1rem;
+  border-left: 0.25rem solid grey;
+  border-radius: 0.5rem;
+  font-style: italic;
+  overflow: hidden;
+  font-family: inherit;
+  font-size: inherit;
+}

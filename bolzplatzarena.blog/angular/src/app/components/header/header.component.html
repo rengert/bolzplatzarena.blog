@@ -1,0 +1,30 @@
+<header class="bg-white px-3 py-4 shadow sm:px-6">
+  <div class="flex flex-col container mx-auto md:flex-row md:items-center md:justify-between">
+    <div class="flex justify-between items-center">
+      <div>
+        <a routerLink="/" class="text-gray-800 text-xl font-bold md:text-2xl">Bolzplatzarena</a>
+      </div>
+      <div>
+        <button type="button"
+                class="block text-gray-800 hover:text-gray-600 focus:text-gray-600 focus:outline-none md:hidden"
+                name="Öffne / Schließe die Navigation"
+                aria-label="Öffne / Schließe die Navigation"
+                (click)="navigationOpen = !navigationOpen">
+          <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+            <path
+              d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z">
+            </path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="md:flex flex-col md:flex-row md:-mx-4 hidden">
+      <a routerLink="/" class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0">Startseite</a>
+      <a routerLink="/impressum" class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0">Impressum</a>
+    </div>
+  </div>
+</header>
+
+<app-navigation *ngIf="navigationOpen"
+                [header]="true"
+                class="absolute w-screen h-5/6 top-16 p-2"></app-navigation>
