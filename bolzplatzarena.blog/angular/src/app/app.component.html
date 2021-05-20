@@ -16,4 +16,14 @@
     <app-navigation class="w-4/12 pl-8 hidden lg:block"></app-navigation>
   </div>
 </main>
+<div *ngIf="versionUpdate | async"
+     class="sticky flex justify-between items-center bottom-16 m-4 bg-blue-600 rounded-lg text-white px-4 py-2">
+  <div>
+    Es gibt eine neue Version der Bolzplatzarena!
+  </div>
+  <div>
+    <button class="bg-white text-black rounded-lg px-2 py-1 ml-4" (click)="versionUpdate.next(false)">So what</button>
+    <button class="bg-white text-black rounded-lg px-2 py-1 ml-4" (click)="reload()">Aktualisieren</button>
+  </div>
+</div>
 <footer class="block sticky bottom-0 left-0 p-4 border-t border-gray-300"></footer>
