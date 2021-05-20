@@ -1,4 +1,4 @@
-<ng-container *ngIf="data$ | async as data">
+<ng-container *ngIf="data$ | async as data else loading">
   <ng-container *ngIf="data.page as page else notFound">
     <ng-container *ngIf="page.type !== PageType.Archive else archive">
       <div class="max-w-4xl px-5 py-6 mb-4 bg-white rounded-lg shadow-md lg:px-10">
@@ -11,6 +11,7 @@
       <app-archive [page]="page"></app-archive>
     </ng-template>
   </ng-container>
+
   <ng-template #notFound>
     <div class="max-w-4xl mb-4 px-5 py-6 bg-white rounded-lg shadow-md lg:px-10">
       <h1 class="text-2xl">404 - Ist das was verschwunden?</h1>
@@ -24,3 +25,19 @@
     </div>
   </ng-template>
 </ng-container>
+
+<ng-template #loading>
+  <div class="border border-light-blue-300 shadow rounded-md p-4 max-w-4xl w-full">
+    <div class="animate-pulse flex space-x-4">
+      <div class="rounded-full bg-blue-400 h-12 w-12"></div>
+      <div class="flex-1 space-y-4 py-1">
+        <span>Daten werden geladen</span>
+        <div class="h-4 bg-blue-400 rounded w-3/4"></div>
+        <div class="space-y-2">
+          <div class="h-4 bg-blue-400 rounded"></div>
+          <div class="h-4 bg-blue-400 rounded w-5/6"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
