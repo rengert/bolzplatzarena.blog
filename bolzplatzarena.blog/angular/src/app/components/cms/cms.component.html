@@ -1,7 +1,7 @@
 <ng-container *ngIf="data$ | async as data">
   <ng-container *ngIf="data.page as page else notFound">
     <ng-container *ngIf="page.type !== PageType.Archive else archive">
-      <div class="max-w-4xl px-5 py-6 bg-white rounded-lg shadow-md lg:px-10">
+      <div class="max-w-4xl px-5 py-6 mb-4 bg-white rounded-lg shadow-md lg:px-10">
         <h1 class="text-2xl">{{ page.title }}</h1>
         <app-block *ngFor="let block of page.blocks" [block]="block"></app-block>
       </div>
@@ -12,7 +12,7 @@
     </ng-template>
   </ng-container>
   <ng-template #notFound>
-    <div class="max-w-4xl px-5 py-6 bg-white rounded-lg shadow-md lg:px-10">
+    <div class="max-w-4xl mb-4 px-5 py-6 bg-white rounded-lg shadow-md lg:px-10">
       <h1 class="text-2xl">Hier gibt es scheinbar nichts zu sehen</h1>
       <p>Wir haben uns wirklich bemüht, aber scheinbar haben wir vergessen eine Seite hochzuladen oder das Internet war
         leider schon alle.</p>
