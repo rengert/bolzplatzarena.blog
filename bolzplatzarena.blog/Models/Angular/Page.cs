@@ -16,11 +16,8 @@ namespace Bolzplatzarena.Blog.Models.Angular
 
 		// meta information
 		public string Description { get; set; }
-
 		public string Keywords { get; set; }
-
 		public string Robots { get; set; }
-
 		public string MetaTitle { get; set; }
 	}
 }
