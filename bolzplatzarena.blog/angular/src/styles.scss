@@ -12,10 +12,25 @@ p {
 
 pre {
   padding-left: 1rem;
-  border-left: 0.25rem solid grey;
+  border-left: 0.25rem solid rgba(37, 99, 235, 0.5);
   border-radius: 0.5rem;
   font-style: italic;
   overflow: hidden;
   font-family: inherit;
   font-size: inherit;
+}
+
+h2 {
+  font-size: 1.4rem;
+  line-height: 1.7rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+  line-height: 1.55rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+  line-height: 1.4rem;
 }
