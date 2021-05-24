@@ -21,16 +21,18 @@ export class NavigationService {
       return sitemap;
     }
 
-    const remoteSitemap = await this.http.get<Page[]>(`${environment.apiUrl}/api/sitemap`).toPromise();
+    const remoteSitemap = await this.http.get<Page[]>(`${environment.apiUrl}/api/sitemap`).pipe(
+      catchError(() => of(undefined)),
+    ).toPromise();
     if (remoteSitemap) {
       void this.offline.updateSitemap(remoteSitemap);
     }
-    return remoteSitemap;
+    return remoteSitemap ?? [];
   }
 
   private update(): void {
     void this.http.get<Page[]>(`${environment.apiUrl}/api/sitemap`).pipe(
-      catchError(error => of(undefined)),
+      catchError(() => of(undefined)),
       first(),
       filter(data => !!data),
       switchMap(remoteSitemap => this.offline.updateSitemap(remoteSitemap !)),
