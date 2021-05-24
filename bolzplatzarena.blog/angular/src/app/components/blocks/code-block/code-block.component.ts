@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Block } from '../../../models/block';
 
 @Component({
@@ -6,10 +6,6 @@ import { Block } from '../../../models/block';
   templateUrl: './code-block.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CodeBlockComponent implements OnChanges {
+export class CodeBlockComponent {
   @Input() block!: Block;
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes, this.block);
-  }
 }
