@@ -1,0 +1,18 @@
+<div class="shadow-md rounded-lg p-4 border-2">
+  <h3>Name des Performance Issues</h3>
+  <div *ngFor="let item of data" class="pt-4">
+    <label>{{ item.label }} - {{ item.time | number }}ms</label>
+    <div class="mt-4 bg-gray-200 dark:bg-black rounded-full overflow-hidden">
+      <div [style.width.%]="item.value"
+           class="bg-blue-200 h-4"
+           role="progressbar"
+           aria-valuenow="75"
+           aria-valuemin="0"
+           aria-valuemax="100">
+      </div>
+    </div>
+  </div>
+  <div class="pt-4 text-right">
+    <app-button></app-button>
+  </div>
+</div>
