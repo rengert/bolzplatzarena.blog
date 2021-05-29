@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges } from '@angular/core';
 import { maxBy } from 'lodash';
 import { Block } from '../../../models/block';
+import { keyByTest } from '../../../tests/key-by';
 import { createMomentTest } from '../../../tests/moment';
 import { Scenario } from '../../../tests/scenario.model';
 import { Test } from '../../../tests/test.model';
@@ -16,6 +17,7 @@ interface Result extends Scenario {
 
 const tests: { [index: string]: Test } = {
   ['createMomentTest']: createMomentTest,
+  ['keyByTest']: keyByTest,
 };
 
 @Component({
