@@ -8,7 +8,6 @@ namespace Bolzplatzarena.Blog.Blocks
 	[BlockType(Name = "Code", Category = "Content", Icon = "fas fa-font")]
 	public class CodeBlock : Block
 	{
-		
 		public TextField RawCode { get; set; }
 
 		[Field()]

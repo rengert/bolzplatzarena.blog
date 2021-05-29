@@ -1,0 +1,18 @@
+<div *ngIf="testResult" class="shadow-md rounded-lg p-4 border-2">
+  <h3>{{ testResult.name }}</h3>
+  <div *ngFor="let item of testResult.results" class="pt-4">
+    <label>{{ item.name }} - {{ item.time | number }}ms</label>
+    <div class="mt-4 bg-gray-200 dark:bg-black rounded-full overflow-hidden">
+      <div [style.width.%]="item.percentage"
+           class="bg-blue-200 h-4"
+           role="progressbar"
+           [attr.aria-valuenow]="item.percentage"
+           aria-valuemin="0"
+           aria-valuemax="100">
+      </div>
+    </div>
+  </div>
+  <div class="pt-4 text-right">
+    <app-button (click)="runTest()">Test starten</app-button>
+  </div>
+</div>

@@ -84,6 +84,7 @@ namespace Bolzplatzarena.Blog
 				.DeleteOrphans();
 
 			App.Blocks.Register<CodeBlock>();
+			App.Blocks.Register<PerformanceBlock>();
 			App.Modules.Get<Piranha.Manager.Module>()
 				.Scripts.Add("~/js/manager.js");
 
