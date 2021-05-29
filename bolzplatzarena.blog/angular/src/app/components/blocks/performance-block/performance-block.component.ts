@@ -59,10 +59,12 @@ export class PerformanceBlockComponent implements OnChanges {
         time: run ? this.runScenario(scenario) : 0,
       }),
     );
+
     const max = maxBy(results, result => result.time)?.time ?? 0;
     results.forEach(result => {
-      result.percentage = Math.floor((result.time ?? 0 / max) * 100);
+      result.percentage = Math.floor((result.time ! / max) * 100);
     });
+
     return {
       ...this.test,
       loop: this.test.loop ?? 1000,
