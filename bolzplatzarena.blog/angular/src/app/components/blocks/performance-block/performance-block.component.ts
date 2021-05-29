@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnChanges } from '@angular/core';
 import { maxBy } from 'lodash';
+import { Block } from '../../../models/block';
 import { createMomentTest } from '../../../tests/moment';
 import { Scenario } from '../../../tests/scenario.model';
 import { Test } from '../../../tests/test.model';
@@ -13,16 +14,23 @@ interface Result extends Scenario {
   percentage?: number;
 }
 
+const tests: { [index: string]: Test } = {
+  ['createMomentTest']: createMomentTest,
+};
+
 @Component({
   selector: 'app-performance-block',
   templateUrl: './performance-block.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PerformanceBlockComponent implements OnInit {
+export class PerformanceBlockComponent implements OnChanges {
+  @Input() block!: Block;
+
   test: Test = createMomentTest;
   testResult?: TestResult;
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
+    this.test = tests[this.block.body?.value ?? ''] ?? createMomentTest;
     this.testResult = this.getResults();
   }
 
