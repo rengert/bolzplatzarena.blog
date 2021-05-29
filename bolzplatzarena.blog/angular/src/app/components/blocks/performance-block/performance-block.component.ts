@@ -1,10 +1,16 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges } from '@angular/core';
 import { maxBy } from 'lodash';
 import { Block } from '../../../models/block';
+import { forTest } from '../../../tests/for';
 import { keyByTest } from '../../../tests/key-by';
 import { createMomentTest } from '../../../tests/moment';
+import { pullWithAllTest } from '../../../tests/pull-with';
+import { reduceTest } from '../../../tests/reduce';
 import { Scenario } from '../../../tests/scenario.model';
+import { someTest } from '../../../tests/some';
+import { duplicateArrayTest } from '../../../tests/spread';
 import { Test } from '../../../tests/test.model';
+import { uniqueTest } from '../../../tests/unique';
 
 interface TestResult extends Test {
   results: Result[];
@@ -17,7 +23,13 @@ interface Result extends Scenario {
 
 const tests: { [index: string]: Test } = {
   ['createMomentTest']: createMomentTest,
+  ['duplicateArrayTest']: duplicateArrayTest,
+  ['forTest']: forTest,
   ['keyByTest']: keyByTest,
+  ['pullWithAllTest']: pullWithAllTest,
+  ['reduceTest']: reduceTest,
+  ['someTest']: someTest,
+  ['uniqueTest']: uniqueTest,
 };
 
 @Component({
