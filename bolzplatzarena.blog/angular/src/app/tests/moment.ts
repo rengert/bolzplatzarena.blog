@@ -2,18 +2,18 @@ import * as moment from 'moment';
 import { Test } from './test.model';
 
 export const createMomentTest: Test = {
-  name: 'create moment',
+  name: 'Verwendung Datum',
   scenarios: [
     {
-      name: 'create Moment',
+      name: 'Erstelle Moment',
       method: createMoment,
     },
     {
-      name: 'create Date',
+      name: 'Erstelle Date',
       method: createDateFromString,
     },
     {
-      name: 'create Moment from Date',
+      name: 'Erstelle Moment mit Date',
       method: createMomentFromDate,
     },
   ],

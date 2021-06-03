@@ -1,10 +1,17 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges } from '@angular/core';
 import { maxBy } from 'lodash';
+import { BehaviorSubject } from 'rxjs';
 import { Block } from '../../../models/block';
+import { forTest } from '../../../tests/for';
 import { keyByTest } from '../../../tests/key-by';
 import { createMomentTest } from '../../../tests/moment';
+import { pullWithAllTest } from '../../../tests/pull-with';
+import { reduceTest } from '../../../tests/reduce';
 import { Scenario } from '../../../tests/scenario.model';
+import { someTest } from '../../../tests/some';
+import { duplicateArrayTest } from '../../../tests/spread';
 import { Test } from '../../../tests/test.model';
+import { uniqueTest } from '../../../tests/unique';
 
 interface TestResult extends Test {
   results: Result[];
@@ -17,7 +24,13 @@ interface Result extends Scenario {
 
 const tests: { [index: string]: Test } = {
   ['createMomentTest']: createMomentTest,
+  ['duplicateArrayTest']: duplicateArrayTest,
+  ['forTest']: forTest,
   ['keyByTest']: keyByTest,
+  ['pullWithAllTest']: pullWithAllTest,
+  ['reduceTest']: reduceTest,
+  ['someTest']: someTest,
+  ['uniqueTest']: uniqueTest,
 };
 
 @Component({
@@ -28,16 +41,21 @@ const tests: { [index: string]: Test } = {
 export class PerformanceBlockComponent implements OnChanges {
   @Input() block!: Block;
 
+  animating = false;
   test: Test = createMomentTest;
-  testResult?: TestResult;
+  readonly testResult$ = new BehaviorSubject<TestResult | undefined>(undefined);
 
   ngOnChanges(): void {
     this.test = tests[this.block.body?.value ?? ''] ?? createMomentTest;
-    this.testResult = this.getResults();
+    this.testResult$.next(this.getResults());
   }
 
   runTest(): void {
-    this.testResult = this.getResults(true);
+    this.animating = true;
+    setTimeout(() => {
+      this.testResult$.next(this.getResults(true));
+      this.animating = false;
+    }, 16);
   }
 
   private getResults(run = false): TestResult {
@@ -47,10 +65,12 @@ export class PerformanceBlockComponent implements OnChanges {
         time: run ? this.runScenario(scenario) : 0,
       }),
     );
+
     const max = maxBy(results, result => result.time)?.time ?? 0;
     results.forEach(result => {
-      result.percentage = Math.floor((result.time ?? 0 / max) * 100);
+      result.percentage = Math.floor((result.time ! / max) * 100);
     });
+
     return {
       ...this.test,
       loop: this.test.loop ?? 1000,
