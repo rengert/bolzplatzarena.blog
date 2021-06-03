@@ -12,13 +12,15 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        'animate-ping': 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite'
+        'loader': 'loader 1s linear infinite'
       },
       keyframes: {
-        ping: {
-          '75%, 100%': {
-            transform: 'scale(2)',
-            opacity: '0'
+        loader: {
+          '0%': {
+            transform: 'rotate(0)',
+          },
+          '100%': {
+            transform: 'rotate(360deg)',
           }
         }
       }

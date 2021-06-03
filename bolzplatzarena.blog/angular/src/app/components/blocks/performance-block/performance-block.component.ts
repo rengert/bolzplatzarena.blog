@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges } from '@angular/core';
 import { maxBy } from 'lodash';
+import { BehaviorSubject } from 'rxjs';
 import { Block } from '../../../models/block';
 import { forTest } from '../../../tests/for';
 import { keyByTest } from '../../../tests/key-by';
@@ -40,16 +41,21 @@ const tests: { [index: string]: Test } = {
 export class PerformanceBlockComponent implements OnChanges {
   @Input() block!: Block;
 
+  animating = false;
   test: Test = createMomentTest;
-  testResult?: TestResult;
+  readonly testResult$ = new BehaviorSubject<TestResult | undefined>(undefined);
 
   ngOnChanges(): void {
     this.test = tests[this.block.body?.value ?? ''] ?? createMomentTest;
-    this.testResult = this.getResults();
+    this.testResult$.next(this.getResults());
   }
 
   runTest(): void {
-    this.testResult = this.getResults(true);
+    this.animating = true;
+    setTimeout(() => {
+      this.testResult$.next(this.getResults(true));
+      this.animating = false;
+    }, 16);
   }
 
   private getResults(run = false): TestResult {

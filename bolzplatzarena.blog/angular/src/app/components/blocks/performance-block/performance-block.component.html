@@ -1,4 +1,11 @@
-<div *ngIf="testResult" class="shadow-md rounded-lg p-4 mt-4 border-2">
+<div *ngIf="testResult$ | async as testResult" class="shadow-md rounded-lg p-4 mt-4 border-2 relative">
+  <ng-container *ngIf="animating">
+    <div
+      class="absolute rounded-lg top-0 bottom-0 left-0 right-0 flex justify-center items-center bg-blue-400 bg-opacity-50">
+      <div class="w-12 h-12 border-4 border-blue-800 rounded-full animate-loader"
+           style="border-right-color: transparent"></div>
+    </div>
+  </ng-container>
   <h3>{{ testResult.name }}</h3>
   <div *ngFor="let item of testResult.results" class="pt-2">
     <label class="text-sm">{{ item.name }} - {{ item.time | number }}ms</label>
