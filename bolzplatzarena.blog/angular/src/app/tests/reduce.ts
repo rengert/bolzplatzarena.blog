@@ -1,7 +1,7 @@
 import { reduce } from 'lodash';
 import { Test } from './test.model';
 
-const array = [...Array(25000).keys()];
+const array = [...Array(2500).keys()];
 
 export const reduceTest: Test = {
   name: 'reduce lodash vs. pure',
@@ -19,9 +19,9 @@ export const reduceTest: Test = {
 };
 
 function lodashReduce(): void {
-  reduce(array, (sum, n) => sum + n, 0);
+  reduce(array, (sum, n) => n, 0);
 }
 
 function pureReduce(): void {
-  array.reduce((sum, n) => sum + n, 0);
+  array.reduce((sum, n) => n, 0);
 }

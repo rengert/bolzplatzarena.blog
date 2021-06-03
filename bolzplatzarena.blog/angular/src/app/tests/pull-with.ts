@@ -1,7 +1,7 @@
 import { pullAllWith } from 'lodash';
 import { Test } from './test.model';
 
-const array = [...Array(25000).keys()];
+const array = [...Array(2500).keys()];
 const pullArray = [...Array(75).keys()];
 
 export const pullWithAllTest: Test = {
