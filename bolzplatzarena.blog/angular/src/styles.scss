@@ -6,6 +6,7 @@ p {
   margin: 1rem 0;
 }
 
+// may not work for all, so use tailwind: cursor-pointer class
 [ng-reflect-router-link] {
   cursor: pointer;
 }
