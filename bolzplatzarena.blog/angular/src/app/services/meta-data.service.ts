@@ -18,8 +18,8 @@ export class MetaDataService {
 
     const url = document.URL;
     this.meta.updateTag({ name: 'description', content: page.description });
-    this.meta.updateTag({ name: 'keywords', content: page.keywords });
-    this.meta.updateTag({ name: 'robots', content: page.robots });
+    this.meta.updateTag({ name: 'keywords', content: page.keywords ?? 'bolzplatzarena,asp.net,angular,typescript' });
+    this.meta.updateTag({ name: 'robots', content: page.robots ?? 'infex,follow' });
     // open graph
     this.meta.updateTag({ property: 'og-description', content: page.description });
     this.meta.updateTag({ property: 'og-title', content: page.metaTitle ?? page.title });
