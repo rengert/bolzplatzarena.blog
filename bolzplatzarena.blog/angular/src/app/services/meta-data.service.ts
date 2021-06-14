@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { Page } from '../models/page';
+import { MetaInfo } from '../models/meta-info';
 
 @Injectable({ providedIn: 'root' })
 export class MetaDataService {
@@ -10,7 +10,7 @@ export class MetaDataService {
   ) {
   }
 
-  update(page: Page | undefined): void {
+  update(page: MetaInfo | undefined): void {
     if (!page) {
       this.emptyMeta();
       return;

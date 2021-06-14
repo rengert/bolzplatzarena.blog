@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map, switchMap, tap } from 'rxjs/operators';
-import { Page } from '../../models/page';
+import { MetaInfo } from '../../models/meta-info';
 import { Teaser } from '../../models/teaser';
 import { MetaDataService } from '../../services/meta-data.service';
 import { PageService } from '../../services/page.service';
@@ -21,8 +21,11 @@ export class TagsComponent {
       filter(tag => tag),
       tap(tag => metaData.update({
         title: `Posts zum Thema: ${tag}`,
+        metaTitle: `Posts zum Thema: ${tag}`,
+        description: '',
+        keywords: '',
         robots: 'follow,no-index',
-      } as Page)),
+      } as MetaInfo)),
       switchMap(tag => page.archive().then(
         teasers => teasers.filter(({ tags }) => tags.some(({ title }) => title.toLowerCase() === tag)),
       )),
