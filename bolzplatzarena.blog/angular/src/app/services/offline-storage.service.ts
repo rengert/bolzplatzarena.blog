@@ -8,8 +8,8 @@ export class OfflineStorageService {
 
   constructor() {
     this.db = new Dexie('offline');
-    this.db.version(4).stores({
-      pages: '++id, link',
+    this.db.version(5).stores({
+      pages: '++id, link, type',
       navigation: '++id, sortOrder',
     });
   }

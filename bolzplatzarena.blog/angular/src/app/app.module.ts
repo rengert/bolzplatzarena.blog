@@ -19,6 +19,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { ArchiveComponent } from './components/pages/archive/archive.component';
 import { TeaserComponent } from './components/pages/archive/teaser/teaser.component';
 import { ButtonComponent } from './components/button/button.component';
+import { TagsComponent } from './components/tags/tags.component';
 
 registerLocaleData(localeDe);
 
@@ -37,6 +38,7 @@ registerLocaleData(localeDe);
     PostComponent,
     TeaserComponent,
     ButtonComponent,
+    TagsComponent,
   ],
   imports: [
     BrowserModule,
