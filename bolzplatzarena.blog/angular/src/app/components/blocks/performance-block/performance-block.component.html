@@ -8,14 +8,14 @@
   </ng-container>
   <h3>{{ testResult.name }}</h3>
   <div *ngFor="let item of testResult.results" class="pt-2">
-    <label class="text-sm">{{ item.name }} - {{ item.time | number }}ms</label>
+    <span class="text-sm">{{ item.name }} - {{ item.time | number }}ms</span>
     <div class="mt-2 bg-gray-200 dark:bg-black rounded-full overflow-hidden">
       <div [style.width.%]="item.percentage"
            class="bg-blue-200 h-4"
            role="progressbar"
            [attr.aria-valuenow]="item.percentage"
-           aria-valuemin="0"
-           aria-valuemax="100">
+           [attr.aria-valuemin]="0"
+           [attr.aria-valuemax]="100">
       </div>
     </div>
   </div>
