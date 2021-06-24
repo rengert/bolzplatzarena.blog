@@ -2,6 +2,7 @@ import { registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import localeDe from '@angular/common/locales/de';
 import { LOCALE_ID, NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
@@ -13,6 +14,7 @@ import { HtmlBlockComponent } from './components/blocks/html-block/html-block.co
 import { PerformanceBlockComponent } from './components/blocks/performance-block/performance-block.component';
 import { ButtonComponent } from './components/button/button.component';
 import { CmsComponent } from './components/cms/cms.component';
+import { FeedbackComponent } from './components/feedback/feedback.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
@@ -37,6 +39,7 @@ registerLocaleData(localeDe);
     PerformanceBlockComponent,
     TeaserComponent,
     TagsComponent,
+    FeedbackComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +51,7 @@ registerLocaleData(localeDe);
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000',
     }),
+    ReactiveFormsModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'de' }],
   bootstrap: [AppComponent],

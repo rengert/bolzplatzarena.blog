@@ -1,0 +1,33 @@
+<div class="max-w-4xl px-5 py-6 mb-4 bg-white rounded-lg shadow-md lg:px-10">
+  <h1 class="text-2xl">Feedback</h1>
+  <p>Lorem ipsum</p>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="mb-3 space-y-2 w-full text-xs">
+      <label for="name" class="font-semibold text-gray-600 py-2">Dein Name <abbr title="Pflichfeld">*</abbr></label>
+      <input id="name"
+             formControlName="name"
+             placeholder="Dein Name"
+             class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+             required="required"
+             type="text"
+             name="name">
+    </div>
+    <div class="mb-3 space-y-2 w-full text-xs">
+      <label for="comment"
+             class="font-semibold text-gray-600 py-2">Dein Kommentar <abbr title="Pflichfeld">*</abbr></label>
+      <textarea id="comment"
+                formControlName="comment"
+                placeholder="Dein Kommentar"
+                class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-32 p-4"
+                required="required"
+                type="text"
+                name="name"></textarea>
+    </div>
+    <button type="submit"
+            [class.cursor-not-allowed]="!form.valid"
+            [class.opacity-50]="!form.valid"
+            [disabled]="!form.valid"
+            class="bg-blue-500 text-white font-bold py-2 px-4 rounded">Feedback abgeben
+    </button>
+  </form>
+</div>

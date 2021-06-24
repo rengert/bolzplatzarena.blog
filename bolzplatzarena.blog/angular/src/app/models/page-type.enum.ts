@@ -1,3 +1,4 @@
 export enum PageType {
-  Archive = 'ArchivePage'
+  Archive = 'ArchivePage',
+  Post = 'Post',
 }
