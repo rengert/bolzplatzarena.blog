@@ -1,5 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BehaviorSubject } from 'rxjs';
+import { Page } from '../../models/page';
 import { FeedbackService } from '../../services/feedback.service';
 
 enum FormState {
@@ -15,10 +17,12 @@ enum FormState {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FeedbackComponent {
+  @Input() page!: Page;
+
   readonly FormState = FormState;
   readonly form: FormGroup;
 
-  state = FormState.Unknown;
+  readonly state$ = new BehaviorSubject(FormState.Unknown);
 
   constructor(
     formBuilder: FormBuilder,
@@ -31,10 +35,12 @@ export class FeedbackComponent {
   }
 
   async submit(): Promise<void> {
-    if (!await this.feedback.send()) {
-      this.state = FormState.Faulty;
+    if (!await this.feedback.send({ slug: this.page.link, ...this.form.value })) {
+      this.state$.next(FormState.Faulty);
       return;
     }
-    this.state = FormState.Sent;
+
+    this.form.reset();
+    this.state$.next(FormState.Sent);
   }
 }

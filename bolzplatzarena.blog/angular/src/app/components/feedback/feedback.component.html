@@ -29,11 +29,13 @@
             [disabled]="!form.valid"
             class="bg-blue-500 text-white font-bold py-2 px-4 rounded">Feedback abgeben
     </button>
-    <div *ngIf="state === FormState.Faulty" class="mb-3 space-y-2 w-full text-xs">
-      <p>War doof</p>
-    </div>
-    <div *ngIf="state === FormState.Sent" class="mb-3 space-y-2 w-full text-xs">
-      <p>War doch gar nicht schlecht</p>
-    </div>
+    <ng-container *ngIf="state$ | async as state">
+      <div *ngIf="state === FormState.Faulty" class="mb-3 space-y-2 w-full text-xs text-red-600">
+        <p>War doof</p>
+      </div>
+      <div *ngIf="state === FormState.Sent" class="mb-3 space-y-2 w-full text-xs">
+        <p>War doch gar nicht schlecht</p>
+      </div>
+    </ng-container>
   </form>
 </div>
