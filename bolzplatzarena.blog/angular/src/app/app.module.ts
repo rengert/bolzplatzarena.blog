@@ -11,14 +11,13 @@ import { BlockComponent } from './components/blocks/block/block.component';
 import { CodeBlockComponent } from './components/blocks/code-block/code-block.component';
 import { HtmlBlockComponent } from './components/blocks/html-block/html-block.component';
 import { PerformanceBlockComponent } from './components/blocks/performance-block/performance-block.component';
-import { PostComponent } from './components/blocks/post/post.component';
+import { ButtonComponent } from './components/button/button.component';
 import { CmsComponent } from './components/cms/cms.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ArchiveComponent } from './components/pages/archive/archive.component';
 import { TeaserComponent } from './components/pages/archive/teaser/teaser.component';
-import { ButtonComponent } from './components/button/button.component';
 import { TagsComponent } from './components/tags/tags.component';
 
 registerLocaleData(localeDe);
@@ -28,6 +27,7 @@ registerLocaleData(localeDe);
     AppComponent,
     ArchiveComponent,
     BlockComponent,
+    ButtonComponent,
     CmsComponent,
     CodeBlockComponent,
     FooterComponent,
@@ -35,9 +35,7 @@ registerLocaleData(localeDe);
     HtmlBlockComponent,
     NavigationComponent,
     PerformanceBlockComponent,
-    PostComponent,
     TeaserComponent,
-    ButtonComponent,
     TagsComponent,
   ],
   imports: [
