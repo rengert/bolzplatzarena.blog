@@ -8,9 +8,10 @@ export class OfflineStorageService {
 
   constructor() {
     this.db = new Dexie('offline');
-    this.db.version(5).stores({
+    this.db.version(6).stores({
       pages: '++id, link, type',
       navigation: '++id, sortOrder',
+      comments: '++id, contentId',
     });
   }
 
@@ -37,5 +38,9 @@ export class OfflineStorageService {
 
     await this.db.table<Page>('navigation').clear();
     await this.db.table<Page>('navigation').bulkPut(pages);
+  }
+
+  async addComments(items: Comment[]): Promise<void> {
+    await this.db.table<Comment>('comments').bulkPut(items);
   }
 }
