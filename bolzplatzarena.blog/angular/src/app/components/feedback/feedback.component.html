@@ -6,12 +6,12 @@
         <strong>
           {{ comment.author }} schrieb <small>({{ comment.created | date : 'dd.MMM yyyy HH:mm' }})</small>:
         </strong>
-        <p style="white-space: pre">{{ comment.body }}</p>
+        <p style="white-space: break-spaces">{{ comment.body }}</p>
       </li>
     </ul>
   </ng-container>
-  <h1 class="text-2xl">Feedback</h1>
-  <p>Lorem ipsum</p>
+  <h2 class="text-2xl">Feedback</h2>
+  <p>Fehler? Fragen? Hinweise?<br>Melde Dich gern bei mir!</p>
   <form [formGroup]="form" (ngSubmit)="submit()">
     <div class="mb-3 space-y-2 w-full text-xs">
       <label for="name" class="font-semibold text-gray-600 py-2">Dein Name <abbr title="Pflichfeld">*</abbr></label>
