@@ -42,10 +42,10 @@
     </button>
     <ng-container *ngIf="state$ | async as state">
       <div *ngIf="state === FormState.Faulty" class="mb-3 space-y-2 w-full text-xs text-red-600">
-        <p>War doof</p>
+        <p>Der Kommentar konnte leider nicht angelegt werden. Versuche es bitte nochmals.</p>
       </div>
       <div *ngIf="state === FormState.Sent" class="mb-3 space-y-2 w-full text-xs">
-        <p>War doch gar nicht schlecht</p>
+        <p>Danke für deinen Kommentar. Dieser wird geprüft und schnellstens freigegeben.</p>
       </div>
     </ng-container>
   </form>
