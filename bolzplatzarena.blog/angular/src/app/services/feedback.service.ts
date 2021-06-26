@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { of, timer } from 'rxjs';
+import { Observable, of, timer } from 'rxjs';
 import { catchError, mapTo, switchMap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
+import { Page } from '../models/page';
 import { OfflineStorageService } from './offline-storage.service';
 
 @Injectable({ providedIn: 'root' })
@@ -26,6 +27,10 @@ export class FeedbackService {
     timer(1000, 5 * 60 * 1000).pipe(
       switchMap(() => this.update()),
     ).subscribe();
+  }
+
+  byPage(page: Page): Observable<Comment[]> {
+    return this.commentStorage.commentsByContentId(page.id);
   }
 
   private update(): Promise<any> {

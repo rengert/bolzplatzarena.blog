@@ -1,4 +1,15 @@
 <div class="max-w-4xl px-5 py-6 mb-4 bg-white rounded-lg shadow-md lg:px-10">
+  <h2>Kommentare</h2>
+  <ng-container *ngIf="comments$ | async as comments">
+    <ul>
+      <li *ngFor="let comment of comments" class="mt-4">
+        <strong>
+          {{ comment.author }} schrieb <small>({{ comment.created | date : 'dd.MMM yyyy HH:mm' }})</small>:
+        </strong>
+        <p style="white-space: pre">{{ comment.body }}</p>
+      </li>
+    </ul>
+  </ng-container>
   <h1 class="text-2xl">Feedback</h1>
   <p>Lorem ipsum</p>
   <form [formGroup]="form" (ngSubmit)="submit()">

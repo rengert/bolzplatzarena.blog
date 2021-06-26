@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import Dexie from 'dexie';
+import { from, Observable } from 'rxjs';
 import { Page } from '../models/page';
 
 @Injectable({ providedIn: 'root' })
@@ -21,6 +22,14 @@ export class OfflineStorageService {
       link = '/blog';
     }
     return this.db.table<Page>('pages').where({ link }).first();
+  }
+
+  commentsByContentId(contentId: string): Observable<Comment[]> {
+    return from(this.db.table<Comment>('comments')
+      .where({ contentId })
+      .reverse()
+      .sortBy('created'),
+    );
   }
 
   async addPage(page: Page): Promise<void> {

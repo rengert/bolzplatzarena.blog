@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Page } from '../../models/page';
 import { FeedbackService } from '../../services/feedback.service';
 
@@ -16,13 +16,15 @@ enum FormState {
   styleUrls: ['./feedback.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FeedbackComponent {
+export class FeedbackComponent implements OnChanges {
   @Input() page!: Page;
 
   readonly FormState = FormState;
   readonly form: FormGroup;
 
   readonly state$ = new BehaviorSubject(FormState.Unknown);
+
+  comments$: Observable<Comment[]> | undefined;
 
   constructor(
     formBuilder: FormBuilder,
@@ -32,6 +34,10 @@ export class FeedbackComponent {
       name: ['', Validators.required],
       comment: ['', Validators.required],
     });
+  }
+
+  ngOnChanges(): void {
+    this.comments$ = this.feedback.byPage(this.page);
   }
 
   async submit(): Promise<void> {
