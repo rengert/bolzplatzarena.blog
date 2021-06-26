@@ -6,8 +6,6 @@ using Bolzplatzarena.Blog.Models;
 using Bolzplatzarena.Blog.Models.Requests;
 using Microsoft.EntityFrameworkCore;
 using Piranha;
-using Piranha.Manager.Models;
-using Piranha.Manager.Services;
 using Piranha.Models;
 using Comment = Bolzplatzarena.Blog.Models.Comment;
 

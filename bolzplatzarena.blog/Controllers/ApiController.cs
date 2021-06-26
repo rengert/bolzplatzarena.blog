@@ -110,7 +110,8 @@ namespace Bolzplatzarena.Blog.Controllers
 			return _service.GetCommentsAsync();
 		}
 
-		public Task<Bolzplatzarena.Blog.Models.Comment> Comment(CommentRequest comment)
+		[HttpPost]
+		public Task<Models.Comment> Comment(CommentRequest comment)
 		{
 			return _service.CreateCommentAsync(comment);
 		}
