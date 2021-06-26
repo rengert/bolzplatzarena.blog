@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import Dexie from 'dexie';
 import { from, Observable } from 'rxjs';
 import { Page } from '../models/page';
+import { PostComment } from '../models/post-comment';
 
 @Injectable({ providedIn: 'root' })
 export class OfflineStorageService {
@@ -24,8 +25,8 @@ export class OfflineStorageService {
     return this.db.table<Page>('pages').where({ link }).first();
   }
 
-  commentsByContentId(contentId: string): Observable<Comment[]> {
-    return from(this.db.table<Comment>('comments')
+  commentsByContentId(contentId: string): Observable<PostComment[]> {
+    return from(this.db.table<PostComment>('comments')
       .where({ contentId })
       .reverse()
       .sortBy('created'),

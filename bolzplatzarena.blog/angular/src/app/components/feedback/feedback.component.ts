@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, Input, OnChanges } from '@angular/c
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Page } from '../../models/page';
+import { PostComment } from '../../models/post-comment';
 import { FeedbackService } from '../../services/feedback.service';
 
 enum FormState {
@@ -24,7 +25,7 @@ export class FeedbackComponent implements OnChanges {
 
   readonly state$ = new BehaviorSubject(FormState.Unknown);
 
-  comments$: Observable<Comment[]> | undefined;
+  comments$: Observable<PostComment[]> | undefined;
 
   constructor(
     formBuilder: FormBuilder,

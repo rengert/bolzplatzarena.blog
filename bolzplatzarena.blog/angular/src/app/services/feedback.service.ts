@@ -4,6 +4,7 @@ import { Observable, of, timer } from 'rxjs';
 import { catchError, mapTo, switchMap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Page } from '../models/page';
+import { PostComment } from '../models/post-comment';
 import { OfflineStorageService } from './offline-storage.service';
 
 @Injectable({ providedIn: 'root' })
@@ -29,7 +30,7 @@ export class FeedbackService {
     ).subscribe();
   }
 
-  byPage(page: Page): Observable<Comment[]> {
+  byPage(page: Page): Observable<PostComment[]> {
     return this.commentStorage.commentsByContentId(page.id);
   }
 
