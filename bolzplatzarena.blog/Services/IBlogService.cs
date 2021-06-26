@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Bolzplatzarena.Blog.Models;
 using Piranha.Models;
+using Bolzplatzarena.Blog.Models;
+using Bolzplatzarena.Blog.Models.Requests;
+using Comment = Bolzplatzarena.Blog.Models.Comment;
 
 namespace Bolzplatzarena.Blog.Services
 {
@@ -13,5 +15,9 @@ namespace Bolzplatzarena.Blog.Services
 		Task<IEnumerable<Taxonomy>> GetCategoriesAsync(ArchivePage page);
 
 		Task<PostArchive<Post>> Find(ArchivePage page, Guid? tag, Guid? category, string term = null);
+
+		Task<IEnumerable<Piranha.Models.Comment>> GetCommentsAsync();
+
+		Task<Comment> CreateCommentAsync(CommentRequest comment);
 	}
 }

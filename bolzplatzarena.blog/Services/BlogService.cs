@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Bolzplatzarena.Blog.Models;
+using Bolzplatzarena.Blog.Models.Requests;
 using Microsoft.EntityFrameworkCore;
 using Piranha;
+using Piranha.Manager.Models;
+using Piranha.Manager.Services;
 using Piranha.Models;
+using Comment = Bolzplatzarena.Blog.Models.Comment;
 
 namespace Bolzplatzarena.Blog.Services
 {
@@ -59,7 +63,38 @@ namespace Bolzplatzarena.Blog.Services
 			}
 			return model;
 		}
-		
+
+		public Task<IEnumerable<Piranha.Models.Comment>> GetCommentsAsync()
+		{
+			return _api.Posts.GetAllCommentsAsync(null, true);
+		}
+
+		public async Task<Comment> CreateCommentAsync(CommentRequest comment)
+		{
+			var post = await _api.Posts.GetBySlugAsync("blog", comment.Slug.Replace("/blog/",""));
+			if (post == null)
+			{
+				throw new ArgumentException("Missing post");
+			}
+
+			var data = new Comment
+			{
+				Author = comment.Name,
+				Body = comment.Comment,
+				ContentId = post.Id,
+				Email = "email@email.de",
+				Created = DateTime.Now,
+				IsApproved = false,
+			};
+
+			await _api.Posts.SaveCommentAsync(
+				post.Id,
+				data
+				);
+
+			return data;
+		}
+
 		private IQueryable<Piranha.Data.Post> GetQuery(Guid archiveId, Guid? categoryId = null, Guid? tagId = null, string term = null)
 		{
 			// Build the query.

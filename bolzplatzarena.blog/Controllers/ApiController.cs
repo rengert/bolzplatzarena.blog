@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Bolzplatzarena.Blog.Models;
 using Bolzplatzarena.Blog.Models.Angular;
+using Bolzplatzarena.Blog.Models.Requests;
 using Bolzplatzarena.Blog.Services;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -102,6 +103,16 @@ namespace Bolzplatzarena.Blog.Controllers
 				Title = page.Title,
 				SortOrder = page.SortOrder,
 			});
+		}
+
+		public Task<IEnumerable<Piranha.Models.Comment>> Comments()
+		{
+			return _service.GetCommentsAsync();
+		}
+
+		public Task<Bolzplatzarena.Blog.Models.Comment> Comment(CommentRequest comment)
+		{
+			return _service.CreateCommentAsync(comment);
 		}
 	}
 }
