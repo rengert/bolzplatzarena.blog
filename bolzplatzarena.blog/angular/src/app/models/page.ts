@@ -4,6 +4,7 @@ import { PageType } from './page-type.enum';
 import { Teaser } from './teaser';
 
 export interface Page extends MetaInfo {
+  id: string;
   blocks: Block[];
   posts: Teaser[];
   link: string;

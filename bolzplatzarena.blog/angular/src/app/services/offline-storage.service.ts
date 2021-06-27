@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import Dexie from 'dexie';
+import { from, Observable } from 'rxjs';
 import { Page } from '../models/page';
+import { PostComment } from '../models/post-comment';
 
 @Injectable({ providedIn: 'root' })
 export class OfflineStorageService {
@@ -8,9 +10,10 @@ export class OfflineStorageService {
 
   constructor() {
     this.db = new Dexie('offline');
-    this.db.version(5).stores({
+    this.db.version(6).stores({
       pages: '++id, link, type',
       navigation: '++id, sortOrder',
+      comments: '++id, contentId',
     });
   }
 
@@ -20,6 +23,14 @@ export class OfflineStorageService {
       link = '/blog';
     }
     return this.db.table<Page>('pages').where({ link }).first();
+  }
+
+  commentsByContentId(contentId: string): Observable<PostComment[]> {
+    return from(this.db.table<PostComment>('comments')
+      .where({ contentId })
+      .reverse()
+      .sortBy('created'),
+    );
   }
 
   async addPage(page: Page): Promise<void> {
@@ -37,5 +48,9 @@ export class OfflineStorageService {
 
     await this.db.table<Page>('navigation').clear();
     await this.db.table<Page>('navigation').bulkPut(pages);
+  }
+
+  async addComments(items: Comment[]): Promise<void> {
+    await this.db.table<Comment>('comments').bulkPut(items);
   }
 }

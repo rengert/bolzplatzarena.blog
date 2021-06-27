@@ -69,7 +69,7 @@
               "outputHashing": "all",
               "aot": true,
               "vendorChunk": true,
-              "extractLicenses": false,
+              "extractLicenses": true,
               "buildOptimizer": true,
               "sourceMap": false,
               "optimization": true,

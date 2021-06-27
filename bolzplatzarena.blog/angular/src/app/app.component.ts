@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import { BehaviorSubject, timer } from 'rxjs';
 import { filter, switchMap } from 'rxjs/operators';
+import { FeedbackService } from './services/feedback.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ import { filter, switchMap } from 'rxjs/operators';
 export class AppComponent {
   readonly versionUpdate = new BehaviorSubject(false);
 
-  constructor(update: SwUpdate) {
+  constructor(update: SwUpdate, feedback: FeedbackService) {
     update.available.subscribe(() => {
       update.activateUpdate().then(() => this.versionUpdate.next(true));
     });
@@ -19,6 +20,8 @@ export class AppComponent {
       filter(() => update.isEnabled),
       switchMap(() => update.checkForUpdate()),
     ).subscribe();
+
+    feedback.init();
   }
 
   reload(): void {

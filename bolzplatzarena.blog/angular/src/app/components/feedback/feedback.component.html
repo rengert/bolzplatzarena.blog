@@ -1,0 +1,55 @@
+<div class="max-w-4xl px-5 py-6 mb-4 bg-white rounded-lg shadow-md lg:px-10">
+  <h2>Kommentare</h2>
+  <ng-container *ngIf="comments$ | async as comments">
+    <ul *ngIf="comments.length; else noData">
+      <li *ngFor="let comment of comments" class="mt-4">
+        <strong>
+          {{ comment.author }} schrieb <small>({{ comment.created | date : 'dd.MMM yyyy HH:mm' }})</small>:
+        </strong>
+        <p style="white-space: break-spaces">{{ comment.body }}</p>
+      </li>
+    </ul>
+    <ng-template #noData>
+      <p>Noch keine Kommentare vorhanden.</p>
+    </ng-template>
+  </ng-container>
+  <h2 class="text-2xl">Feedback</h2>
+  <p>Fehler? Fragen? Hinweise?<br>Melde Dich gern bei mir!</p>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="mb-3 space-y-2 w-full text-xs">
+      <label for="name" class="font-semibold text-gray-600 py-2">Dein Name <abbr title="Pflichfeld">*</abbr></label>
+      <input id="name"
+             formControlName="name"
+             placeholder="Dein Name"
+             class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+             required="required"
+             type="text"
+             name="name">
+    </div>
+    <div class="mb-3 space-y-2 w-full text-xs">
+      <label for="comment"
+             class="font-semibold text-gray-600 py-2">Dein Kommentar <abbr title="Pflichfeld">*</abbr></label>
+      <textarea id="comment"
+                formControlName="comment"
+                placeholder="Dein Kommentar"
+                class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-32 p-4"
+                required="required"
+                type="text"
+                name="name"></textarea>
+    </div>
+    <button type="submit"
+            [class.cursor-not-allowed]="!form.valid"
+            [class.opacity-50]="!form.valid"
+            [disabled]="!form.valid"
+            class="bg-blue-500 text-white font-bold py-2 px-4 rounded">Feedback abgeben
+    </button>
+    <ng-container *ngIf="state$ | async as state">
+      <div *ngIf="state === FormState.Faulty" class="mb-3 space-y-2 w-full text-xs text-red-600">
+        <p>Der Kommentar konnte leider nicht angelegt werden. Versuche es bitte nochmals.</p>
+      </div>
+      <div *ngIf="state === FormState.Sent" class="mb-3 space-y-2 w-full text-xs">
+        <p>Danke für deinen Kommentar. Dieser wird geprüft und schnellstens freigegeben.</p>
+      </div>
+    </ng-container>
+  </form>
+</div>
