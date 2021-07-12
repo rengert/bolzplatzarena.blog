@@ -1,4 +1,4 @@
-import { keyBy } from 'lodash';
+import keyBy from 'lodash/keyBy';
 import { Test } from './test.model';
 
 interface Dictionary<T> {

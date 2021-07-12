@@ -1,4 +1,4 @@
-import { uniq } from 'lodash';
+import uniq from 'lodash/uniq';
 import { Test } from './test.model';
 
 const array = [...Array(25000).keys()].map(item => ({

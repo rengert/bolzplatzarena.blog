@@ -1,4 +1,4 @@
-import { pullAllWith } from 'lodash';
+import pullAllWith from 'lodash/pullAllWith';
 import { Test } from './test.model';
 
 const array = [...Array(2500).keys()];
