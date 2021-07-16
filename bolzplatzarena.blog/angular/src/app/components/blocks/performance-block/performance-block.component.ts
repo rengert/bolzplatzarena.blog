@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges } from '@angular/core';
-import maxBy from 'lodash/maxBy';
+import maxBy from 'lodash-es/maxBy';
 import { BehaviorSubject } from 'rxjs/';
 import { Block } from '../../../models/block';
 import { forTest } from '../../../tests/for';

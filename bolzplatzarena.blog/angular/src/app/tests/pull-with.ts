@@ -1,4 +1,4 @@
-import pullAllWith from 'lodash/pullAllWith';
+import pullAllWith from 'lodash-es/pullAllWith';
 import { Test } from './test.model';
 
 const array = [...Array(2500).keys()];
@@ -29,11 +29,9 @@ function pullAllWithTest(): void {
 }
 
 function pullWithFindAndIncludes(): void {
-  let localArray = array;
-  localArray = localArray.filter(item => !pullArray.includes(item));
+  array.filter(item => !pullArray.includes(item));
 }
 
 function pullWithFindAndSome(): void {
-  let localArray = array;
-  localArray = localArray.filter(item => !pullArray.some(a => item === a));
+  array.filter(item => !pullArray.some(a => item === a));
 }
