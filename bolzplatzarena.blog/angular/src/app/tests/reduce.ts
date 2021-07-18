@@ -1,4 +1,4 @@
-import { reduce } from 'lodash';
+import reduce from 'lodash-es/reduce';
 import { Test } from './test.model';
 
 const array = [...Array(2500).keys()];

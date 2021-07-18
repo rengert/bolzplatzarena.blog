@@ -1,4 +1,4 @@
-import { uniq } from 'lodash';
+import uniq from 'lodash-es/uniq';
 import { Test } from './test.model';
 
 const array = [...Array(25000).keys()].map(item => ({
@@ -26,5 +26,5 @@ function uniqueTestMethod(): void {
 }
 
 function setTest(): void {
-  const unique = [...new Set(array.map(item => item.value))];
+  [...new Set(array.map(item => item.value))];
 }
