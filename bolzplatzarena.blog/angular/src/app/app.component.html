@@ -13,7 +13,10 @@
         </nav>
       </div>
     </section>
-    <app-navigation class="w-4/12 pl-8 hidden lg:block"></app-navigation>
+    <section class="w-4/12 pl-8 hidden lg:block">
+      <app-navigation></app-navigation>
+      <app-tag-cloud class="block pt-8"></app-tag-cloud>
+    </section>
   </div>
 </main>
 <div *ngIf="versionUpdate | async"
