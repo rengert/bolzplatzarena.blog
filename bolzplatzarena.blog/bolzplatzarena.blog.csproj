@@ -8,18 +8,18 @@
 
   <ItemGroup>
     <PackageReference Include="Bolzplatzarena.AspNetCore" Version="0.0.4" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.7" />
-    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="5.0.7" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.7" />
-    <PackageReference Include="Piranha" Version="9.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="5.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.8" />
+    <PackageReference Include="Piranha" Version="9.1.1" />
     <PackageReference Include="Piranha.AspNetCore" Version="9.1.0" />
     <PackageReference Include="Piranha.AspNetCore.Identity.SQLite" Version="9.1.0" />
     <PackageReference Include="Piranha.AttributeBuilder" Version="9.1.0" />
-    <PackageReference Include="Piranha.Data.EF" Version="9.1.0" />
+    <PackageReference Include="Piranha.Data.EF" Version="9.1.1" />
     <PackageReference Include="Piranha.Data.EF.SQLite" Version="9.1.0" />
     <PackageReference Include="Piranha.ImageSharp" Version="9.1.0" />
     <PackageReference Include="Piranha.Local.FileStorage" Version="9.1.0" />
-    <PackageReference Include="Piranha.Manager" Version="9.1.0" />
+    <PackageReference Include="Piranha.Manager" Version="9.1.1" />
     <PackageReference Include="Piranha.Manager.TinyMCE" Version="9.1.0" />
   </ItemGroup>
 

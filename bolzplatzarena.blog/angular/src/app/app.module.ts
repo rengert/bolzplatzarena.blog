@@ -21,6 +21,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { ArchiveComponent } from './components/pages/archive/archive.component';
 import { TeaserComponent } from './components/pages/archive/teaser/teaser.component';
 import { TagsComponent } from './components/tags/tags.component';
+import { TagCloudComponent } from './components/tag-cloud/tag-cloud.component';
 
 registerLocaleData(localeDe);
 
@@ -40,6 +41,7 @@ registerLocaleData(localeDe);
     TeaserComponent,
     TagsComponent,
     FeedbackComponent,
+    TagCloudComponent,
   ],
   imports: [
     BrowserModule,
