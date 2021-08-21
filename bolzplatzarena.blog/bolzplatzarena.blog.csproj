@@ -8,9 +8,9 @@
 
   <ItemGroup>
     <PackageReference Include="Bolzplatzarena.AspNetCore" Version="0.0.4" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.8" />
-    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="5.0.8" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="5.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.9" />
     <PackageReference Include="Piranha" Version="9.1.1" />
     <PackageReference Include="Piranha.AspNetCore" Version="9.1.0" />
     <PackageReference Include="Piranha.AspNetCore.Identity.SQLite" Version="9.1.0" />
