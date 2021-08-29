@@ -29,7 +29,6 @@ export class TagsComponent {
       switchMap(tag => page.archive().then(
         teasers => teasers.filter(({ tags }) => tags.some(({ title }) => title.toLowerCase() === tag)),
       )),
-      tap(() => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })),
     );
   }
 }

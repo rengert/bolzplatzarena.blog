@@ -12,6 +12,7 @@ import { BlockComponent } from './components/blocks/block/block.component';
 import { CodeBlockComponent } from './components/blocks/code-block/code-block.component';
 import { HtmlBlockComponent } from './components/blocks/html-block/html-block.component';
 import { PerformanceBlockComponent } from './components/blocks/performance-block/performance-block.component';
+import { SoundBlockComponent } from './components/blocks/sound-block/sound-block.component';
 import { ButtonComponent } from './components/button/button.component';
 import { CmsComponent } from './components/cms/cms.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
@@ -20,9 +21,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ArchiveComponent } from './components/pages/archive/archive.component';
 import { TeaserComponent } from './components/pages/archive/teaser/teaser.component';
-import { TagsComponent } from './components/tags/tags.component';
 import { TagCloudComponent } from './components/tag-cloud/tag-cloud.component';
-import { SoundComponent } from './components/blocks/sound/sound.component';
+import { TagsComponent } from './components/tags/tags.component';
 
 registerLocaleData(localeDe);
 
@@ -34,16 +34,16 @@ registerLocaleData(localeDe);
     ButtonComponent,
     CmsComponent,
     CodeBlockComponent,
+    FeedbackComponent,
     FooterComponent,
     HeaderComponent,
     HtmlBlockComponent,
     NavigationComponent,
     PerformanceBlockComponent,
-    TeaserComponent,
-    TagsComponent,
-    FeedbackComponent,
+    SoundBlockComponent,
     TagCloudComponent,
-    SoundComponent,
+    TagsComponent,
+    TeaserComponent,
   ],
   imports: [
     BrowserModule,
