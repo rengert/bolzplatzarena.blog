@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, timer } from 'rxjs';
+import { firstValueFrom, Observable, of, timer } from 'rxjs';
 import { catchError, mapTo, switchMap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Page } from '../models/page';
@@ -16,12 +16,13 @@ export class FeedbackService {
   }
 
   send(data: { slug: string, name: string, comment: string }): Promise<boolean> {
-    return this.http.post(`${environment.apiUrl}/api/comment`, data)
-      .pipe(
-        mapTo(true),
-        catchError(() => of(false)),
-      )
-      .toPromise();
+    return firstValueFrom(
+      this.http.post(`${environment.apiUrl}/api/comment`, data)
+        .pipe(
+          mapTo(true),
+          catchError(() => of(false)),
+        )
+    );
   }
 
   init(): void {
@@ -35,9 +36,9 @@ export class FeedbackService {
   }
 
   private update(): Promise<any> {
-    return this.http.get<Comment[]>(`${environment.apiUrl}/api/comments`)
+    return firstValueFrom(this.http.get<Comment[]>(`${environment.apiUrl}/api/comments`)
       .pipe(
         switchMap(data => this.commentStorage.addComments(data)),
-      ).toPromise();
+      ));
   }
 }
