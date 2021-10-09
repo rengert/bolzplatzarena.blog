@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
-import { catchError, filter, first, switchMap } from 'rxjs/operators';
+import { firstValueFrom, of } from 'rxjs';
+import { catchError, filter, switchMap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Page } from '../models/page';
 import { Teaser } from '../models/teaser';
@@ -26,8 +26,8 @@ export class PageService {
       this.update(slug);
       return page;
     }
-    const remotePage = await this.http.get<Page>(`${environment.apiUrl}/api/byslug${slug}`)
-      .pipe(catchError(() => of(undefined)), first()).toPromise();
+    const remotePage = await firstValueFrom(this.http.get<Page>(`${environment.apiUrl}/api/byslug${slug}`)
+      .pipe(catchError(() => of(undefined))));
     if (remotePage) {
       void this.pageStorage.addPage(remotePage);
     }
@@ -35,12 +35,11 @@ export class PageService {
   }
 
   private update(slug: string): void {
-    void this.http.get<Page>(`${environment.apiUrl}/api/byslug${slug}`)
+    void firstValueFrom(this.http.get<Page>(`${environment.apiUrl}/api/byslug${slug}`)
       .pipe(
         catchError(() => of(undefined)),
-        first(),
         filter(page => !!page),
         switchMap(page => this.pageStorage.addPage(page !)),
-      ).toPromise();
+      ));
   }
 }
