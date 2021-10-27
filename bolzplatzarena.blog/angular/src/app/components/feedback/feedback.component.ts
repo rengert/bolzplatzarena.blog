@@ -14,7 +14,6 @@ enum FormState {
 @Component({
   selector: 'app-feedback',
   templateUrl: './feedback.component.html',
-  styleUrls: ['./feedback.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FeedbackComponent implements OnChanges {

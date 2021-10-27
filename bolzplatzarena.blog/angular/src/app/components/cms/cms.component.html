@@ -6,6 +6,7 @@
         <app-block *ngFor="let block of page.blocks" [block]="block"></app-block>
       </div>
       <app-feedback *ngIf="page.type === PageType.Post" [page]="page"></app-feedback>
+      <app-suggestion *ngIf="page.type === PageType.Post" [page]="page"></app-suggestion>
     </ng-container>
     <ng-template #archive>
       <h1 class="mb-4 text-xl font-bold">{{ page.title }}</h1>

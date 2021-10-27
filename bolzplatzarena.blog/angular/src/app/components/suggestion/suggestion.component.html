@@ -1,0 +1,11 @@
+<ng-container *ngIf="suggestions$ | async as suggestion">
+  <ng-container *ngIf="suggestion.length">
+    <div class="max-w-4xl px-5 py-6 mb-4 bg-white rounded-lg shadow-md lg:px-10">
+      <h2 class="pb-2">Interessante Artikel</h2>
+      <ng-container *ngFor="let item of suggestion">
+        <a [routerLink]="[item.router]">{{ item.headline }}</a>
+        <div [routerLink]="[item.router]" [innerHTML]="item.teaser"></div>
+      </ng-container>
+    </div>
+  </ng-container>
+</ng-container>

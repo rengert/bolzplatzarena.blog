@@ -23,6 +23,7 @@ import { ArchiveComponent } from './components/pages/archive/archive.component';
 import { TeaserComponent } from './components/pages/archive/teaser/teaser.component';
 import { TagCloudComponent } from './components/tag-cloud/tag-cloud.component';
 import { TagsComponent } from './components/tags/tags.component';
+import { SuggestionComponent } from './components/suggestion/suggestion.component';
 
 registerLocaleData(localeDe);
 
@@ -44,6 +45,7 @@ registerLocaleData(localeDe);
     TagCloudComponent,
     TagsComponent,
     TeaserComponent,
+    SuggestionComponent,
   ],
   imports: [
     BrowserModule,
