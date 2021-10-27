@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Piranha.Models;
 
 namespace Bolzplatzarena.Blog.Models.Angular
 {
@@ -19,5 +20,7 @@ namespace Bolzplatzarena.Blog.Models.Angular
 		public string Keywords { get; set; }
 		public string Robots { get; set; }
 		public string MetaTitle { get; set; }
+
+		public IList<Taxonomy> Tags { get; set; }
 	}
 }
