@@ -46,6 +46,7 @@ namespace Bolzplatzarena.Blog.Controllers
 						Description = post.MetaDescription,
 						Keywords = post.MetaKeywords,
 						MetaTitle = post.MetaTitle,
+						Tags = post.Tags,
 						Robots = "index,follow"
 					};
 				}

@@ -1,6 +1,7 @@
 import { Block } from './block';
 import { MetaInfo } from './meta-info';
 import { PageType } from './page-type.enum';
+import { Taxonomy } from './taxonomy';
 import { Teaser } from './teaser';
 
 export interface Page extends MetaInfo {
@@ -9,4 +10,5 @@ export interface Page extends MetaInfo {
   posts: Teaser[];
   link: string;
   type: PageType;
+  tags: Taxonomy[];
 }

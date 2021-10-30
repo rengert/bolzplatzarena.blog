@@ -1,14 +1,15 @@
 <ng-container *ngIf="data$ | async as data else loading">
   <ng-container *ngIf="data.page as page else notFound">
     <ng-container *ngIf="page.type !== PageType.Archive else archive">
-      <div class="max-w-4xl px-5 py-6 mb-4 bg-white rounded-lg shadow-md lg:px-10">
+      <div class="max-w-4xl p-3 mb-4 bg-white rounded-lg shadow-md lg:px-10">
         <h1 class="text-2xl">{{ page.title }}</h1>
         <app-block *ngFor="let block of page.blocks" [block]="block"></app-block>
       </div>
       <app-feedback *ngIf="page.type === PageType.Post" [page]="page"></app-feedback>
+      <app-suggestion *ngIf="page.type === PageType.Post" [page]="page"></app-suggestion>
     </ng-container>
     <ng-template #archive>
-      <h1 class="mb-4 text-xl font-bold">{{ page.title }}</h1>
+      <h1 class="px-3 pt-3 mb-4 text-xl font-bold md:pt-0 md:px-0">{{ page.title }}</h1>
       <app-archive [page]="page"></app-archive>
     </ng-template>
   </ng-container>

@@ -23,6 +23,7 @@ import { ArchiveComponent } from './components/pages/archive/archive.component';
 import { TeaserComponent } from './components/pages/archive/teaser/teaser.component';
 import { TagCloudComponent } from './components/tag-cloud/tag-cloud.component';
 import { TagsComponent } from './components/tags/tags.component';
+import { SuggestionComponent } from './components/suggestion/suggestion.component';
 
 registerLocaleData(localeDe);
 
@@ -41,6 +42,7 @@ registerLocaleData(localeDe);
     NavigationComponent,
     PerformanceBlockComponent,
     SoundBlockComponent,
+    SuggestionComponent,
     TagCloudComponent,
     TagsComponent,
     TeaserComponent,
@@ -49,13 +51,11 @@ registerLocaleData(localeDe);
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
-      // Register the ServiceWorker as soon as the app is stable
-      // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000',
+      registrationStrategy: 'registerWhenStable:30000'
     }),
-    ReactiveFormsModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'de' }],
   bootstrap: [AppComponent],
