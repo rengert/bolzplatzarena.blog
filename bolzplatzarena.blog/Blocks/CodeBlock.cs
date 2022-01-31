@@ -14,7 +14,7 @@ namespace Bolzplatzarena.Blog.Blocks
 		public StringField Filename { get; set; }
 
 		public StringField Language { get; set; }
-		
+
 		public CheckBoxField RunCode { get; set; }
 
 		public string ToHtml()
@@ -25,17 +25,17 @@ namespace Bolzplatzarena.Blog.Blocks
 			}
 
 			var sb = new StringBuilder(128);
-			string[] splittedLines = RawCode.Value.Split(new char[] { '\n' });
+			var splitLines = RawCode.Value.Split(new[] { '\n' });
 
 			sb.AppendLine("<div class=\"lines\">");
-			for (var i = 1; i <= splittedLines.Length; i++)
+			for (var i = 1; i <= splitLines.Length; i++)
 			{
 				sb.AppendLine($"<span>{i}</span>");
 			}
 			sb.AppendLine("</div>");
-			
+
 			sb.AppendLine("<div class=\"code\">");
-			foreach (var t in splittedLines)
+			foreach (var t in splitLines)
 			{
 				sb.AppendLine($"<pre>{WebUtility.HtmlEncode(t)}</pre>");
 			}

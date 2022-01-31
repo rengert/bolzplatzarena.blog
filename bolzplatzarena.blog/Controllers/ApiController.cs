@@ -6,7 +6,6 @@ using Bolzplatzarena.Blog.Models;
 using Bolzplatzarena.Blog.Models.Angular;
 using Bolzplatzarena.Blog.Models.Requests;
 using Bolzplatzarena.Blog.Services;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Piranha;
 using Piranha.Models;
