@@ -1,14 +1,10 @@
-const {guessProductionMode} = require("@ngneat/tailwind");
-
 module.exports = {
   prefix: '',
-  purge: {
-    enabled: guessProductionMode(),
+  content: {
     content: [
       './src/**/*.{html,ts}',
     ]
   },
-  darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
       animation: {
@@ -25,9 +21,6 @@ module.exports = {
         }
       }
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [],
 };
