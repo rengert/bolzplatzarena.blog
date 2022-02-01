@@ -12,21 +12,13 @@ namespace Bolzplatzarena.Blog.Controllers
 		private readonly IApi _api;
 		private readonly IBlogService _service;
 
-		/// <summary>
-		/// Default constructor.
-		/// </summary>
-		public CmsController(IApi api, IBlogService service) 
+		public CmsController(IApi api, IBlogService service)
 		{
 			_api = api;
 			_service = service;
 		}
-		
-		/// <summary>
-		/// Gets the page with the given id.
-		/// </summary>
-		/// <param name="id">The unique page id</param>
-		///[Route("page")]
-		public async Task<IActionResult> Page(Guid id) 
+
+		public async Task<IActionResult> Page(Guid id)
 		{
 			var model = await _api.Pages.GetByIdAsync<StandardPage>(id);
 			ViewBag.CurrentPage = model.Id;
@@ -34,8 +26,7 @@ namespace Bolzplatzarena.Blog.Controllers
 			return View(model);
 		}
 
-		///[Route("archive")]
-		public async Task<IActionResult> Archive(Guid id, Guid? tag, Guid? category, string term = null) 
+		public async Task<IActionResult> Archive(Guid id, Guid? tag, Guid? category, string term = null)
 		{
 			var model = await _api.Pages.GetByIdAsync<ArchivePage>(id);
 			if (model == null)
@@ -51,7 +42,6 @@ namespace Bolzplatzarena.Blog.Controllers
 			return View(model);
 		}
 
-		///[Route("detail")]
 		public async Task<IActionResult> Detail(Guid id)
 		{
 			var model = await _api.Posts.GetByIdAsync<Post>(id);
@@ -59,7 +49,7 @@ namespace Bolzplatzarena.Blog.Controllers
 			{
 				return NotFound();
 			}
-			
+
 			ViewBag.CurrentPage = model.Id;
 			return View(model);
 		}

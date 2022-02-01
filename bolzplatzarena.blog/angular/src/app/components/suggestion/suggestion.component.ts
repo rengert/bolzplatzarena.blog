@@ -12,7 +12,7 @@ interface Suggestion {
 @Component({
   selector: 'app-suggestion',
   templateUrl: './suggestion.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SuggestionComponent {
   @Input() page!: Page;
@@ -21,10 +21,6 @@ export class SuggestionComponent {
 
   constructor(page: PageService) {
     this.suggestions$ = page.archive()
-      .then(archive => {
-        console.log(archive, this.page);
-        return archive;
-      })
       .then(archive => archive.filter(item => item.link !== this.page.link))
       .then(archive => archive.filter(item => item.tags?.some(({ title }) => this.page.tags?.some(tag => tag.title === title))))
       .then(archive => archive.map(item => ({ headline: item.title, router: item.link, teaser: item.body.value })));

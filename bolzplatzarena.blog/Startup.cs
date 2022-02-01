@@ -20,7 +20,7 @@ namespace Bolzplatzarena.Blog
 {
 	public class Startup
 	{
-		public IConfiguration Configuration { get; set; }
+		private IConfiguration Configuration { get; }
 
 		public Startup(IConfiguration configuration)
 		{
@@ -90,11 +90,9 @@ namespace Bolzplatzarena.Blog
 			App.Modules.Get<Piranha.Manager.Module>()
 				.Scripts.Add("~/js/manager.js");
 
-			// Configure Tiny MCE
-			// EditorConfig.FromFile("editorconfig.json");
 			app.UseResponseCompression();
 
-			var cachePeriod = "31536000";
+			const string cachePeriod = "31536000";
 			app.UseStaticFiles(new StaticFileOptions()
 			{
 				OnPrepareResponse = ctx =>
@@ -104,7 +102,6 @@ namespace Bolzplatzarena.Blog
 			});
 			app.UseStatusCodePagesWithReExecute("/not-found");
 			app.UseStaticFiles();
-			// Middleware setup
 			app.UsePiranha(options =>
 			{
 				options.UseManager();

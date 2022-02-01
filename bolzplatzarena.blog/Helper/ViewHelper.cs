@@ -8,7 +8,7 @@ namespace Bolzplatzarena.Blog.Helper
 	public class ViewHelper: IViewHelper
 	{
 		private readonly IConfiguration _configuration;
-		
+
 		public ViewHelper(IConfiguration configuration)
 		{
 			_configuration = configuration;
