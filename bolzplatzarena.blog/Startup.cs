@@ -1,6 +1,5 @@
 using System.IO.Compression;
 using Bolzplatzarena.Blog.Blocks;
-using Bolzplatzarena.Blog.Helper;
 using Bolzplatzarena.Blog.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -60,7 +59,6 @@ namespace Bolzplatzarena.Blog
 					db.UseSqlite(Configuration.GetConnectionString("piranha")));
 			});
 			services.AddScoped<IBlogService, BlogService>();
-			services.AddSingleton<IViewHelper, ViewHelper>();
 		}
 
 		// This method gets called by the runtime. Use this met hod to configure the HTTP request pipeline.
