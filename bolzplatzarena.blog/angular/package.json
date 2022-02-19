@@ -46,7 +46,7 @@
     "eslint": "8.8.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "jasmine-core": "4.0.0",
-    "karma": "~6.3.0",
+    "karma": "~6.3.14",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
