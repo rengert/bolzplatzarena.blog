@@ -8,19 +8,19 @@
 
   <ItemGroup>
     <PackageReference Include="Bolzplatzarena.AspNetCore" Version="0.0.4" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.1" />
-    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="6.0.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.1" />
-    <PackageReference Include="Piranha" Version="10.0.1" />
-    <PackageReference Include="Piranha.AspNetCore" Version="10.0.1" />
-    <PackageReference Include="Piranha.AspNetCore.Identity.SQLite" Version="10.0.1" />
-    <PackageReference Include="Piranha.AttributeBuilder" Version="10.0.1" />
-    <PackageReference Include="Piranha.Data.EF" Version="10.0.1" />
-    <PackageReference Include="Piranha.Data.EF.SQLite" Version="10.0.1" />
-    <PackageReference Include="Piranha.ImageSharp" Version="10.0.1" />
-    <PackageReference Include="Piranha.Local.FileStorage" Version="10.0.1" />
-    <PackageReference Include="Piranha.Manager" Version="10.0.1" />
-    <PackageReference Include="Piranha.Manager.TinyMCE" Version="10.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="6.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.2" />
+    <PackageReference Include="Piranha" Version="10.0.2" />
+    <PackageReference Include="Piranha.AspNetCore" Version="10.0.2" />
+    <PackageReference Include="Piranha.AspNetCore.Identity.SQLite" Version="10.0.2" />
+    <PackageReference Include="Piranha.AttributeBuilder" Version="10.0.2" />
+    <PackageReference Include="Piranha.Data.EF" Version="10.0.2" />
+    <PackageReference Include="Piranha.Data.EF.SQLite" Version="10.0.2" />
+    <PackageReference Include="Piranha.ImageSharp" Version="10.0.2" />
+    <PackageReference Include="Piranha.Local.FileStorage" Version="10.0.2" />
+    <PackageReference Include="Piranha.Manager" Version="10.0.2" />
+    <PackageReference Include="Piranha.Manager.TinyMCE" Version="10.0.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,11 +28,6 @@
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="wwwroot\css\styles.css">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
@@ -46,6 +41,133 @@
 
   <ItemGroup>
     <None Remove="assets\images\systemische-beratung-mediation-karlsruhe.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Cms\Archive.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Cms\Detail.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Cms\DisplayTemplates\CodeBlock.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Cms\Page.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\Archive\_Navigation.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\Archive\_Summary.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\DisplayTemplates\ColumnBlock.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\DisplayTemplates\HtmlBlock.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\DisplayTemplates\Icon.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\DisplayTemplates\Post.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\DisplayTemplates\SitemapItem.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\_ContentNavigation.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\_Footer.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\_FooterNavigation.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\_Header.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\_Icon.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\_Layout.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\_Meta.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\_Navigation.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\_Search.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\_ViewImports.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\_ViewStart.cshtml" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\.DS_Store" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\highlight.pack.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\a11y-dark.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\a11y-light.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\agate.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\an-old-hope.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\androidstudio.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\arduino-light.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\arta.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\ascetic.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\atelier-cave-dark.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\atelier-cave-light.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\atelier-dune-dark.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\atelier-dune-light.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\atelier-estuary-dark.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\atelier-estuary-light.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\atelier-forest-dark.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\atelier-forest-light.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\atelier-heath-dark.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\atelier-heath-light.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\atelier-lakeside-dark.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\atelier-lakeside-light.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\atelier-plateau-dark.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\atelier-plateau-light.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\atelier-savanna-dark.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\atelier-savanna-light.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\atelier-seaside-dark.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\atelier-seaside-light.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\atelier-sulphurpool-dark.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\atelier-sulphurpool-light.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\atom-one-dark-reasonable.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\atom-one-dark.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\atom-one-light.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\brown-paper.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\brown-papersq.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\codepen-embed.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\color-brewer.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\darcula.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\dark.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\default.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\docco.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\dracula.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\far.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\foundation.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\github-gist.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\github.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\gml.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\googlecode.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\gradient-dark.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\gradient-light.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\grayscale.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\gruvbox-dark.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\gruvbox-light.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\hopscotch.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\hybrid.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\idea.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\ir-black.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\isbl-editor-dark.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\isbl-editor-light.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\kimbie.dark.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\kimbie.light.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\lightfair.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\lioshi.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\magula.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\mono-blue.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\monokai-sublime.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\monokai.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\night-owl.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\nnfx-dark.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\nnfx.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\nord.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\obsidian.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\ocean.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\paraiso-dark.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\paraiso-light.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\pojoaque.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\pojoaque.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\purebasic.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\qtcreator_dark.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\qtcreator_light.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\railscasts.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\rainbow.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\routeros.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\school-book.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\school-book.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\shades-of-purple.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\solarized-dark.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\solarized-light.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\srcery.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\stackoverflow-dark.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\stackoverflow-light.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\sunburst.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\tomorrow-night-blue.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\tomorrow-night-bright.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\tomorrow-night-eighties.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\tomorrow-night.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\tomorrow.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\vs.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\vs2015.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\xcode.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\xt256.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\zenburn.css" />
   </ItemGroup>
 
 </Project>
