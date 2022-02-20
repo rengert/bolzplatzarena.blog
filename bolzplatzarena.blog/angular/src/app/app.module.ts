@@ -24,6 +24,7 @@ import { TeaserComponent } from './components/pages/archive/teaser/teaser.compon
 import { TagCloudComponent } from './components/tag-cloud/tag-cloud.component';
 import { TagsComponent } from './components/tags/tags.component';
 import { SuggestionComponent } from './components/suggestion/suggestion.component';
+import { SearchComponent } from './components/blocks/search/search.component';
 
 registerLocaleData(localeDe);
 
@@ -46,6 +47,7 @@ registerLocaleData(localeDe);
     TagCloudComponent,
     TagsComponent,
     TeaserComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
