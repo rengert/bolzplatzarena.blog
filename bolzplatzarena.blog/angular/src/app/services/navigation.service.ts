@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { orderBy } from 'lodash-es';
 import { firstValueFrom, of } from 'rxjs';
 import { catchError, filter, switchMap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
@@ -18,7 +19,7 @@ export class NavigationService {
     const sitemap = await this.offline.sitemap();
     if (sitemap.length) {
       this.update();
-      return sitemap;
+      return orderBy(sitemap, item => item.sortOrder);
     }
 
     const remoteSitemap = await firstValueFrom(this.http.get<Page[]>(`${environment.apiUrl}/api/sitemap`).pipe(
@@ -27,7 +28,7 @@ export class NavigationService {
     if (remoteSitemap) {
       void this.offline.updateSitemap(remoteSitemap);
     }
-    return remoteSitemap ?? [];
+    return orderBy(remoteSitemap ?? [], item => item.sortOrder);
   }
 
   private update(): void {

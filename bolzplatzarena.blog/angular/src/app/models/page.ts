@@ -11,4 +11,5 @@ export interface Page extends MetaInfo {
   link: string;
   type: PageType;
   tags: Taxonomy[];
+  sortOrder: number;
 }
