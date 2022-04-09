@@ -24,7 +24,7 @@
     "@ngneat/tailwind": "^7.0.3",
     "fuzzy-search": "^3.2.1",
     "lodash-es": "^4.17.21",
-    "moment": "^2.29.1",
+    "moment": "^2.29.2",
     "rxjs": "^7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
