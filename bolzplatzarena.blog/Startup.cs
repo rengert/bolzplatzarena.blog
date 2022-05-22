@@ -1,3 +1,4 @@
+using System;
 using System.IO.Compression;
 using Bolzplatzarena.Blog.Blocks;
 using Bolzplatzarena.Blog.Services;
@@ -55,8 +56,18 @@ namespace Bolzplatzarena.Blog
 				options.UseMemoryCache();
 				options.UseEF<SQLiteDb>(db =>
 					db.UseSqlite(Configuration.GetConnectionString("piranha")));
-				options.UseIdentityWithSeed<IdentitySQLiteDb>(db =>
-					db.UseSqlite(Configuration.GetConnectionString("piranha")));
+				options.UseIdentityWithSeed<IdentitySQLiteDb>(
+						db => db.UseSqlite(Configuration.GetConnectionString("piranha")), 
+						cookieOptions: cookie =>
+						{
+							cookie.Cookie.HttpOnly = true;
+							cookie.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+							cookie.LoginPath = "/manager/login";
+							cookie.AccessDeniedPath = "/manager/login";
+							cookie.SlidingExpiration = true;
+							cookie.SessionStore = new MemoryCacheTicketStore();
+						}
+				);
 			});
 			services.AddScoped<IBlogService, BlogService>();
 		}
