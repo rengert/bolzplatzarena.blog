@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import { BehaviorSubject, timer } from 'rxjs';
-import { filter, switchMap } from 'rxjs/operators';
+import { filter, switchMap, tap } from 'rxjs/operators';
+import { AppContextService } from './services/app-context.service';
 import { FeedbackService } from './services/feedback.service';
 
 @Component({
@@ -12,7 +13,7 @@ import { FeedbackService } from './services/feedback.service';
 export class AppComponent {
   readonly versionUpdate = new BehaviorSubject(false);
 
-  constructor(update: SwUpdate, feedback: FeedbackService) {
+  constructor(update: SwUpdate, feedback: FeedbackService, readonly app: AppContextService) {
     update.available.subscribe(() => {
       update.activateUpdate().then(() => this.versionUpdate.next(true));
     });
@@ -22,6 +23,9 @@ export class AppComponent {
     ).subscribe();
 
     feedback.init();
+
+    app.selectionInfo$.pipe(tap(console.log)).subscribe();
+    app.definedSelection$.pipe(tap(console.log)).subscribe();
   }
 
   reload(): void {
