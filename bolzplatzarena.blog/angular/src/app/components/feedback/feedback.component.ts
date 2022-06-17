@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Page } from '../../models/page';
 import { PostComment } from '../../models/post-comment';
@@ -20,20 +20,16 @@ export class FeedbackComponent implements OnChanges {
   @Input() page!: Page;
 
   readonly FormState = FormState;
-  readonly form: UntypedFormGroup;
+  readonly form = new FormGroup({
+    name: new FormControl<string>('', Validators.required),
+    comment: new FormControl<string>('', Validators.required),
+  })
 
   readonly state$ = new BehaviorSubject(FormState.Unknown);
 
   comments$: Observable<PostComment[]> | undefined;
 
-  constructor(
-    formBuilder: UntypedFormBuilder,
-    private readonly feedback: FeedbackService,
-  ) {
-    this.form = formBuilder.group({
-      name: ['', Validators.required],
-      comment: ['', Validators.required],
-    });
+  constructor(private readonly feedback: FeedbackService) {
   }
 
   ngOnChanges(): void {
@@ -41,7 +37,11 @@ export class FeedbackComponent implements OnChanges {
   }
 
   async submit(): Promise<void> {
-    if (!await this.feedback.send({ slug: this.page.link, ...this.form.value })) {
+    if (!await this.feedback.send({
+      slug: this.page.link,
+      name: this.form.value.name ?? '',
+      comment: this.form.value.comment ?? '',
+    })) {
       this.state$.next(FormState.Faulty);
       return;
     }
