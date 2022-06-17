@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Page } from '../../models/page';
 import { PostComment } from '../../models/post-comment';
@@ -20,14 +20,14 @@ export class FeedbackComponent implements OnChanges {
   @Input() page!: Page;
 
   readonly FormState = FormState;
-  readonly form: FormGroup;
+  readonly form: UntypedFormGroup;
 
   readonly state$ = new BehaviorSubject(FormState.Unknown);
 
   comments$: Observable<PostComment[]> | undefined;
 
   constructor(
-    formBuilder: FormBuilder,
+    formBuilder: UntypedFormBuilder,
     private readonly feedback: FeedbackService,
   ) {
     this.form = formBuilder.group({
