@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import { BehaviorSubject, timer } from 'rxjs';
-import { filter, switchMap, tap } from 'rxjs/operators';
+import { filter, switchMap } from 'rxjs/operators';
 import { AppContextService } from './services/app-context.service';
 import { FeedbackService } from './services/feedback.service';
 
@@ -23,9 +23,6 @@ export class AppComponent {
     ).subscribe();
 
     feedback.init();
-
-    app.selectionInfo$.pipe(tap(console.log)).subscribe();
-    app.definedSelection$.pipe(tap(console.log)).subscribe();
   }
 
   reload(): void {

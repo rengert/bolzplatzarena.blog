@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom, of } from 'rxjs';
-import { catchError, filter, switchMap } from 'rxjs/operators';
+import { catchError, switchMap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Page } from '../models/page';
 import { Teaser } from '../models/teaser';
@@ -35,11 +35,9 @@ export class PageService {
   }
 
   private update(slug: string): void {
-    void firstValueFrom(this.http.get<Page>(`${environment.apiUrl}/api/byslug${slug}`)
-      .pipe(
-        catchError(() => of(undefined)),
-        filter(page => !!page),
-        switchMap(page => this.pageStorage.addPage(page !)),
-      ));
+    void firstValueFrom(this.http.get<Page>(`${environment.apiUrl}/api/byslug${slug}`).pipe(
+      catchError(() => of(undefined)),
+      switchMap(page => this.pageStorage.addPage(page)),
+    ));
   }
 }

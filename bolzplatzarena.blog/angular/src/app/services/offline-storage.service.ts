@@ -25,7 +25,10 @@ export class OfflineStorageService {
     return from(this.manyFromStore(Store.Comments, (item: PostComment) => contentId === item.contentId));
   }
 
-  async addPage(page: Page): Promise<void> {
+  async addPage(page?: Page): Promise<void> {
+    if(!page) {
+      return;
+    }
     await this.toStore(Store.Pages, page);
   }
 
@@ -33,8 +36,8 @@ export class OfflineStorageService {
     return this.manyFromStore(Store.Navigation);
   }
 
-  async updateSitemap(pages: Page[]): Promise<void> {
-    if (!pages.length) {
+  async updateSitemap(pages?: Page[]): Promise<void> {
+    if (!pages?.length) {
       return;
     }
 
@@ -85,7 +88,7 @@ export class OfflineStorageService {
   fromStore<T>(storeName: string, resolver: (item: T) => boolean): Promise<T | undefined> {
     return new Promise((resolve, reject) => {
         const dbRequest = indexedDB.open('data');
-        dbRequest.onerror = function (event) {
+        dbRequest.onerror = function () {
           resolve(undefined);
         };
 
@@ -99,11 +102,11 @@ export class OfflineStorageService {
           const store = database.transaction([storeName]).objectStore(storeName);
           var objectRequest = store.getAll();
 
-          objectRequest.onerror = function (event) {
+          objectRequest.onerror = function () {
             reject(Error('Error text'));
           };
 
-          objectRequest.onsuccess = function (event) {
+          objectRequest.onsuccess = function () {
             if (objectRequest.result) {
               const result = (objectRequest.result as T[]).find(item => resolver(item));
               if (result) {
@@ -121,7 +124,7 @@ export class OfflineStorageService {
   manyFromStore<T>(storeName: string, resolver?: (item: T) => boolean): Promise<T[]> {
     return new Promise((resolve, reject) => {
         const dbRequest = indexedDB.open('data');
-        dbRequest.onerror = function (event) {
+        dbRequest.onerror = function () {
           resolve([]);
         };
 
@@ -135,11 +138,11 @@ export class OfflineStorageService {
           const store = database.transaction([storeName]).objectStore(storeName);
           var objectRequest = store.getAll();
 
-          objectRequest.onerror = function (event) {
+          objectRequest.onerror = function () {
             reject(Error('Error text'));
           };
 
-          objectRequest.onsuccess = function (event) {
+          objectRequest.onsuccess = function () {
             if (objectRequest.result) {
               const result = (objectRequest.result as T[]).filter(item => !resolver || resolver(item));
               if (result) {
