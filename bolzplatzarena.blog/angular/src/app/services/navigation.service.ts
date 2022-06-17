@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { orderBy } from 'lodash-es';
 import { firstValueFrom, of } from 'rxjs';
-import { catchError, filter, switchMap } from 'rxjs/operators';
+import { catchError, switchMap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Page } from '../models/page';
 import { OfflineStorageService } from './offline-storage.service';
@@ -21,7 +21,6 @@ export class NavigationService {
       this.update();
       return orderBy(sitemap, item => item.sortOrder);
     }
-
     const remoteSitemap = await firstValueFrom(this.http.get<Page[]>(`${environment.apiUrl}/api/sitemap`).pipe(
       catchError(() => of(undefined)),
     ));
@@ -33,9 +32,8 @@ export class NavigationService {
 
   private update(): void {
     void firstValueFrom(this.http.get<Page[]>(`${environment.apiUrl}/api/sitemap`).pipe(
-      catchError(() => of(undefined)),
-      filter(data => !!data),
-      switchMap(remoteSitemap => this.offline.updateSitemap(remoteSitemap !)),
+      catchError(() => of([])),
+      switchMap(remoteSitemap => this.offline.updateSitemap(remoteSitemap)),
     ));
   }
 }
