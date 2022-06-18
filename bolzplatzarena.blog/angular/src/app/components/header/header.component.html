@@ -1,5 +1,5 @@
 <header class="bg-white px-3 py-4 shadow sm:px-6">
-  <div class="flex flex-col container mx-auto lg:flex-row lg:items-center lg:justify-between">
+  <div class="flex flex-col max-w-[64rem] mx-auto lg:flex-row lg:items-center lg:justify-between">
     <div class="flex justify-between items-center">
       <div>
         <a routerLink="/" class="text-gray-800 text-xl font-bold md:text-2xl">Bolzplatzarena</a>
@@ -26,6 +26,4 @@
   </div>
 </header>
 
-<app-navigation *ngIf="navigationOpen"
-                [header]="true"
-                class="absolute w-screen h-5/6 top-16 p-2"></app-navigation>
+<app-navigation *ngIf="navigationOpen" [header]="true" class="absolute w-screen h-5/6 top-16 p-2"></app-navigation>

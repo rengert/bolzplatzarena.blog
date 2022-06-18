@@ -1,6 +1,8 @@
-<div class="max-w-4xl p-3 bg-white rounded-lg shadow-md lg:px-10">
+<div class="max-w-4xl p-4 bg-white rounded-lg shadow-md">
   <div class="lg:flex justify-between items-center">
-    <span class="font-light text-gray-600">{{ teaser.date | date : 'dd. MMM YYYY' : '' : 'de'  }}</span>
+    <span class="font-light text-gray-600">
+      {{ teaser.date | date : 'dd. MMM YYYY' : '' : 'de'  }}
+    </span>
     <div>
       <span *ngFor="let tag of teaser.tags"
             [routerLink]="['/tags', tag.title.toLowerCase()]"
