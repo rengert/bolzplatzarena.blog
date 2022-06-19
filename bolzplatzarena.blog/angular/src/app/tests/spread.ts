@@ -26,17 +26,16 @@ export const duplicateArrayTest: Test = {
 };
 
 function spreadTest(): void {
-  const data = [...array];
+  [...array];
 }
 
 function concatTest(): void {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  const data = [].concat(array);
+  const numbers: number[] = [];
+  numbers.concat(array);
 }
 
 function sliceTest(): void {
-  const data = array.slice();
+  array.slice();
 }
 
 function forTest(): void {

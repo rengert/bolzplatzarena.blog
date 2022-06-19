@@ -67,6 +67,7 @@ export class OfflineStorageService {
 
         if (clear) {
           objectStore.clear().onsuccess = () => {
+            // ignore the on success
           };
         }
 
@@ -100,7 +101,7 @@ export class OfflineStorageService {
         dbRequest.onsuccess = function (event) {
           const database = (event.currentTarget as IDBOpenDBRequest).result;
           const store = database.transaction([storeName]).objectStore(storeName);
-          var objectRequest = store.getAll();
+          const objectRequest = store.getAll();
 
           objectRequest.onerror = function () {
             reject(Error('Error text'));
@@ -136,7 +137,7 @@ export class OfflineStorageService {
         dbRequest.onsuccess = function (event) {
           const database = (event.currentTarget as IDBOpenDBRequest).result;
           const store = database.transaction([storeName]).objectStore(storeName);
-          var objectRequest = store.getAll();
+          const objectRequest = store.getAll();
 
           objectRequest.onerror = function () {
             reject(Error('Error text'));

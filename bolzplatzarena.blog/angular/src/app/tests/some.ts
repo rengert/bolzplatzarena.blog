@@ -18,9 +18,9 @@ export const someTest: Test = {
 };
 
 function some(): void {
-  const res = array.some(a => a === 2000);
+  array.some(a => a === 2000);
 }
 
 function find(): void {
-  const res = array.filter(a => a === 2000) !== undefined;
+  array.find(a => a === 2000) !== undefined;
 }

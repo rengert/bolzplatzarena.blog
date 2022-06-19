@@ -1,5 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Page } from '../../models/page';
 import { PageService } from '../../services/page.service';
 
