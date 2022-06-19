@@ -32,6 +32,7 @@ function forLoop(): void {
   for (let j = 0; j < array.length; j++) {
     i += array[j];
   }
+  i;
 }
 
 function forOfLoop(): void {
@@ -39,4 +40,5 @@ function forOfLoop(): void {
   for (const item of array) {
     i += item;
   }
+  i;
 }

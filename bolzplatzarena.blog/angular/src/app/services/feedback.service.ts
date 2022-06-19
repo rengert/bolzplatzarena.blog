@@ -35,7 +35,7 @@ export class FeedbackService {
     return this.commentStorage.commentsByContentId(page.id);
   }
 
-  private update(): Promise<any> {
+  private update(): Promise<unknown> {
     return firstValueFrom(this.http.get<Comment[]>(`${environment.apiUrl}/api/comments`)
       .pipe(
         catchError(() => of([])),

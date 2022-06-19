@@ -20,13 +20,13 @@ export const createMomentTest: Test = {
 };
 
 function createMoment(): void {
-  const data = moment('2011-01-01T12:12:12.123');
+  moment('2011-01-01T12:12:12.123');
 }
 
 function createMomentFromDate(): void {
-  const data = moment(new Date('2011-01-01T12:12:12.123'));
+  moment(new Date('2011-01-01T12:12:12.123'));
 }
 
 function createDateFromString(): void {
-  const date = new Date('2011-01-01T12:12:12.123');
+  new Date('2011-01-01T12:12:12.123');
 }
