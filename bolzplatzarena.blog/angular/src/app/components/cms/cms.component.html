@@ -1,12 +1,15 @@
 <ng-container *ngIf="data$ | async as data else loading">
   <ng-container *ngIf="data.page as page else notFound" [ngSwitch]="page.type">
-    {{ page.type }}
     <ng-container *ngSwitchCase="PageType.Archive">
-      <h1 class="px-2 pt-3 mb-4 text-xl font-bold md:pt-0 md:px-0">{{ page.title }}</h1>
+      <h1 class="px-3 pt-3 mb-4 text-xl font-bold md:pt-0 md:px-0">{{ page.title }}</h1>
       <app-archive [page]="page"></app-archive>
     </ng-container>
+    <ng-container *ngSwitchCase="PageType.CleanPage">
+      <h1 class="px-3 pt-3 mb-4 text-xl font-bold md:pt-0 md:px-0">{{ page.title }}</h1>
+      <app-block *ngFor="let block of page.blocks" [block]="block"></app-block>
+    </ng-container>
     <ng-container *ngSwitchDefault>
-      <div class="lg:max-w-4xl mb-4 bg-white rounded-lg shadow-md p-5">
+      <div class="lg:max-w-4xl mb-4 bg-white rounded-lg shadow-md p-3">
         <h1 class="text-2xl">{{ page.title }}</h1>
         <app-block *ngFor="let block of page.blocks" [block]="block"></app-block>
       </div>
