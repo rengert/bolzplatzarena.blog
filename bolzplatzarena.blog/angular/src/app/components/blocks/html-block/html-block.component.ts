@@ -7,5 +7,5 @@ import { Block } from '../../../models/block';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HtmlBlockComponent {
-  @Input() block!: Block;
+  @Input() block?: Block;
 }
