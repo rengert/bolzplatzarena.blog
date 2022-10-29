@@ -9,7 +9,7 @@ namespace Bolzplatzarena.Blog;
 public class MemoryCacheTicketStore : ITicketStore
 {
 	private const string KeyPrefix = "AuthSessionStore-";
-	private IMemoryCache _cache;
+	private readonly IMemoryCache _cache;
 
 	public MemoryCacheTicketStore()
 	{
@@ -19,7 +19,7 @@ public class MemoryCacheTicketStore : ITicketStore
 	public async Task<string> StoreAsync(AuthenticationTicket ticket)
 	{
 		var guid = Guid.NewGuid();
-		var key = KeyPrefix + guid.ToString();
+		var key = KeyPrefix + guid;
 		await RenewAsync(key, ticket);
 		return key;
 	}
@@ -40,8 +40,7 @@ public class MemoryCacheTicketStore : ITicketStore
 
 	public Task<AuthenticationTicket> RetrieveAsync(string key)
 	{
-		AuthenticationTicket ticket;
-		_cache.TryGetValue(key, out ticket);
+		_cache.TryGetValue(key, out AuthenticationTicket ticket);
 		return Task.FromResult(ticket);
 	}
 
