@@ -4,7 +4,6 @@ import { BehaviorSubject } from 'rxjs';
 import { Block } from '../../../models/block';
 import { forTest } from '../../../tests/for';
 import { keyByTest } from '../../../tests/key-by';
-import { createMomentTest } from '../../../tests/moment';
 import { pullWithAllTest } from '../../../tests/pull-with';
 import { reduceTest } from '../../../tests/reduce';
 import { Scenario } from '../../../tests/scenario.model';
@@ -23,7 +22,6 @@ interface Result extends Scenario {
 }
 
 const tests: { [index: string]: Test } = {
-  ['createMomentTest']: createMomentTest,
   ['duplicateArrayTest']: duplicateArrayTest,
   ['forTest']: forTest,
   ['keyByTest']: keyByTest,
@@ -42,11 +40,11 @@ export class PerformanceBlockComponent implements OnChanges {
   @Input() block!: Block;
 
   animating = false;
-  test: Test = createMomentTest;
+  test: Test = uniqueTest;
   readonly testResult$ = new BehaviorSubject<TestResult | undefined>(undefined);
 
   ngOnChanges(): void {
-    this.test = tests[this.block.body?.value ?? ''] ?? createMomentTest;
+    this.test = tests[this.block.body?.value ?? ''] ?? uniqueTest;
     this.testResult$.next(this.getResults());
   }
 

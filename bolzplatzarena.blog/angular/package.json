@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "stats:angular:prod": "ng run angular:build:production --stats-json",
+    "stats:angular:prod": "ng run angular:build:production --stats-json=true",
     "analyze:angular:prod": "webpack-bundle-analyzer dist/angular/stats.json"
   },
   "private": true,
@@ -24,7 +24,6 @@
     "@ngneat/tailwind": "^7.0.3",
     "fuzzy-search": "^3.2.1",
     "lodash-es": "^4.17.21",
-    "moment": "^2.29.2",
     "rxjs": "^7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -53,9 +52,8 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "^2.0.0",
-    "moment-locales-webpack-plugin": "^1.2.0",
     "tailwindcss": "^3.2.1",
     "typescript": "^4.5.5",
-    "webpack-bundle-analyzer": "^4.4.2"
+    "webpack-bundle-analyzer": "^4.7.0"
   }
 }
