@@ -5,12 +5,20 @@ interface Dictionary<T> {
   [id: number]: T;
 }
 
-const array = [...Array(2000).keys()].map(item => ({
+interface Example extends Dictionary<string> {
+  id: unknown;
+  value: unknown;
+}
+
+const array: Example[] = [...Array(2000).keys()].map(item => ({
   id: item,
   value: Math.floor(Math.random() * 100),
 }));
 
-const badKeyBy = (data: never[], key: string) => (data ?? []).reduce((r, x) => ({ ...r, [key ? x[key] : x]: x }), {});
+const badKeyBy = (data: Example[], key: keyof Example) => (data ?? []).reduce((r, x) => ({
+  ...r,
+  [(key ? x[key] : x) as string]: x,
+}), {});
 
 function nativeKeyBy<T extends { [index: string]: number; }>(data: T[], key: string): Dictionary<T> {
   return (data ?? []).reduce((prev: Dictionary<T>, newValue: T) => {
@@ -48,5 +56,5 @@ function badKeybyTest(): void {
 }
 
 function nativeTest(): void {
-  nativeKeyBy(array, 'id');
+  nativeKeyBy(array as unknown as { [index: string]: number; }[], 'id');
 }

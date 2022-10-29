@@ -8,7 +8,7 @@ import { MetaDataService } from '../../services/meta-data.service';
 import { PageService } from '../../services/page.service';
 
 interface Content {
-  page?: Page;
+  page: Page | undefined;
 }
 
 @Component({
