@@ -133,6 +133,7 @@ namespace Bolzplatzarena.Blog
 				endpoints.MapControllerRoute(
 					name: "default",
 					pattern: "{controller=Home}/{action=Spa}/{id?}");
+				endpoints.MapPiranhaManager();
 			});
 		}
 	}
