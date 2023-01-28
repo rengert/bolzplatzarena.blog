@@ -7,6 +7,7 @@ using Bolzplatzarena.Blog.Models.Angular;
 using Bolzplatzarena.Blog.Models.Requests;
 using Bolzplatzarena.Blog.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OutputCaching;
 using Piranha;
 using Piranha.Models;
 
@@ -25,6 +26,8 @@ namespace Bolzplatzarena.Blog.Controllers
 			_service = service;
 		}
 
+		[OutputCache(Duration=120, VaryByRouteValueNames=new [] { "slug" })]
+		[ResponseCache(Duration = 120, VaryByQueryKeys = new [] {"slug" })]
 		public async Task<Page> BySlug(string slug)
 		{
 			DynamicPage page;
@@ -93,6 +96,7 @@ namespace Bolzplatzarena.Blog.Controllers
 			return result;
 		}
 
+		[OutputCache(Duration=10, VaryByRouteValueNames=new [] { "slug" })]
 		public async Task<IEnumerable<Page>> Sitemap()
 		{
 			var sitemap = await _api.Sites.GetSitemapAsync();
@@ -105,6 +109,7 @@ namespace Bolzplatzarena.Blog.Controllers
 			});
 		}
 
+		[OutputCache(Duration=10, VaryByRouteValueNames=new [] { "slug" })]
 		public Task<IEnumerable<Piranha.Models.Comment>> Comments()
 		{
 			return _service.GetCommentsAsync();

@@ -41,6 +41,9 @@ namespace Bolzplatzarena.Blog
 							.AllowAnyMethod();
 					});
 			});
+
+			services.AddResponseCaching();
+			services.AddOutputCache();
 			services.AddResponseCompression(options => { options.EnableForHttps = true; });
 			services.Configure<GzipCompressionProviderOptions>(options =>
 			{
@@ -85,6 +88,9 @@ namespace Bolzplatzarena.Blog
 
 			// Configure cache level
 			App.CacheLevel = Piranha.Cache.CacheLevel.Basic;
+			app.UseOutputCache();
+			app.UseResponseCaching();
+			app.UseResponseCompression();
 
 			// Build content types
 			new ContentTypeBuilder(api)
@@ -100,7 +106,6 @@ namespace Bolzplatzarena.Blog
 			App.Modules.Get<Piranha.Manager.Module>()
 				.Scripts.Add("~/js/manager.js");
 
-			app.UseResponseCompression();
 
 			const string cachePeriod = "31536000";
 			app.UseStaticFiles(new StaticFileOptions()
@@ -118,7 +123,6 @@ namespace Bolzplatzarena.Blog
 				options.UseTinyMCE();
 				options.UseIdentity();
 			});
-
 			app.UseSpa(spa =>
 			{
 				spa.Options.SourcePath = "angular";
