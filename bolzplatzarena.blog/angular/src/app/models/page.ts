@@ -12,4 +12,7 @@ export interface Page extends MetaInfo {
   type: PageType;
   tags: Taxonomy[];
   sortOrder: number;
+  dateTime: string;
+  author: string;
+  image?: string;
 }

@@ -54,7 +54,7 @@ export class MetaDataService {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
       name: 'bolzplatzarena.net',
-      url: 'https://bolzplatzarena.net',
+      url: 'https://www.bolzplatzarena.net/',
     };
     this.setSchema(this.globalSchema, website);
 
@@ -67,6 +67,13 @@ export class MetaDataService {
         name: page.metaTitle ?? page.title,
         headline: page.metaTitle ?? page.title,
         description: page.description,
+        datePublished: page.dateTime,
+        author: {
+          '@type': 'Person',
+          name: page.author,
+          url: 'https://www.bolzplatzarena.net/',
+        },
+        image: page.image ?? 'https://bolzplatzarena.net/assets/not-found-bolzplatzarena.png',
       };
       this.setSchema(this.schema, article);
     }
