@@ -36,7 +36,7 @@ namespace Bolzplatzarena.Blog.Controllers
 				page = await _api.Pages.GetBySlugAsync(slug);
 				if (page == null)
 				{
-					var post = await _api.Posts.GetBySlugAsync("blog", slug.Replace("blog/", ""));
+					var post = await _api.Posts.GetBySlugAsync<Post>("blog", slug.Replace("blog/", ""));
 					return new Page
 					{
 						Id = post.Id,
@@ -49,7 +49,10 @@ namespace Bolzplatzarena.Blog.Controllers
 						Keywords = post.MetaKeywords,
 						MetaTitle = post.MetaTitle,
 						Tags = post.Tags,
-						Robots = "index,follow"
+						Robots = "index,follow",
+						Author = post.Teaser.Author.Value,
+						Image = post.Teaser.Image?.Media?.PublicUrl ?? post.PrimaryImage?.Media?.PublicUrl,
+						DateTime = post.Published.GetValueOrDefault()
 					};
 				}
 			}

@@ -22,7 +22,7 @@ export class TagsComponent {
       tap(tag => metaData.update({
         title: `Posts zum Thema: ${tag}`,
         metaTitle: `Posts zum Thema: ${tag}`,
-        description: '',
+        description: `Hier finden Sie alle Posts zum Thema: ${tag}`,
         keywords: '',
         robots: 'follow,no-index',
       } as MetaInfo)),

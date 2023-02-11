@@ -22,5 +22,9 @@ namespace Bolzplatzarena.Blog.Models.Angular
 		public string MetaTitle { get; set; }
 
 		public IList<Taxonomy> Tags { get; set; }
+		
+		public string Author { get; set; }
+		public string Image { get; set; }
+		public DateTime DateTime { get; set; }
 	}
 }
