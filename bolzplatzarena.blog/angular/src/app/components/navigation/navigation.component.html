@@ -1,4 +1,4 @@
-<h3 *ngIf="!header" class="mb-4 text-xl font-bold text-gray-700">Navigation</h3>
+<app-section-header *ngIf="!header" title="Navigation"></app-section-header>
 <nav class="flex flex-col bg-white rounded-lg shadow-md">
   <ul>
     <li *ngFor="let item of navigation | async" class="hover:bg-gray-50">
