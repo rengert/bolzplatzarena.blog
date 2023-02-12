@@ -1,8 +1,10 @@
-<h3 class="mb-4 text-xl font-bold text-gray-700">Tag Cloud</h3>
-<section class="bg-white px-4 py-6 rounded-lg shadow-md">
+<div class="border-b border-black mb-2">
+  <h3 class="inline-block px-2 py-1 bg-black text-sm uppercase text-white">Tag Cloud</h3>
+</div>
+<section>
   <span *ngFor="let tag of tags$ | async"
         [routerLink]="['/tags', tag.tag.title.toLowerCase()]"
-        class="lg:ml-2 lg:mr-0 mr-2 mb-2 px-2 py-1 bg-blue-600 text-gray-100 font-bold rounded hover:bg-gray-500 inline-block">
+        class="mr-2 mb-2 px-2 py-1 border border-blue-600 rounded inline-block">
   {{ tag.tag.title }} ({{ tag.count }})
   </span>
 </section>
