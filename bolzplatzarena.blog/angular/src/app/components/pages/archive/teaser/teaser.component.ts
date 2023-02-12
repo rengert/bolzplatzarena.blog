@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 import { Teaser } from '../../../../models/teaser';
 
 @Component({
@@ -7,5 +7,8 @@ import { Teaser } from '../../../../models/teaser';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TeaserComponent {
+
+  @HostBinding() readonly class = 'flex flex-col border-b border-gray-300 pr-4';
+
   @Input() teaser!: Teaser;
 }
