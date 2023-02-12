@@ -25,6 +25,7 @@ import { TagCloudComponent } from './components/tag-cloud/tag-cloud.component';
 import { TagsComponent } from './components/tags/tags.component';
 import { SuggestionComponent } from './components/suggestion/suggestion.component';
 import { SearchComponent } from './components/blocks/search/search.component';
+import { SectionHeaderComponent } from './components/section-header/section-header.component';
 
 registerLocaleData(localeDe);
 
@@ -48,6 +49,7 @@ registerLocaleData(localeDe);
     TagsComponent,
     TeaserComponent,
     SearchComponent,
+    SectionHeaderComponent,
   ],
   imports: [
     BrowserModule,
