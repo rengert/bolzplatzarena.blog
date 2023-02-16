@@ -51,7 +51,7 @@ namespace Bolzplatzarena.Blog.Controllers
 						Tags = post.Tags,
 						Robots = "index,follow",
 						Author = post.Teaser.Author.Value,
-						Image = post.Teaser.Image?.Media?.PublicUrl ?? post.PrimaryImage?.Media?.PublicUrl,
+						Image = ((post.Teaser.Image?.Media?.PublicUrl ?? post.PrimaryImage?.Media?.PublicUrl) ?? "").Replace("~", ""),
 						DateTime = post.Published.GetValueOrDefault()
 					};
 				}
@@ -92,7 +92,8 @@ namespace Bolzplatzarena.Blog.Controllers
 					Body = post.Teaser.Body,
 					Date = post.Created,
 					Tags = post.Tags,
-					Category = post.Category
+					Category = post.Category,
+					Image = ((post.Teaser.Image?.Media?.PublicUrl ?? post.PrimaryImage?.Media?.PublicUrl) ?? "").Replace("~", ""),
 				}).ToList();
 			}
 
