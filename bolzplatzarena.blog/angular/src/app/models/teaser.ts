@@ -8,4 +8,5 @@ export interface Teaser {
   date: string;
   category: Taxonomy;
   tags: Taxonomy[];
+  image?: string;
 }

@@ -1,6 +1,10 @@
 <h2 [routerLink]="[teaser.link]" class="text-xl text-gray-700 font-bold hover:underline cursor-pointer">
   {{ teaser.title }}
 </h2>
+<img *ngIf="teaserImage"
+     [src]="teaserImage"
+     [alt]="teaser.title"
+     class="w-full h-40 object-cover border border-black rounded-2xl my-2">
 <div class="flex-1">
   <p [innerHTML]="teaser.body.value" class="mt-2 text-gray-600"></p>
 </div>

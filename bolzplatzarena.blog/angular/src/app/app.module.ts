@@ -1,4 +1,4 @@
-import { registerLocaleData } from '@angular/common';
+import { NgOptimizedImage, registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import localeDe from '@angular/common/locales/de';
 import { LOCALE_ID, NgModule } from '@angular/core';
@@ -12,6 +12,7 @@ import { BlockComponent } from './components/blocks/block/block.component';
 import { CodeBlockComponent } from './components/blocks/code-block/code-block.component';
 import { HtmlBlockComponent } from './components/blocks/html-block/html-block.component';
 import { PerformanceBlockComponent } from './components/blocks/performance-block/performance-block.component';
+import { SearchComponent } from './components/blocks/search/search.component';
 import { SoundBlockComponent } from './components/blocks/sound-block/sound-block.component';
 import { ButtonComponent } from './components/button/button.component';
 import { CmsComponent } from './components/cms/cms.component';
@@ -21,11 +22,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ArchiveComponent } from './components/pages/archive/archive.component';
 import { TeaserComponent } from './components/pages/archive/teaser/teaser.component';
+import { SectionHeaderComponent } from './components/section-header/section-header.component';
+import { SuggestionComponent } from './components/suggestion/suggestion.component';
 import { TagCloudComponent } from './components/tag-cloud/tag-cloud.component';
 import { TagsComponent } from './components/tags/tags.component';
-import { SuggestionComponent } from './components/suggestion/suggestion.component';
-import { SearchComponent } from './components/blocks/search/search.component';
-import { SectionHeaderComponent } from './components/section-header/section-header.component';
 
 registerLocaleData(localeDe);
 
@@ -61,6 +61,7 @@ registerLocaleData(localeDe);
       registrationStrategy: 'registerWhenStable:30000',
     }),
     FormsModule,
+    NgOptimizedImage,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'de' }],
   bootstrap: [AppComponent],
