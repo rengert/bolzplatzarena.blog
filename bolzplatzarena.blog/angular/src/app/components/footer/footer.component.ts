@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ViewportScroller } from '@angular/common';
+import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -8,4 +9,16 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 })
 export class FooterComponent {
   readonly date = new Date();
+  pageYoffset = 0;
+
+  constructor(private readonly scroll: ViewportScroller) {
+  }
+
+  @HostListener('window:scroll', ['$event']) onScroll(): void {
+    this.pageYoffset = window.scrollY;
+  }
+
+  scrollToTop() {
+    this.scroll.scrollToPosition([0, 0]);
+  }
 }
