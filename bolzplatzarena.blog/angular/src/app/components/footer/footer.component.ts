@@ -14,7 +14,7 @@ export class FooterComponent {
   constructor(private readonly scroll: ViewportScroller) {
   }
 
-  @HostListener('window:scroll', ['$event']) onScroll(): void {
+  @HostListener('window:scroll') onScroll(): void {
     this.pageYoffset = window.scrollY;
   }
 
