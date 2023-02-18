@@ -20,7 +20,7 @@
 <div class="mt-4">
   <span *ngFor="let tag of teaser.tags"
         [routerLink]="['/tags', tag.title.toLowerCase()]"
-        class="mr-2 mb-2 px-2 py-1 border border-blue-600 rounded inline-block">
+        class="mr-2 mb-2 px-2 py-1 border border-blue-600 rounded inline-block cursor-pointer">
         {{ tag.title }}
   </span>
 </div>
