@@ -3,6 +3,7 @@
     <div class="flex justify-between items-center">
       <div>
         <a routerLink="/" class="text-gray-800 text-xl font-bold md:text-2xl">Bolzplatzarena</a>
+        <ng-container *ngIf="title$ | async as title"> - <h1 class="inline">{{ title }}</h1></ng-container>
       </div>
       <div>
         <button type="button"
@@ -12,7 +13,7 @@
                 (click)="navigationOpen = !navigationOpen">
           <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
             <path
-              d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z">
+                d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z">
             </path>
           </svg>
         </button>

@@ -1,31 +1,26 @@
-<div class="p-3 bg-white sm:rounded-lg shadow-md border-b sm:border-none">
-  <div class="lg:flex justify-between items-center">
-    <span class="font-light text-gray-600">
-      {{ teaser.date | date : 'dd. MMM YYYY' : '' : 'de'  }}
-    </span>
-    <div>
-      <span *ngFor="let tag of teaser.tags"
-            [routerLink]="['/tags', tag.title.toLowerCase()]"
-            class="lg:ml-2 lg:mr-0 mr-2 mb-2 px-2 py-1 bg-blue-600 text-gray-100 font-bold rounded hover:bg-gray-500 inline-block">
+<h2 [routerLink]="[teaser.link]" class="text-xl text-gray-700 font-bold hover:underline cursor-pointer">
+  {{ teaser.title }}
+</h2>
+<img *ngIf="teaserImage"
+     [src]="teaserImage"
+     [alt]="teaser.title"
+     class="w-full h-40 object-cover object-top hover:object-scale-down border border-black rounded-2xl my-2">
+<div class="flex-1">
+  <p [innerHTML]="teaser.body.value" class="mt-2 text-gray-600"></p>
+</div>
+<div class="items-center">
+  <span class="flex items-center">
+    <img
+        src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEBLAEsAAD/4gIcSUNDX1BST0ZJTEUAAQEAAAIMbGNtcwIQAABtbnRyUkdCIFhZWiAH3AABABkAAwApADlhY3NwQVBQTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWxjbXMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApkZXNjAAAA/AAAAF5jcHJ0AAABXAAAAAt3dHB0AAABaAAAABRia3B0AAABfAAAABRyWFlaAAABkAAAABRnWFlaAAABpAAAABRiWFlaAAABuAAAABRyVFJDAAABzAAAAEBnVFJDAAABzAAAAEBiVFJDAAABzAAAAEBkZXNjAAAAAAAAAANjMgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB0ZXh0AAAAAEZCAABYWVogAAAAAAAA9tYAAQAAAADTLVhZWiAAAAAAAAADFgAAAzMAAAKkWFlaIAAAAAAAAG&#x2B;iAAA49QAAA5BYWVogAAAAAAAAYpkAALeFAAAY2lhZWiAAAAAAAAAkoAAAD4QAALbPY3VydgAAAAAAAAAaAAAAywHJA2MFkghrC/YQPxVRGzQh8SmQMhg7kkYFUXdd7WtwegWJsZp8rGm/fdPD6TD////bAEMACgcHCAcGCggICAsKCgsOGBAODQ0OHRUWERgjHyUkIh8iISYrNy8mKTQpISIwQTE0OTs&#x2B;Pj4lLkRJQzxINz0&#x2B;O//bAEMBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIADwAPAMBIgACEQEDEQH/xAAaAAACAwEBAAAAAAAAAAAAAAAFBwIDBAYB/8QALxAAAgEDAwIGAgEDBQAAAAAAAQIDAAQRBRIhQVEGEyIxYXEHgTIUM0JSkaGxwf/EABgBAAMBAQAAAAAAAAAAAAAAAAECAwAE/8QAHREAAgICAwEAAAAAAAAAAAAAAAECIREiAzFBEv/aAAwDAQACEQMRAD8AqmA5BH1Q25wQc&#x2B;1E7iRHHPGetC5/g8UmclAXOqp/MgL1PaidkIBtit9uOjd6xSWst&#x2B;r20C5kZSQPgDJ/4BpseHvCWjaTEiizaZjyZnO7B&#x2B;sVlnw1eii1hJHcT29rKCoY71UgMoHOeOlZoI1niRgvpIDH5Panvrenx3djcQ2doglaFkWVsKBke31Sp1LRZNDMNvOYSzJkbCSB06gVnlAfz4ByvGBgDsBVZQZ5JrU&#x2B;Cv8AL/aqioz70pjpb63VP7bkfBoNPvjPI47jmil/LtXh8fugc10SpO4YFBBNWjamunarFdlBIEyGXuCCD/3TYtdQuWiDWsSSoQrD1eognk49uM0koZmupxDAoklkIRO248DmnfaWQ0KwW3uGJt0jGyQ&#x2B;2OOD802ysMfl0zLq&#x2B;t6hZxTzLbxiBcACThyv69qXeu6q&#x2B;r3KTSII9ibQFz3J/wDa67xxM0Xhw3keUtjMpc7cbgeM/WcUuJLpZDlCGHcGi3LFgajnUk20DkmonGetQ3lhzivDk/5UuQYDF7dek&#x2B;k4HXFctJI9xKXkJIzwOgFF9VvR/TlQcFzt/XWgocFmA6Cq8a9Em/Ar4dtLi912zhtELS&#x2B;crDsADkk/Qp9X/n3lhNCcwoQQHVgGz0wCKSPgK6a28TxzKM7EYkd/anRc69YWunNqFzKIYkX1bh6voUs5bYKQjrkGeMbGdvxzdRXkyXM8cUZaYJtD4YHOOnFJHhAFUninnq12uofje&#x2B;nWNo1NoxVH/koHsD84ApDyvhqtHqyD7o0RXI83y35yOK0&#x2B;Ynagc02yaNhztOf1RPJ7VGaspF0UX0mbgLn2GaxrLmUheeKheOXuXJ74qKnAwKpGkK&#x2B;xkeAtNtW0a4vy6rKJCrMT7AY4qPiDxFC9qGAjmiSQ&#x2B;Wu7PnOvtkf6VPJ7kAdap8BQJeaUbeXPlyXoRgD0IWhmiQxnTYpmQM1gl1NEG5BYbCM9xk5pIce7kysuTRRR32ktMv4u1SG6k3XKW8xmBzkMwL4Pz6xn5NJqebBb4pkaDdTL&#x2B;NddlLl3meTeX5ySqgn75pXTsdzfdWdHOisyFnPfpRa2kD2655I4P64oLATl39zitVtK6Iyg8buv0KlK0Oj/2Q=="
+        [alt]="'Autor von: ' + teaser.title"
+        class="mr-4 w-10 h-10 object-cover object-top rounded-full hidden sm:block">
+    <span class="text-gray-700">T.R., {{ teaser.date | date : 'dd. MMM YYYY' : '' : 'de'  }}</span>
+  </span>
+</div>
+<div class="mt-4">
+  <span *ngFor="let tag of teaser.tags"
+        [routerLink]="['/tags', tag.title.toLowerCase()]"
+        class="mr-2 mb-2 px-2 py-1 border border-blue-600 rounded inline-block cursor-pointer">
         {{ tag.title }}
-      </span>
-    </div>
-  </div>
-  <div class="mt-2">
-    <h2 [routerLink]="[teaser.link]" class="text-2xl text-gray-700 font-bold hover:underline cursor-pointer">
-      {{ teaser.title }}
-    </h2>
-    <p [innerHTML]="teaser.body.value" class="mt-2 text-gray-600"></p>
-  </div>
-  <div class="flex justify-between items-center mt-4">
-    <a [routerLink]="[teaser.link]" class="text-blue-600 hover:underline">Hier geht es zum Artikel</a>
-    <div>
-      <span class="flex items-center">
-        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEBLAEsAAD/4gIcSUNDX1BST0ZJTEUAAQEAAAIMbGNtcwIQAABtbnRyUkdCIFhZWiAH3AABABkAAwApADlhY3NwQVBQTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWxjbXMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApkZXNjAAAA/AAAAF5jcHJ0AAABXAAAAAt3dHB0AAABaAAAABRia3B0AAABfAAAABRyWFlaAAABkAAAABRnWFlaAAABpAAAABRiWFlaAAABuAAAABRyVFJDAAABzAAAAEBnVFJDAAABzAAAAEBiVFJDAAABzAAAAEBkZXNjAAAAAAAAAANjMgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB0ZXh0AAAAAEZCAABYWVogAAAAAAAA9tYAAQAAAADTLVhZWiAAAAAAAAADFgAAAzMAAAKkWFlaIAAAAAAAAG&#x2B;iAAA49QAAA5BYWVogAAAAAAAAYpkAALeFAAAY2lhZWiAAAAAAAAAkoAAAD4QAALbPY3VydgAAAAAAAAAaAAAAywHJA2MFkghrC/YQPxVRGzQh8SmQMhg7kkYFUXdd7WtwegWJsZp8rGm/fdPD6TD////bAEMACgcHCAcGCggICAsKCgsOGBAODQ0OHRUWERgjHyUkIh8iISYrNy8mKTQpISIwQTE0OTs&#x2B;Pj4lLkRJQzxINz0&#x2B;O//bAEMBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIADwAPAMBIgACEQEDEQH/xAAaAAACAwEBAAAAAAAAAAAAAAAFBwIDBAYB/8QALxAAAgEDAwIGAgEDBQAAAAAAAQIDAAQRBRIhQVEGEyIxYXEHgTIUM0JSkaGxwf/EABgBAAMBAQAAAAAAAAAAAAAAAAECAwAE/8QAHREAAgICAwEAAAAAAAAAAAAAAAECIREiAzFBEv/aAAwDAQACEQMRAD8AqmA5BH1Q25wQc&#x2B;1E7iRHHPGetC5/g8UmclAXOqp/MgL1PaidkIBtit9uOjd6xSWst&#x2B;r20C5kZSQPgDJ/4BpseHvCWjaTEiizaZjyZnO7B&#x2B;sVlnw1eii1hJHcT29rKCoY71UgMoHOeOlZoI1niRgvpIDH5Panvrenx3djcQ2doglaFkWVsKBke31Sp1LRZNDMNvOYSzJkbCSB06gVnlAfz4ByvGBgDsBVZQZ5JrU&#x2B;Cv8AL/aqioz70pjpb63VP7bkfBoNPvjPI47jmil/LtXh8fugc10SpO4YFBBNWjamunarFdlBIEyGXuCCD/3TYtdQuWiDWsSSoQrD1eognk49uM0koZmupxDAoklkIRO248DmnfaWQ0KwW3uGJt0jGyQ&#x2B;2OOD802ysMfl0zLq&#x2B;t6hZxTzLbxiBcACThyv69qXeu6q&#x2B;r3KTSII9ibQFz3J/wDa67xxM0Xhw3keUtjMpc7cbgeM/WcUuJLpZDlCGHcGi3LFgajnUk20DkmonGetQ3lhzivDk/5UuQYDF7dek&#x2B;k4HXFctJI9xKXkJIzwOgFF9VvR/TlQcFzt/XWgocFmA6Cq8a9Em/Ar4dtLi912zhtELS&#x2B;crDsADkk/Qp9X/n3lhNCcwoQQHVgGz0wCKSPgK6a28TxzKM7EYkd/anRc69YWunNqFzKIYkX1bh6voUs5bYKQjrkGeMbGdvxzdRXkyXM8cUZaYJtD4YHOOnFJHhAFUninnq12uofje&#x2B;nWNo1NoxVH/koHsD84ApDyvhqtHqyD7o0RXI83y35yOK0&#x2B;Ynagc02yaNhztOf1RPJ7VGaspF0UX0mbgLn2GaxrLmUheeKheOXuXJ74qKnAwKpGkK&#x2B;xkeAtNtW0a4vy6rKJCrMT7AY4qPiDxFC9qGAjmiSQ&#x2B;Wu7PnOvtkf6VPJ7kAdap8BQJeaUbeXPlyXoRgD0IWhmiQxnTYpmQM1gl1NEG5BYbCM9xk5pIce7kysuTRRR32ktMv4u1SG6k3XKW8xmBzkMwL4Pz6xn5NJqebBb4pkaDdTL&#x2B;NddlLl3meTeX5ySqgn75pXTsdzfdWdHOisyFnPfpRa2kD2655I4P64oLATl39zitVtK6Iyg8buv0KlK0Oj/2Q=="
-             [alt]="'Autor von: ' + teaser.title"
-              class="mx-4 w-10 h-10 object-cover rounded-full hidden sm:block">
-        <span class="text-gray-700 font-bold">T.R.</span>
-      </span>
-    </div>
-  </div>
+  </span>
 </div>

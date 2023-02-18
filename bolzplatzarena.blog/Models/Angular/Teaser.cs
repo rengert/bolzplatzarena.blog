@@ -7,11 +7,12 @@ namespace Bolzplatzarena.Blog.Models.Angular
 {
 	public class Teaser
 	{
-		public string Title { get; set; }
-		public string Link { get; set; }
-		public HtmlField Body { get; set; }
-		public DateTime Date { get; set; }
-		public IList<Taxonomy> Tags { get; set; }
-		public Taxonomy Category { get; set; }
+		public string Title { get; init; }
+		public string Link { get; init; }
+		public HtmlField Body { get; init; }
+		public DateTime Date { get; init; }
+		public IList<Taxonomy> Tags { get; init; }
+		public Taxonomy Category { get; init; }
+		public string Image { get; init; }
 	}
 }

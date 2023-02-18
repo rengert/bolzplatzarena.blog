@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map, switchMap, tap } from 'rxjs/operators';
@@ -13,6 +13,8 @@ import { PageService } from '../../services/page.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TagsComponent {
+  @HostBinding() readonly class = 'block md:p-0 p-4';
+
   readonly posts$: Observable<Teaser[]>;
 
   constructor(route: ActivatedRoute, page: PageService, metaData: MetaDataService) {
