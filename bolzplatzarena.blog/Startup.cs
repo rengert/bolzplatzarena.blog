@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Piranha;
+using Piranha.AspNetCore.Http;
 using Piranha.AspNetCore.Identity.SQLite;
 using Piranha.AttributeBuilder;
 using Piranha.Data.EF.SQLite;
@@ -54,6 +55,7 @@ namespace Bolzplatzarena.Blog
 			{
 				options.UseFileStorage();
 				options.UseImageSharp();
+				options.UseCms();
 				options.UseManager();
 				options.UseTinyMCE();
 				options.UseMemoryCache();
@@ -126,11 +128,8 @@ namespace Bolzplatzarena.Blog
 			app.UseSpa(spa =>
 			{
 				spa.Options.SourcePath = "angular";
-				if (env.IsDevelopment())
-				{
-					spa.UseAngularCliServer(npmScript: "start");
-				}
 			});
+			app.UseMiddleware<SitemapMiddleware>();
 			app.UseRouting();
 			app.UseEndpoints(endpoints =>
 			{
