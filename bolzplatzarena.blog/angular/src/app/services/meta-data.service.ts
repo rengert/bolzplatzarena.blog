@@ -9,8 +9,24 @@ function isPage(page: Page | MetaInfo | undefined): page is Page {
   return (page as Page)?.type !== undefined;
 }
 
+function log(
+  target: unknown,
+  propertyKey: string,
+  descriptor: TypedPropertyDescriptor<any>,
+): TypedPropertyDescriptor<any> {
+  const originalMethod = descriptor.value;
+  descriptor.value = function (...args: unknown[]) {
+    console.log(`The method ${propertyKey} args are: `, args);
+    const result = originalMethod.apply(this, args);
+    console.log('The return value is: ', result);
+    return result;
+  };
+  return descriptor;
+}
+
 @Injectable({ providedIn: 'root' })
 export class MetaDataService {
+  readonly info = 'https://schema.org';
   private readonly schema: HTMLScriptElement;
   private readonly globalSchema: HTMLScriptElement;
 
@@ -29,6 +45,7 @@ export class MetaDataService {
     document.head.appendChild(this.schema);
   }
 
+  @log
   update(page: Page | MetaInfo | undefined): void {
     if (!page) {
       this.emptyMeta();
@@ -79,6 +96,7 @@ export class MetaDataService {
     }
   }
 
+  @log
   private emptyMeta(): void {
     this.meta.updateTag({ name: 'description', content: '' });
     this.meta.updateTag({ name: 'keywords', content: '' });
@@ -95,10 +113,12 @@ export class MetaDataService {
     this.title.setTitle('Hier gibt es scheinbar gar nicht so viel zu sehen. - bolzplatzarena.net');
   }
 
+  @log
   private setSchema<T extends Thing>(element: HTMLScriptElement, schema: WithContext<T>): void {
     element.text = JSON.stringify(schema, null, 2).replace(/\//g, '\\/');
   }
 
+  @log
   private clearSchema(element: HTMLScriptElement): void {
     element.text = '';
   }
