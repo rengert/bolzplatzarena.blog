@@ -9,6 +9,9 @@ import { OfflineStorageService } from './offline-storage.service';
 
 @Injectable({ providedIn: 'root' })
 export class NavigationService {
+  readonly maxUpdateInterval = 1000 * 120;
+  private lastUpdate = 0;
+
   constructor(
     private readonly http: HttpClient,
     private readonly offline: OfflineStorageService,
@@ -18,7 +21,11 @@ export class NavigationService {
   async get(): Promise<Page[]> {
     const sitemap = await this.offline.sitemap();
     if (sitemap.length) {
-      this.update();
+      const now = new Date().getTime();
+      if (now > this.lastUpdate + this.maxUpdateInterval) {
+        this.lastUpdate = now;
+        this.update();
+      }
       return orderBy(sitemap, item => item.sortOrder);
     }
     const remoteSitemap = await firstValueFrom(this.http.get<Page[]>(`${environment.apiUrl}/api/sitemap`).pipe(
