@@ -14,6 +14,8 @@ export interface Content {
 export class ContentService {
   readonly data$: Observable<Content>;
 
+  private readonly ignorePatterns = ['/manager', '/nonogramm'];
+
   constructor(
     metaData: MetaDataService,
     page: PageService,
@@ -22,6 +24,7 @@ export class ContentService {
     this.data$ = router.events.pipe(
       filter(event => event instanceof NavigationEnd),
       map(event => (event as NavigationEnd).url),
+      filter(url => !this.ignorePatterns.some(pattern => url.startsWith(pattern))),
       switchMap(url => page.bySlug(url)),
       tap(page => metaData.update(page)),
       map(page => ({ page })),
