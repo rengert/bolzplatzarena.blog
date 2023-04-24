@@ -4,8 +4,16 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'app-nonogramm',
   templateUrl: './nonogramm.component.html',
   styleUrls: ['./nonogramm.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NonogrammComponent {
+  gameStarted = false;
 
+  newGame() {
+//
+  }
+
+  continueGame() {
+
+  }
 }
