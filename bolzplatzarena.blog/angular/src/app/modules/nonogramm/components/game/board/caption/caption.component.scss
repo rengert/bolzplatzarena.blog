@@ -1,0 +1,101 @@
+:host {
+  display: flex;
+  flex: 1;
+  margin-bottom: 1px;
+  padding: 0 2px;
+
+  border-radius: 2px;
+  background-color: lightgray;
+  font-size: 1.3rem;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    flex: 1;
+    padding-right: 1px;
+
+    &.done {
+      color: darkgrey;
+    }
+  }
+
+  &.board-size-5 {
+    font-size: 1.5rem;
+
+    span {
+      &.text-length-1,
+      &.text-length-2 {
+        padding: 5px 0;
+        font-size: 2rem;
+      }
+    }
+  }
+
+  &.board-size-10 {
+    font-size: 1.25rem;
+
+    span {
+      &.text-length-1,
+      &.text-length-2 {
+        padding: 5px 0;
+        font-size: 1.75rem;
+      }
+    }
+  }
+
+  &.vertical {
+    float: left;
+    flex-direction: column;
+    width: 1.9rem;
+    height: 7rem;
+    padding: 2px 0;
+    margin-right: 1px;
+
+    text-align: center;
+    line-height: 1rem;
+
+    span {
+      display: block;
+      flex: 1;
+      flex-grow: 0;
+      padding: 2px;
+
+      &.text-length-5 {
+        line-height: .7em;
+      }
+
+      &.text-length-6 {
+        line-height: .6em;
+        font-size: 1em;
+      }
+
+      &.text-length-7 {
+        line-height: .5em;
+        font-size: 1em;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  :host {
+    font-size: 0.6rem;
+    line-height: 1rem;
+
+    &.vertical {
+      width: 1rem;
+      height: 3.5rem;
+
+      span {
+        display: block;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  :host {
+    font-size: 1.2rem;
+  }
+}

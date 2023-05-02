@@ -1,19 +1,28 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-nonogramm',
   templateUrl: './nonogramm.component.html',
-  styleUrls: ['./nonogramm.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NonogrammComponent {
+export class NonogrammComponent implements OnInit {
   gameStarted = false;
 
-  newGame() {
-//
+  constructor(
+    private readonly storage: StorageService,
+    private readonly route: ActivatedRoute,
+    private readonly router: Router,
+  ) {
   }
 
-  continueGame() {
+  ngOnInit(): void {
+    this.gameStarted = !!this.storage.loadGame();
+  }
 
+  newGame(): Promise<boolean> {
+    this.storage.cleanGame();
+    return this.router.navigate(['game'], { relativeTo: this.route });
   }
 }
