@@ -6,7 +6,7 @@
 
   border-radius: 2px;
   background-color: lightgray;
-  font-size: 1.3rem;
+  font-size: 1rem;
   align-items: center;
   justify-content: center;
 
@@ -20,7 +20,7 @@
   }
 
   &.board-size-5 {
-    font-size: 1.5rem;
+    font-size: 1rem;
 
     span {
       &.text-length-1,
@@ -32,13 +32,13 @@
   }
 
   &.board-size-10 {
-    font-size: 1.25rem;
+    font-size: 1rem;
 
     span {
       &.text-length-1,
       &.text-length-2 {
         padding: 5px 0;
-        font-size: 1.75rem;
+        font-size: 1rem;
       }
     }
   }
@@ -96,6 +96,6 @@
 
 @media screen and (min-width: 768px) {
   :host {
-    font-size: 1.2rem;
+    font-size: 0.75rem;
   }
 }
