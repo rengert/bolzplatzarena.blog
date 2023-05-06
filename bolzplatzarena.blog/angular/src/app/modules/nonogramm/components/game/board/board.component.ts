@@ -29,7 +29,7 @@ export class BoardComponent implements OnChanges {
   }
 
   ngOnChanges(): void {
-    this.cssClass = `board-size-${this.boardData.config.size}`;
+    this.cssClass = `block board-size-${this.boardData.config.size}`;
     this.checkBoard();
   }
 

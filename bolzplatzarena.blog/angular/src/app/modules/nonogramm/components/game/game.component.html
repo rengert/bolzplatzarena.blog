@@ -1,5 +1,6 @@
 <ng-container *ngIf="gameData$ | async as gameData">
-  <app-board *ngIf="gameData" [boardData]="gameData" (resultEvent)="resultGame($event)"></app-board>
+  <app-board *ngIf="gameData" [boardData]="gameData" (resultEvent)="resultGame($event)" class="block"></app-board>
+  
   <div class="buttons">
     <button [routerLink]="['']">Aufgeben</button>
   </div>
