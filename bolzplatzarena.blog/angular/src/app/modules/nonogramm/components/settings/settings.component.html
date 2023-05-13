@@ -1,0 +1,19 @@
+<section class="block w-96 m-auto border border-b-blue-800 p-4 mb-4">
+  <h1 class="text-2xl pb-4">Einstellungen</h1>
+  <form [formGroup]="form">
+    <h2 class="mb-4">Level</h2>
+    <label *ngFor="let setting of levels" class="block">
+      <input type="radio" [value]="setting" formControlName="level">
+      <span class="ml-4">{{ setting }}</span>
+    </label>
+    <h2 class="my-4">Größe</h2>
+    <label *ngFor="let setting of sizes" class="block">
+      <input type="radio" [value]="setting" formControlName="size">
+      <span class="ml-4">{{ setting }}</span>
+    </label>
+    <button (click)="save()" type="button"
+            class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+      Speichern
+    </button>
+  </form>
+</section>

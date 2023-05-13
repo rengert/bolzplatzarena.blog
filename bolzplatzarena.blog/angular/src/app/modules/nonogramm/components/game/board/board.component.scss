@@ -1,0 +1,140 @@
+:host {
+  text-align: center;
+
+  .columns {
+    display: flex;
+    width: 303px;
+    margin: 0 0 5px 62px;
+  }
+
+  .rows {
+    display: flex;
+    height: 301px;
+    width: 58px;
+    padding: 2px 2px 0 0;
+    clear: both;
+    float: left;
+
+    flex-direction: column;
+  }
+
+  .inner {
+    display: flex;
+    width: 303px;
+    height: 301px;
+    border: 2px solid black;
+    border-right: 0;
+    border-bottom: 0;
+    flex-direction: column;
+
+    div.row {
+      display: flex;
+      flex: 1;
+      height: 1.9rem;
+      margin: 0;
+      padding: 0;
+
+      &:nth-child(5n) {
+        border-bottom: 1px solid black;
+      }
+
+      app-block {
+        &:nth-child(5n) {
+          border-right: 2px solid black;
+        }
+      }
+    }
+  }
+
+  .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+
+    mat-label {
+      font-size: 2.5rem;
+    }
+
+    mat-slide-toggle {
+      zoom: 2;
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  :host {
+    .inner {
+      width: 258px;
+      height: 255px;
+
+      div.row {
+        height: 1rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 410px) {
+  :host {
+    .inner {
+      width: 330px;
+      height: 330px;
+
+      div.row {
+        height: 1rem;
+      }
+    }
+
+    .rows {
+      height: 330px;
+    }
+
+    .columns {
+      width: 330px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  :host {
+    .inner {
+      width: 529px;
+      height: 530px;
+
+      div.row {
+        height: 1rem;
+      }
+    }
+
+    .rows {
+      height: 530px;
+      font-size: 1.2rem;
+    }
+
+    .columns {
+      width: 530px;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  :host {
+    .inner {
+      width: 430px;
+      height: 430px;
+
+      div.row {
+        height: 1rem;
+      }
+    }
+
+    .rows {
+      height: 430px;
+    }
+
+    .columns {
+      width: 430px;
+    }
+  }
+}

@@ -5,6 +5,10 @@ import { TagsComponent } from './components/tags/tags.component';
 
 const routes: Routes = [
   { path: 'tags/:tag', component: TagsComponent },
+  {
+    path: 'nonogramm',
+    loadChildren: () => import('./modules/nonogramm/nonogramm.module').then(m => m.NonogrammModule),
+  },
   { path: '**', component: CmsComponent },
 ];
 
