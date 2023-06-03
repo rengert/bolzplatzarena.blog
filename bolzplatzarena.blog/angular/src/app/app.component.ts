@@ -37,7 +37,7 @@ export class AppComponent {
   ];
 
   constructor(update: SwUpdate, feedback: FeedbackService, readonly app: AppContextService) {
-    update.available.subscribe(() => {
+    update.versionUpdates.subscribe(() => {
       update.activateUpdate().then(() => this.versionUpdate.next(true));
     });
     timer(0, 5 * 60 * 1000).pipe(
