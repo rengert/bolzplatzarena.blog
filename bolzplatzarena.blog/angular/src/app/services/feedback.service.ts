@@ -35,8 +35,8 @@ export class FeedbackService {
   }
 
   private update(): Promise<unknown> {
-    return firstValueFrom(this.http.get<Comment[]>(`${environment.apiUrl}/api/comments`)
-      .pipe(
+    return firstValueFrom(
+      this.http.get<Comment[]>(`${environment.apiUrl}/api/comments`).pipe(
         catchError(() => of([])),
         switchMap(data => this.commentStorage.addComments(data)),
       ),
