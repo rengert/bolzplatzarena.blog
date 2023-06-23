@@ -3,7 +3,7 @@
     <div class="flex justify-between items-center">
       <div>
         <a routerLink="/" class="text-gray-800 text-xl font-bold md:text-2xl">Bolzplatzarena</a>
-        <ng-container *ngIf="title$ | async as title"> - <h1 class="inline">{{ title }}</h1></ng-container>
+        <ng-container *ngIf="title()"> - <h1 class="inline">{{ title() }}</h1></ng-container>
       </div>
       <div>
         <button type="button"
@@ -27,4 +27,4 @@
   </div>
 </header>
 
-<app-navigation *ngIf="navigationOpen" [header]="true" class="absolute w-screen h-5/6 top-16 p-2"></app-navigation>
+<app-navigation *ngIf="navigationOpen()" [header]="true" class="absolute w-screen h-5/6 top-16 p-2"></app-navigation>
