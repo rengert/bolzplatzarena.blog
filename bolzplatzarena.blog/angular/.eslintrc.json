@@ -54,7 +54,6 @@
         "@angular-eslint/template/no-distracting-elements": 2,
         "@angular-eslint/template/alt-text": 2,
         "@angular-eslint/template/elements-content": 2,
-        "@angular-eslint/template/label-for": 2,
         "@angular-eslint/template/table-scope": 2,
         "@angular-eslint/template/valid-aria": 2
       }
