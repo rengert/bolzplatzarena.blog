@@ -18,7 +18,7 @@ export class BoardComponent implements OnChanges {
 
   @Output() readonly resultEvent = new EventEmitter<boolean>();
 
-  @HostBinding('attr.class') cssClass!: string;
+  @HostBinding() class = '';
 
   columnHints!: Caption[][];
   rowHints!: Caption[][];
@@ -29,7 +29,8 @@ export class BoardComponent implements OnChanges {
   }
 
   ngOnChanges(): void {
-    this.cssClass = `block board-size-${this.boardData.config.size}`;
+    this.class = `block board-size-${this.boardData.config.size}`;
+
     this.checkBoard();
   }
 

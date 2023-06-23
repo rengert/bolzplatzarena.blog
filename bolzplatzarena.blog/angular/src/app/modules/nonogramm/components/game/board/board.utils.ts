@@ -24,7 +24,9 @@ function generateHint(gameData: GameData, isRow: boolean, line: number): Caption
   let done = true;
   let index = 0;
   for (let j = 0; j < gameData.config.size; j++) {
-    const item = isRow ? gameData.current[line].data[j] : gameData.current[j].data[line];
+    const item = isRow
+      ? gameData.current[line].data[j]
+      : gameData.current[j].data[line];
     done = done && item.show;
     if (item.expected) {
       count++;
