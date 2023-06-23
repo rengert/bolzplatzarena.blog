@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
@@ -11,14 +11,14 @@ import { ContentService } from '../../services/content.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
-  navigationOpen = false;
+  readonly navigationOpen = signal(false);
 
   readonly title$: Observable<string | undefined>;
 
   constructor(content: ContentService, router: Router) {
     router.events.pipe(
       filter(event => event instanceof NavigationEnd),
-    ).subscribe(() => this.navigationOpen = false);
+    ).subscribe(() => this.navigationOpen.set(false));
 
     this.title$ = content.data$.pipe(
       map(data => (data.page?.type === PageType.Post)
@@ -26,5 +26,9 @@ export class HeaderComponent {
         : data.page?.title,
       ),
     );
+  }
+
+  toggleNavigation() {
+    this.navigationOpen.update(open => !open);
   }
 }
