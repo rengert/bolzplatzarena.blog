@@ -25,13 +25,14 @@ export class BlockComponent implements OnChanges {
 
   @Output() readonly action = new EventEmitter<boolean>();
 
-  @HostBinding('class') cssClass = '';
+  @HostBinding() class = '';
   @HostBinding('class.failed') failed = false;
   @HostBinding('class.good') good = false;
 
   none = false;
 
-  @HostListener('click') onClick(): void {
+  @HostListener('click')
+  onClick(): void {
     if (this.block.show) {
       return;
     }
@@ -46,7 +47,7 @@ export class BlockComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.block && this.block.show) {
-      this.cssClass = `board-size-${this.config.size}`;
+      this.class = `board-size-${this.config.size}`;
       this.good = this.block.expected;
       this.none = !this.block.expected;
     }

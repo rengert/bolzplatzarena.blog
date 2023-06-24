@@ -19,13 +19,13 @@
     </section>
   </div>
 </main>
-<div *ngIf="versionUpdate | async"
+<div *ngIf="versionUpdate()"
      class="sticky flex justify-between items-center bottom-16 m-4 bg-blue-600 rounded-lg text-white px-4 py-2">
   <div>
     Es gibt eine neue Version der Bolzplatzarena!
   </div>
   <div>
-    <button class="bg-white text-black rounded-lg px-2 py-1 ml-4" (click)="versionUpdate.next(false)">So what</button>
+    <button class="bg-white text-black rounded-lg px-2 py-1 ml-4" (click)="versionUpdate.set(false)">So what</button>
     <button class="bg-white text-black rounded-lg px-2 py-1 ml-4" (click)="reload()">Aktualisieren</button>
   </div>
 </div>

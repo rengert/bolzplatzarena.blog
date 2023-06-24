@@ -1,24 +1,29 @@
 <app-hearts [hearts]="hearts"></app-hearts>
 <div class="m-auto inline-block">
   <div class="columns">
-    <app-caption *ngFor="let column of columnHints"
-                 [numbers]="column"
-                 [vertical]="true"
-                 [config]="boardData.config"></app-caption>
+    <app-caption
+        *ngFor="let column of columnHints"
+        [numbers]="column"
+        [vertical]="true"
+        [config]="boardData.config">
+    </app-caption>
   </div>
   <div class="rows">
-    <app-caption *ngFor="let row of rowHints"
-                 [numbers]="row"
-                 [vertical]="false"
-                 [config]="boardData.config"></app-caption>
+    <app-caption
+        *ngFor="let row of rowHints"
+        [numbers]="row"
+        [vertical]="false"
+        [config]="boardData.config">
+    </app-caption>
   </div>
   <div class="inner">
     <div *ngFor="let row of boardData.current" class="row">
-      <app-block *ngFor="let block of row.data"
-                 [block]="block"
-                 [config]="boardData.config"
-                 (action)="onAction($event)"
-                 [selectExpected]="selectType">
+      <app-block
+          *ngFor="let block of row.data"
+          [block]="block"
+          [config]="boardData.config"
+          (action)="onAction($event)"
+          [selectExpected]="selectType">
       </app-block>
     </div>
   </div>

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StorageService } from '../services/storage.service';
 
@@ -7,22 +7,20 @@ import { StorageService } from '../services/storage.service';
   templateUrl: './nonogramm.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NonogrammComponent implements OnInit {
-  gameStarted = false;
+export class NonogrammComponent {
+  protected readonly gameStarted: boolean;
 
   constructor(
     private readonly storage: StorageService,
     private readonly route: ActivatedRoute,
     private readonly router: Router,
   ) {
-  }
-
-  ngOnInit(): void {
     this.gameStarted = !!this.storage.loadGame();
   }
 
-  newGame(): Promise<boolean> {
+  newGame(): void {
     this.storage.cleanGame();
-    return this.router.navigate(['game'], { relativeTo: this.route });
+
+    void this.router.navigate(['game'], { relativeTo: this.route });
   }
 }

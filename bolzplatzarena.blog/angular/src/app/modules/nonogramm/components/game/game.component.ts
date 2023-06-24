@@ -1,6 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
 import { Config } from '../../models/config';
 import { GameData } from '../../models/game-data';
 import { GameService } from '../../services/game.service';
@@ -12,7 +11,7 @@ import { StorageService } from '../../services/storage.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GameComponent implements OnInit {
-  readonly gameData$ = new BehaviorSubject<GameData | undefined>(undefined);
+  readonly gameData = signal<GameData | undefined>(undefined);
 
   constructor(
     private readonly game: GameService,
@@ -26,29 +25,26 @@ export class GameComponent implements OnInit {
     this.setupGame(config);
   }
 
-  resultGame(result: boolean): Promise<boolean> {
-    if (result) {
-      return this.win();
-    }
-    return this.lose();
+  resultGame(result: boolean): void {
+    result ? this.win() : this.lose();
   }
 
   private setupGame(config: Config): void {
-    this.gameData$.next(this.storage.loadGame() ?? this.game.createGameData(config));
+    this.gameData.set(this.storage.loadGame() ?? this.game.createGameData(config));
   }
 
-  private win(): Promise<boolean> {
+  private win(): void {
     alert('You win!');
 
     this.storage.cleanGame();
-    return this.router.navigate(['../nonogramm']);
+    void this.router.navigate(['../nonogramm']);
   }
 
-  private lose(): Promise<boolean> {
+  private lose(): void {
     const choice = confirm('You lose! Neustarten?');
-    const current = this.gameData$.value;
+    const current = this.gameData();
     if (choice && current) {
-      this.gameData$.next({
+      this.gameData.set({
         ...current,
         current: [...current.data].map(
           row => ({
@@ -58,9 +54,9 @@ export class GameComponent implements OnInit {
         ),
         failed: 0,
       });
-      return Promise.resolve(true);
+      return;
     }
     this.storage.cleanGame();
-    return this.router.navigate(['../nonogramm']);
+    void this.router.navigate(['../nonogramm']);
   }
 }
