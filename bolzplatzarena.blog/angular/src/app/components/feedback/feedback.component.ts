@@ -23,7 +23,7 @@ export class FeedbackComponent implements OnChanges {
   readonly form = new FormGroup({
     name: new FormControl<string>('', Validators.required),
     comment: new FormControl<string>('', Validators.required),
-  })
+  });
 
   readonly state$ = new BehaviorSubject(FormState.Unknown);
 
