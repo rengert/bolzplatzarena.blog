@@ -6,8 +6,6 @@ import { bootstrapApplication, BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppRoutingModule } from './app/app-routing.module';
 import { AppComponent } from './app/app.component';
-
-
 import { environment } from './environments/environment';
 
 if (environment.production) {
@@ -16,10 +14,20 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
   providers: [
-    importProvidersFrom(BrowserModule, AppRoutingModule, ReactiveFormsModule, ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: environment.production,
-      registrationStrategy: 'registerWhenStable:30000',
-    }), FormsModule, NgOptimizedImage),
+    importProvidersFrom(
+      BrowserModule,
+      AppRoutingModule,
+      ReactiveFormsModule,
+      ServiceWorkerModule.register(
+        'ngsw-worker.js',
+        {
+          enabled: environment.production,
+          registrationStrategy: 'registerWhenStable:30000',
+        },
+      ),
+      FormsModule,
+      NgOptimizedImage,
+    ),
     { provide: LOCALE_ID, useValue: 'de' },
     provideHttpClient(withInterceptorsFromDi()),
   ],
