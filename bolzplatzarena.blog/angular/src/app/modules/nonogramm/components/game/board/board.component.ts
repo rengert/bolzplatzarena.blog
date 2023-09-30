@@ -65,7 +65,7 @@ export class BoardComponent implements OnChanges {
       this.resultEvent.emit(false);
     }
     const blocks = this.boardData.current
-      .reduce((blocks, row) => [...blocks, ...row.data], [] as GameBlock[]);
+      .reduce((blocksFromData, row) => [...blocksFromData, ...row.data], [] as GameBlock[]);
     const missing = blocks.filter(({ expected, show }) => expected && !show);
     if (missing.length === 0) {
       this.resultEvent.emit(true);

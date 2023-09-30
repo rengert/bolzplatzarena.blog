@@ -48,8 +48,8 @@ export class OfflineStorageService {
     return this.toStore(Store.Comments, items);
   }
 
-  toStore<T>(storeName: string, item: T | T[], clear = false): Promise<void> {
-    const data: T[] = isArray(item) ? item : [item];
+  toStore<T>(storeName: string, itemToStore: T | T[], clear = false): Promise<void> {
+    const data: T[] = isArray(itemToStore) ? itemToStore : [itemToStore];
     return new Promise<void>((resolve, reject) => {
       const dbRequest = indexedDB.open('data', 4);
       dbRequest.onerror = (): void => {
