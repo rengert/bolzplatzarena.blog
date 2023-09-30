@@ -1,30 +1,30 @@
+import { NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, OnChanges, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Caption } from '../../../models/caption';
 import { GameBlock } from '../../../models/game-block';
 import { GameData } from '../../../models/game-data';
 import { StorageService } from '../../../services/storage.service';
-import { generateColumnHints, generateRowHints } from './board.utils';
-import { FormsModule } from '@angular/forms';
 import { BlockComponent } from './block/block.component';
+import { generateColumnHints, generateRowHints } from './board.utils';
 import { CaptionComponent } from './caption/caption.component';
-import { NgFor } from '@angular/common';
 import { HeartsComponent } from './hearts/hearts.component';
 
 const HEART_LIMIT = 3;
 
 @Component({
-    selector: 'app-board',
-    templateUrl: './board.component.html',
-    styleUrls: ['./board.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: true,
-    imports: [
-        HeartsComponent,
-        NgFor,
-        CaptionComponent,
-        BlockComponent,
-        FormsModule,
-    ],
+  selector: 'app-board',
+  templateUrl: './board.component.html',
+  styleUrls: ['./board.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    HeartsComponent,
+    NgFor,
+    CaptionComponent,
+    BlockComponent,
+    FormsModule,
+  ],
 })
 export class BoardComponent implements OnChanges {
   @Input() boardData!: GameData;

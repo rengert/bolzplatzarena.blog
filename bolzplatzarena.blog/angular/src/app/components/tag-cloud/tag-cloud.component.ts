@@ -1,9 +1,9 @@
+import { AsyncPipe, NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { groupBy, orderBy } from 'lodash-es';
 import { Taxonomy } from '../../models/taxonomy';
 import { PageService } from '../../services/page.service';
-import { RouterLink } from '@angular/router';
-import { NgFor, AsyncPipe } from '@angular/common';
 import { SectionHeaderComponent } from '../section-header/section-header.component';
 
 interface TagCloud {
@@ -12,16 +12,16 @@ interface TagCloud {
 }
 
 @Component({
-    selector: 'app-tag-cloud',
-    templateUrl: './tag-cloud.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: true,
-    imports: [
-        SectionHeaderComponent,
-        NgFor,
-        RouterLink,
-        AsyncPipe,
-    ],
+  selector: 'app-tag-cloud',
+  templateUrl: './tag-cloud.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    SectionHeaderComponent,
+    NgFor,
+    RouterLink,
+    AsyncPipe,
+  ],
 })
 export class TagCloudComponent {
   readonly tags$: Promise<TagCloud[]>;

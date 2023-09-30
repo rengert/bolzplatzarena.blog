@@ -1,13 +1,13 @@
-import { ViewportScroller, NgIf } from '@angular/common';
+import { NgIf, ViewportScroller } from '@angular/common';
 import { ChangeDetectionStrategy, Component, HostListener, signal } from '@angular/core';
 
 @Component({
-    // eslint-disable-next-line @angular-eslint/component-selector
-    selector: 'footer',
-    templateUrl: './footer.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: true,
-    imports: [NgIf],
+  // eslint-disable-next-line @angular-eslint/component-selector
+  selector: 'footer',
+  templateUrl: './footer.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [NgIf],
 })
 export class FooterComponent {
   readonly date = new Date();

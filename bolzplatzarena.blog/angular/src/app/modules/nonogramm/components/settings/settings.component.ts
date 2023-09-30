@@ -1,22 +1,22 @@
+import { NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Config } from '../../models/config';
 import { Level } from '../../models/level.enum';
 import { Size } from '../../models/size.enum';
 import { StorageService } from '../../services/storage.service';
-import { NgFor } from '@angular/common';
 
 @Component({
-    selector: 'app-settings',
-    templateUrl: './settings.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: true,
-    imports: [
-        FormsModule,
-        ReactiveFormsModule,
-        NgFor,
-    ],
+  selector: 'app-settings',
+  templateUrl: './settings.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    NgFor,
+  ],
 })
 export class SettingsComponent implements OnInit {
   readonly form = new FormGroup({
