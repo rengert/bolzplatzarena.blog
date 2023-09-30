@@ -12,7 +12,9 @@ function isPage(page: Page | MetaInfo | undefined): page is Page {
 function log(
   target: unknown,
   propertyKey: string,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   descriptor: TypedPropertyDescriptor<any>,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
 ): TypedPropertyDescriptor<any> {
   const originalMethod = descriptor.value;
   descriptor.value = function (...args: unknown[]) {
