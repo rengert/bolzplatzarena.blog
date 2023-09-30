@@ -52,6 +52,10 @@
               "migrate"
             ]
           }
+        ],
+        "max-params": [
+          "error",
+          3
         ]
       }
     },
