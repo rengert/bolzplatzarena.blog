@@ -35,6 +35,18 @@
             "prefix": "app",
             "style": "kebab-case"
           }
+        ],
+        "eqeqeq": [
+          "error",
+          "always"
+        ],
+        "function-name/starts-with-verb": [
+          "error",
+          {
+            "whitelist": [
+              "ng"
+            ]
+          }
         ]
       }
     },
@@ -55,11 +67,7 @@
         "@angular-eslint/template/alt-text": 2,
         "@angular-eslint/template/elements-content": 2,
         "@angular-eslint/template/table-scope": 2,
-        "@angular-eslint/template/valid-aria": 2,
-        "eqeqeq": [
-          "error",
-          "always"
-        ]
+        "@angular-eslint/template/valid-aria": 2
       }
     }
   ]
