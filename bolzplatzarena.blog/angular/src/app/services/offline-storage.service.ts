@@ -12,7 +12,7 @@ enum Store {
 
 @Injectable({ providedIn: 'root' })
 export class OfflineStorageService {
-  pageBySlug(link: string): Promise<Page | undefined> {
+  getPageBySlug(link: string): Promise<Page | undefined> {
     // todo how to handle this
     if (!link.length || (link === '/')) {
       link = '/blog';
@@ -21,19 +21,19 @@ export class OfflineStorageService {
     return this.fromStore(Store.Pages, (item) => item.link === link);
   }
 
-  commentsByContentId(contentId: string): Observable<PostComment[]> {
-    return from(this.manyFromStore(Store.Comments, (item: PostComment) => contentId === item.contentId));
+  getCommentsByContentId(contentId: string): Observable<PostComment[]> {
+    return from(this.getManyFromStore(Store.Comments, (item: PostComment) => contentId === item.contentId));
   }
 
   async addPage(page?: Page): Promise<void> {
-    if(!page) {
+    if (!page) {
       return;
     }
     await this.toStore(Store.Pages, page);
   }
 
-  sitemap(): Promise<Page[]> {
-    return this.manyFromStore(Store.Navigation);
+  getSitemap(): Promise<Page[]> {
+    return this.getManyFromStore(Store.Navigation);
   }
 
   async updateSitemap(pages?: Page[]): Promise<void> {
@@ -122,7 +122,7 @@ export class OfflineStorageService {
     );
   }
 
-  manyFromStore<T>(storeName: string, resolver?: (item: T) => boolean): Promise<T[]> {
+  getManyFromStore<T>(storeName: string, resolver?: (item: T) => boolean): Promise<T[]> {
     return new Promise((resolve, reject) => {
         const dbRequest = indexedDB.open('data');
         dbRequest.onerror = function () {

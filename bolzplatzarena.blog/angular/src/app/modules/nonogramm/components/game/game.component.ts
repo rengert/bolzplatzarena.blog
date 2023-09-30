@@ -34,21 +34,21 @@ export class GameComponent implements OnInit {
   }
 
   resultGame(result: boolean): void {
-    result ? this.win() : this.lose();
+    result ? this.handleWin() : this.handleLose();
   }
 
   private setupGame(config: Config): void {
     this.gameData.set(this.storage.loadGame() ?? this.game.createGameData(config));
   }
 
-  private win(): void {
+  private handleWin(): void {
     alert('You win!');
 
     this.storage.cleanGame();
     void this.router.navigate(['../nonogramm']);
   }
 
-  private lose(): void {
+  private handleLose(): void {
     const choice = confirm('You lose! Neustarten?');
     const current = this.gameData();
     if (choice && current) {

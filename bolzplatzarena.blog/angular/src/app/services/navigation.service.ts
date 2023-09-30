@@ -19,7 +19,7 @@ export class NavigationService {
   }
 
   async get(): Promise<Page[]> {
-    const sitemap = await this.offline.sitemap();
+    const sitemap = await this.offline.getSitemap();
     if (sitemap.length) {
       const now = new Date().getTime();
       if (now > this.lastUpdate + this.maxUpdateInterval) {

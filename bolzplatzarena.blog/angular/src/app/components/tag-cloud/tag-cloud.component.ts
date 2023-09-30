@@ -27,7 +27,7 @@ export class TagCloudComponent {
   readonly tags$: Promise<TagCloud[]>;
 
   constructor(page: PageService) {
-    this.tags$ = page.archive()
+    this.tags$ = page.getArchive()
       .then(teaser => teaser.map(({ tags }) => tags))
       .then(tags => tags.flat())
       .then(tags => groupBy(tags, tag => tag.title))

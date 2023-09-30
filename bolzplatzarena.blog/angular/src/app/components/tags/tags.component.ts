@@ -36,7 +36,7 @@ export class TagsComponent {
         keywords: '',
         robots: 'follow,no-index',
       } as MetaInfo)),
-      switchMap(tag => page.archive().then(
+      switchMap(tag => page.getArchive().then(
         teasers => teasers.filter(({ tags }) => tags.some(({ title }) => title.toLowerCase() === tag)),
       )),
     );

@@ -27,7 +27,7 @@ export class SearchComponent {
   searchString = '';
 
   constructor(page: PageService) {
-    this.search$ = from(page.archive()).pipe(
+    this.search$ = from(page.getArchive()).pipe(
       map(archive => new FuzzySearch(archive, ['title', 'body.value'], {
         caseSensitive: true,
       })),

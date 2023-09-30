@@ -15,13 +15,13 @@ export class PageService {
   ) {
   }
 
-  async archive(): Promise<Teaser[]> {
+  async getArchive(): Promise<Teaser[]> {
     const page = await this.bySlug('');
     return page?.posts ?? [];
   }
 
   async bySlug(slug: string): Promise<Page | undefined> {
-    const page = await this.pageStorage.pageBySlug(slug);
+    const page = await this.pageStorage.getPageBySlug(slug);
     if (page) {
       this.update(slug);
       return page;

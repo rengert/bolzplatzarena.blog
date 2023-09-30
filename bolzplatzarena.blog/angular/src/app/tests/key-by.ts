@@ -15,7 +15,7 @@ const array: Example[] = [...Array(2000).keys()].map(item => ({
   value: Math.floor(Math.random() * 100),
 }));
 
-const badKeyBy = (data: Example[], key: keyof Example) => (data ?? []).reduce((r, x) => ({
+const runBadKeyBy = (data: Example[], key: keyof Example) => (data ?? []).reduce((r, x) => ({
   ...r,
   [(key ? x[key] : x) as string]: x,
 }), {});
@@ -34,27 +34,27 @@ export const keyByTest: Test = {
   scenarios: [
     {
       name: 'lodash',
-      method: lodashTest,
+      method: runLodashTest,
     },
     {
       name: 'bad native',
-      method: badKeybyTest,
+      method: runBadKeybyTest,
     },
     {
       name: 'native',
-      method: nativeTest,
+      method: runNativeTest,
     },
   ],
 };
 
-function lodashTest(): void {
+function runLodashTest(): void {
   keyBy(array, item => item.id);
 }
 
-function badKeybyTest(): void {
-  badKeyBy(array, 'id');
+function runBadKeybyTest(): void {
+  runBadKeyBy(array, 'id');
 }
 
-function nativeTest(): void {
+function runNativeTest(): void {
   nativeKeyBy(array as unknown as { [index: string]: number; }[], 'id');
 }

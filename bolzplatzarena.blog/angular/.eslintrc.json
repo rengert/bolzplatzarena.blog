@@ -19,6 +19,9 @@
         "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
+      "plugins": [
+        "function-name"
+      ],
       "rules": {
         "@angular-eslint/directive-selector": [
           "error",
@@ -44,7 +47,9 @@
           "error",
           {
             "whitelist": [
-              "ng"
+              "ng",
+              "by",
+              "migrate"
             ]
           }
         ]

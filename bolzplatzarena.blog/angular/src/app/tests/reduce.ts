@@ -9,19 +9,19 @@ export const reduceTest: Test = {
   scenarios: [
     {
       name: 'lodash',
-      method: lodashReduce,
+      method: runLodashReduce,
     },
     {
       name: 'pure',
-      method: pureReduce,
+      method: runPureReduce,
     },
   ],
 };
 
-function lodashReduce(): void {
+function runLodashReduce(): void {
   reduce(array, (sum, n) => n, 0);
 }
 
-function pureReduce(): void {
+function runPureReduce(): void {
   array.reduce((sum, n) => n, 0);
 }
