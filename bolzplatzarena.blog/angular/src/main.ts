@@ -3,9 +3,11 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { enableProdMode, importProvidersFrom, LOCALE_ID } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { bootstrapApplication, BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { AppRoutingModule } from './app/app-routing.module';
 import { AppComponent } from './app/app.component';
+import { CmsComponent } from './app/components/cms/cms.component';
+import { TagsComponent } from './app/components/tags/tags.component';
 import { environment } from './environments/environment';
 
 if (environment.production) {
@@ -16,7 +18,14 @@ bootstrapApplication(AppComponent, {
   providers: [
     importProvidersFrom(
       BrowserModule,
-      AppRoutingModule,
+      RouterModule.forRoot([
+        { path: 'tags/:tag', component: TagsComponent },
+        {
+          path: 'nonogramm',
+          loadChildren: () => import('./app/modules/nonogramm/nonogramm.module').then(m => m.NonogrammModule),
+        },
+        { path: '**', component: CmsComponent },
+      ], { scrollPositionRestoration: 'top' }),
       ReactiveFormsModule,
       ServiceWorkerModule.register(
         'ngsw-worker.js',
