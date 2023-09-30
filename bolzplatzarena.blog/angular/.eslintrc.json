@@ -55,7 +55,11 @@
         "@angular-eslint/template/alt-text": 2,
         "@angular-eslint/template/elements-content": 2,
         "@angular-eslint/template/table-scope": 2,
-        "@angular-eslint/template/valid-aria": 2
+        "@angular-eslint/template/valid-aria": 2,
+        "eqeqeq": [
+          "error",
+          "always"
+        ]
       }
     }
   ]
