@@ -15,7 +15,9 @@ const array: Example[] = [...Array(2000).keys()].map(item => ({
   value: Math.floor(Math.random() * 100),
 }));
 
-const runBadKeyBy = (data: Example[], key: keyof Example) => (data ?? []).reduce((r, x) => ({
+const runBadKeyBy = (data: Example[], key: keyof Example): {
+  [key: string]: Example
+} => (data ?? []).reduce((r, x) => ({
   ...r,
   [(key ? x[key] : x) as string]: x,
 }), {});

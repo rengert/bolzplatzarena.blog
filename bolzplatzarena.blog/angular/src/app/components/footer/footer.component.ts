@@ -20,7 +20,7 @@ export class FooterComponent {
     this.scrolled.set(window.scrollY > 0);
   }
 
-  scrollToTop() {
+  scrollToTop(): void {
     this.scroll.scrollToPosition([0, 0]);
   }
 }

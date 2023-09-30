@@ -17,7 +17,7 @@ function log(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
 ): TypedPropertyDescriptor<any> {
   const originalMethod = descriptor.value;
-  descriptor.value = function (...args: unknown[]) {
+  descriptor.value = function (...args: unknown[]): unknown {
     console.log(`The method ${propertyKey} args are: `, args);
     const result = originalMethod.apply(this, args);
     console.log('The return value is: ', result);

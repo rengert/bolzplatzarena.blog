@@ -22,7 +22,8 @@ bootstrapApplication(AppComponent, {
         { path: 'tags/:tag', component: TagsComponent },
         {
           path: 'nonogramm',
-          loadChildren: () => import('./app/modules/nonogramm/nonogramm.module').then(m => m.NonogrammModule),
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          loadChildren: (): Promise<any> => import('./app/modules/nonogramm/nonogramm.module').then(m => m.NonogrammModule),
         },
         { path: '**', component: CmsComponent },
       ], { scrollPositionRestoration: 'top' }),

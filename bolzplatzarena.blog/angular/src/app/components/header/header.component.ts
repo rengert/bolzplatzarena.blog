@@ -21,7 +21,7 @@ import { NavigationComponent } from '../navigation/navigation.component';
 export class HeaderComponent {
   readonly navigationOpen = signal(false);
   readonly title: Signal<string | undefined>;
-  
+
   constructor(private readonly content: ContentService, router: Router) {
     router.events.pipe(
       filter(event => event instanceof NavigationEnd),
@@ -34,7 +34,7 @@ export class HeaderComponent {
     ));
   }
 
-  toggleNavigation() {
+  toggleNavigation(): void {
     this.navigationOpen.update(open => !open);
   }
 }

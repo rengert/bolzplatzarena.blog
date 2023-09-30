@@ -52,31 +52,31 @@ export class OfflineStorageService {
     const data: T[] = isArray(item) ? item : [item];
     return new Promise<void>((resolve, reject) => {
       const dbRequest = indexedDB.open('data', 4);
-      dbRequest.onerror = () => {
+      dbRequest.onerror = (): void => {
         reject(Error('IndexedDB database error'));
       };
 
-      dbRequest.onupgradeneeded = (event) => {
+      dbRequest.onupgradeneeded = (event): void => {
         const database = (event.currentTarget as IDBOpenDBRequest).result;
         this.migrate(database);
       };
 
-      dbRequest.onsuccess = function (event) {
+      dbRequest.onsuccess = function (event): void {
         const database = (event.currentTarget as IDBOpenDBRequest).result;
         const objectStore = database.transaction([storeName], 'readwrite').objectStore(storeName);
 
         if (clear) {
-          objectStore.clear().onsuccess = () => {
+          objectStore.clear().onsuccess = (): void => {
             // ignore the on success
           };
         }
 
         data.forEach(item => {
           const objectRequest = objectStore.put(item); // Overwrite if exists
-          objectRequest.onerror = () => {
+          objectRequest.onerror = (): void => {
             reject();
           };
-          objectRequest.onsuccess = () => {
+          objectRequest.onsuccess = (): void => {
             resolve();
           };
         });
@@ -89,25 +89,25 @@ export class OfflineStorageService {
   fromStore<T>(storeName: string, resolver: (item: T) => boolean): Promise<T | undefined> {
     return new Promise((resolve, reject) => {
         const dbRequest = indexedDB.open('data');
-        dbRequest.onerror = function () {
+        dbRequest.onerror = function (): void {
           resolve(undefined);
         };
 
-        dbRequest.onupgradeneeded = function (event) {
+        dbRequest.onupgradeneeded = function (event): void {
           (event.currentTarget as IDBOpenDBRequest).transaction?.abort();
           resolve(undefined);
         };
 
-        dbRequest.onsuccess = function (event) {
+        dbRequest.onsuccess = function (event): void {
           const database = (event.currentTarget as IDBOpenDBRequest).result;
           const store = database.transaction([storeName]).objectStore(storeName);
           const objectRequest = store.getAll();
 
-          objectRequest.onerror = function () {
+          objectRequest.onerror = function (): void {
             reject(Error('Error text'));
           };
 
-          objectRequest.onsuccess = function () {
+          objectRequest.onsuccess = function (): void {
             if (objectRequest.result) {
               const result = (objectRequest.result as T[]).find(item => resolver(item));
               if (result) {
@@ -125,25 +125,25 @@ export class OfflineStorageService {
   getManyFromStore<T>(storeName: string, resolver?: (item: T) => boolean): Promise<T[]> {
     return new Promise((resolve, reject) => {
         const dbRequest = indexedDB.open('data');
-        dbRequest.onerror = function () {
+        dbRequest.onerror = function (): void {
           resolve([]);
         };
 
-        dbRequest.onupgradeneeded = function (event) {
+        dbRequest.onupgradeneeded = function (event): void {
           (event.currentTarget as IDBOpenDBRequest).transaction?.abort();
           resolve([]);
         };
 
-        dbRequest.onsuccess = function (event) {
+        dbRequest.onsuccess = function (event): void {
           const database = (event.currentTarget as IDBOpenDBRequest).result;
           const store = database.transaction([storeName]).objectStore(storeName);
           const objectRequest = store.getAll();
 
-          objectRequest.onerror = function () {
+          objectRequest.onerror = function (): void {
             reject(Error('Error text'));
           };
 
-          objectRequest.onsuccess = function () {
+          objectRequest.onsuccess = function (): void {
             if (objectRequest.result) {
               const result = (objectRequest.result as T[]).filter(item => !resolver || resolver(item));
               if (result) {
