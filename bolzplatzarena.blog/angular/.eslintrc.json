@@ -56,7 +56,8 @@
         "max-params": [
           "error",
           3
-        ]
+        ],
+        "@typescript-eslint/await-thenable": "error"
       }
     },
     {
