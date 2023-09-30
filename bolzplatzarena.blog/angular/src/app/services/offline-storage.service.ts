@@ -41,7 +41,7 @@ export class OfflineStorageService {
       return;
     }
 
-    this.toStore(Store.Navigation, pages, true);
+    return this.toStore(Store.Navigation, pages, true);
   }
 
   async addComments(items: Comment[]): Promise<void> {

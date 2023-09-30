@@ -18,8 +18,7 @@ export class SoundBlockComponent {
     const promises = [data1, data2, data3, data4].map(
       (data, index) => new Promise<void>(async(resolve) => {
         setTimeout(() => {
-          this.playStringsAsSound(data.split(' '), types[index], index);
-          resolve();
+          void this.playStringsAsSound(data.split(' '), types[index], index).then(() => resolve);
         }, index * delay);
       }),
     );

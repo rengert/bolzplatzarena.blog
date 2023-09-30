@@ -1,16 +1,16 @@
+import { NgFor, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
 import { timer } from 'rxjs';
-import { filter, switchMap } from 'rxjs/operators';
+import { filter, switchMap, tap } from 'rxjs/operators';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { SectionHeaderComponent } from './components/section-header/section-header.component';
+import { TagCloudComponent } from './components/tag-cloud/tag-cloud.component';
 import { AppContextService } from './services/app-context.service';
 import { FeedbackService } from './services/feedback.service';
-import { FooterComponent } from './components/footer/footer.component';
-import { TagCloudComponent } from './components/tag-cloud/tag-cloud.component';
-import { NavigationComponent } from './components/navigation/navigation.component';
-import { NgFor, NgIf } from '@angular/common';
-import { SectionHeaderComponent } from './components/section-header/section-header.component';
-import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './components/header/header.component';
 
 interface Project {
   title: string;
@@ -37,29 +37,30 @@ const projects: Project[] = [
 ];
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: true,
-    imports: [
-        HeaderComponent,
-        RouterOutlet,
-        SectionHeaderComponent,
-        NgFor,
-        NavigationComponent,
-        TagCloudComponent,
-        NgIf,
-        FooterComponent,
-    ],
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    HeaderComponent,
+    RouterOutlet,
+    SectionHeaderComponent,
+    NgFor,
+    NavigationComponent,
+    TagCloudComponent,
+    NgIf,
+    FooterComponent,
+  ],
 })
 export class AppComponent {
   protected readonly versionUpdate = signal(false);
   protected projects = projects;
 
   constructor(update: SwUpdate, feedback: FeedbackService, readonly app: AppContextService) {
-    update.versionUpdates.subscribe(() => {
-      update.activateUpdate().then(() => this.versionUpdate.set(true));
-    });
+    update.versionUpdates.pipe(
+      switchMap(() => update.activateUpdate()),
+      tap(() => this.versionUpdate.set(true)),
+    ).subscribe();
     timer(0, 5 * 60 * 1000).pipe(
       filter(() => update.isEnabled),
       switchMap(() => update.checkForUpdate()),
