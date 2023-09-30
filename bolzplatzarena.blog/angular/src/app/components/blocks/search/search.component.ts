@@ -4,11 +4,21 @@ import { BehaviorSubject, from, Observable, switchMap } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Teaser } from '../../../models/teaser';
 import { PageService } from '../../../services/page.service';
+import { TeaserComponent } from '../../pages/archive/teaser/teaser.component';
+import { NgFor, AsyncPipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-search',
+    templateUrl: './search.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [
+        FormsModule,
+        NgFor,
+        TeaserComponent,
+        AsyncPipe,
+    ],
 })
 export class SearchComponent {
   readonly search$: Observable<Teaser[]>;

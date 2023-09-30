@@ -11,12 +11,15 @@ import {
 } from '@angular/core';
 import { Config } from '../../../../models/config';
 import { GameBlock } from '../../../../models/game-block';
+import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-block',
-  templateUrl: './block.component.html',
-  styleUrls: ['./block.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-block',
+    templateUrl: './block.component.html',
+    styleUrls: ['./block.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [NgIf],
 })
 export class BlockComponent implements OnChanges {
   @Input() config!: Config;

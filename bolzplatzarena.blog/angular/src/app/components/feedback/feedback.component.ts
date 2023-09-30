@@ -1,9 +1,11 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Page } from '../../models/page';
 import { PostComment } from '../../models/post-comment';
 import { FeedbackService } from '../../services/feedback.service';
+import { NgIf, NgFor, AsyncPipe, DatePipe } from '@angular/common';
+import { SectionHeaderComponent } from '../section-header/section-header.component';
 
 enum FormState {
   Unknown,
@@ -12,9 +14,19 @@ enum FormState {
 }
 
 @Component({
-  selector: 'app-feedback',
-  templateUrl: './feedback.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-feedback',
+    templateUrl: './feedback.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [
+        SectionHeaderComponent,
+        NgIf,
+        NgFor,
+        FormsModule,
+        ReactiveFormsModule,
+        AsyncPipe,
+        DatePipe,
+    ],
 })
 export class FeedbackComponent implements OnChanges {
   @Input() page!: Page;

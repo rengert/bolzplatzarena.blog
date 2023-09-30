@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-sound',
-  templateUrl: './sound-block.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-sound',
+    templateUrl: './sound-block.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
 })
 export class SoundBlockComponent {
   async playSound(): Promise<void> {

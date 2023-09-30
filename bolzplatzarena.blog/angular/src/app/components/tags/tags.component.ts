@@ -6,11 +6,19 @@ import { MetaInfo } from '../../models/meta-info';
 import { Teaser } from '../../models/teaser';
 import { MetaDataService } from '../../services/meta-data.service';
 import { PageService } from '../../services/page.service';
+import { TeaserComponent } from '../pages/archive/teaser/teaser.component';
+import { NgFor, AsyncPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-tags',
-  templateUrl: './tags.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-tags',
+    templateUrl: './tags.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [
+        NgFor,
+        TeaserComponent,
+        AsyncPipe,
+    ],
 })
 export class TagsComponent {
   @HostBinding() readonly class = 'block md:p-0 p-4';

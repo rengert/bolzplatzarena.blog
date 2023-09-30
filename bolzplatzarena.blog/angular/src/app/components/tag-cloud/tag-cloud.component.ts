@@ -2,6 +2,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { groupBy, orderBy } from 'lodash-es';
 import { Taxonomy } from '../../models/taxonomy';
 import { PageService } from '../../services/page.service';
+import { RouterLink } from '@angular/router';
+import { NgFor, AsyncPipe } from '@angular/common';
+import { SectionHeaderComponent } from '../section-header/section-header.component';
 
 interface TagCloud {
   count: number,
@@ -9,9 +12,16 @@ interface TagCloud {
 }
 
 @Component({
-  selector: 'app-tag-cloud',
-  templateUrl: './tag-cloud.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-tag-cloud',
+    templateUrl: './tag-cloud.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [
+        SectionHeaderComponent,
+        NgFor,
+        RouterLink,
+        AsyncPipe,
+    ],
 })
 export class TagCloudComponent {
   readonly tags$: Promise<TagCloud[]>;

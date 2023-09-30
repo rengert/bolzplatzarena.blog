@@ -1,14 +1,22 @@
 import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Config } from '../../models/config';
 import { GameData } from '../../models/game-data';
 import { GameService } from '../../services/game.service';
 import { StorageService } from '../../services/storage.service';
+import { BoardComponent } from './board/board.component';
+import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-game',
-  templateUrl: './game.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-game',
+    templateUrl: './game.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [
+        NgIf,
+        BoardComponent,
+        RouterLink,
+    ],
 })
 export class GameComponent implements OnInit {
   readonly gameData = signal<GameData | undefined>(undefined);

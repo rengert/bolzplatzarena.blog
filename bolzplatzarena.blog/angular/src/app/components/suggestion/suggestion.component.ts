@@ -1,6 +1,9 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Page } from '../../models/page';
 import { PageService } from '../../services/page.service';
+import { RouterLink } from '@angular/router';
+import { SectionHeaderComponent } from '../section-header/section-header.component';
+import { NgIf, NgFor, AsyncPipe } from '@angular/common';
 
 interface Suggestion {
   headline: string;
@@ -9,9 +12,17 @@ interface Suggestion {
 }
 
 @Component({
-  selector: 'app-suggestion',
-  templateUrl: './suggestion.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-suggestion',
+    templateUrl: './suggestion.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [
+        NgIf,
+        SectionHeaderComponent,
+        NgFor,
+        RouterLink,
+        AsyncPipe,
+    ],
 })
 export class SuggestionComponent {
   @Input() page!: Page;
