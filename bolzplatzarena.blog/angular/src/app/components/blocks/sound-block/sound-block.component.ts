@@ -42,7 +42,6 @@ export class SoundBlockComponent {
       for (let i = 0; i < term.length; i++) {
         frequency += 2 * term.charCodeAt(i);
       }
-      console.log(index, term, frequency);
       try {
         oscillator.frequency.value = frequency;
         gain.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 2.45);

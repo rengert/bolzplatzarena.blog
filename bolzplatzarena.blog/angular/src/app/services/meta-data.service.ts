@@ -22,8 +22,10 @@ function log(
 ): TypedPropertyDescriptor<any> {
   const originalMethod = descriptor.value;
   descriptor.value = function (...args: unknown[]): unknown {
+    // eslint-disable-next-line no-console
     console.log(`The method ${propertyKey} args are: `, args);
     const result = originalMethod.apply(this, args);
+    // eslint-disable-next-line no-console
     console.log('The return value is: ', result);
     return result;
   };
