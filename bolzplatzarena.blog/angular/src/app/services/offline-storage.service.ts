@@ -12,7 +12,7 @@ enum Store {
 
 @Injectable({ providedIn: 'root' })
 export class OfflineStorageService {
-  pageBySlug(link: string): Promise<Page | undefined> {
+  getPageBySlug(link: string): Promise<Page | undefined> {
     // todo how to handle this
     if (!link.length || (link === '/')) {
       link = '/blog';
@@ -21,19 +21,19 @@ export class OfflineStorageService {
     return this.fromStore(Store.Pages, (item) => item.link === link);
   }
 
-  commentsByContentId(contentId: string): Observable<PostComment[]> {
-    return from(this.manyFromStore(Store.Comments, (item: PostComment) => contentId === item.contentId));
+  getCommentsByContentId(contentId: string): Observable<PostComment[]> {
+    return from(this.getManyFromStore(Store.Comments, (item: PostComment) => contentId === item.contentId));
   }
 
   async addPage(page?: Page): Promise<void> {
-    if(!page) {
+    if (!page) {
       return;
     }
     await this.toStore(Store.Pages, page);
   }
 
-  sitemap(): Promise<Page[]> {
-    return this.manyFromStore(Store.Navigation);
+  getSitemap(): Promise<Page[]> {
+    return this.getManyFromStore(Store.Navigation);
   }
 
   async updateSitemap(pages?: Page[]): Promise<void> {
@@ -41,42 +41,42 @@ export class OfflineStorageService {
       return;
     }
 
-    this.toStore(Store.Navigation, pages, true);
+    return this.toStore(Store.Navigation, pages, true);
   }
 
   async addComments(items: Comment[]): Promise<void> {
     return this.toStore(Store.Comments, items);
   }
 
-  toStore<T>(storeName: string, item: T | T[], clear = false): Promise<void> {
-    const data: T[] = isArray(item) ? item : [item];
+  toStore<T>(storeName: string, itemToStore: T | T[], clear = false): Promise<void> {
+    const data: T[] = isArray(itemToStore) ? itemToStore : [itemToStore];
     return new Promise<void>((resolve, reject) => {
       const dbRequest = indexedDB.open('data', 4);
-      dbRequest.onerror = () => {
+      dbRequest.onerror = (): void => {
         reject(Error('IndexedDB database error'));
       };
 
-      dbRequest.onupgradeneeded = (event) => {
+      dbRequest.onupgradeneeded = (event): void => {
         const database = (event.currentTarget as IDBOpenDBRequest).result;
         this.migrate(database);
       };
 
-      dbRequest.onsuccess = function (event) {
+      dbRequest.onsuccess = function (event): void {
         const database = (event.currentTarget as IDBOpenDBRequest).result;
         const objectStore = database.transaction([storeName], 'readwrite').objectStore(storeName);
 
         if (clear) {
-          objectStore.clear().onsuccess = () => {
+          objectStore.clear().onsuccess = (): void => {
             // ignore the on success
           };
         }
 
         data.forEach(item => {
           const objectRequest = objectStore.put(item); // Overwrite if exists
-          objectRequest.onerror = () => {
+          objectRequest.onerror = (): void => {
             reject();
           };
-          objectRequest.onsuccess = () => {
+          objectRequest.onsuccess = (): void => {
             resolve();
           };
         });
@@ -89,69 +89,57 @@ export class OfflineStorageService {
   fromStore<T>(storeName: string, resolver: (item: T) => boolean): Promise<T | undefined> {
     return new Promise((resolve, reject) => {
         const dbRequest = indexedDB.open('data');
-        dbRequest.onerror = function () {
+        dbRequest.onerror = function (): void {
           resolve(undefined);
         };
 
-        dbRequest.onupgradeneeded = function (event) {
+        dbRequest.onupgradeneeded = function (event): void {
           (event.currentTarget as IDBOpenDBRequest).transaction?.abort();
           resolve(undefined);
         };
 
-        dbRequest.onsuccess = function (event) {
+        dbRequest.onsuccess = function (event): void {
           const database = (event.currentTarget as IDBOpenDBRequest).result;
           const store = database.transaction([storeName]).objectStore(storeName);
-          const objectRequest = store.getAll();
+          const objectRequest: IDBRequest<T[]> = store.getAll();
 
-          objectRequest.onerror = function () {
+          objectRequest.onerror = function (): void {
             reject(Error('Error text'));
           };
 
-          objectRequest.onsuccess = function () {
-            if (objectRequest.result) {
-              const result = (objectRequest.result as T[]).find(item => resolver(item));
-              if (result) {
-                resolve(result);
-                return;
-              }
-            }
-            resolve(undefined);
+          objectRequest.onsuccess = function (): void {
+            const result = (objectRequest.result as T[]).find(item => resolver(item));
+            resolve(result);
           };
         };
       },
     );
   }
 
-  manyFromStore<T>(storeName: string, resolver?: (item: T) => boolean): Promise<T[]> {
+  getManyFromStore<T>(storeName: string, resolver?: (item: T) => boolean): Promise<T[]> {
     return new Promise((resolve, reject) => {
         const dbRequest = indexedDB.open('data');
-        dbRequest.onerror = function () {
+        dbRequest.onerror = function (): void {
           resolve([]);
         };
 
-        dbRequest.onupgradeneeded = function (event) {
+        dbRequest.onupgradeneeded = function (event): void {
           (event.currentTarget as IDBOpenDBRequest).transaction?.abort();
           resolve([]);
         };
 
-        dbRequest.onsuccess = function (event) {
+        dbRequest.onsuccess = function (event): void {
           const database = (event.currentTarget as IDBOpenDBRequest).result;
           const store = database.transaction([storeName]).objectStore(storeName);
-          const objectRequest = store.getAll();
+          const objectRequest: IDBRequest<T[]> = store.getAll();
 
-          objectRequest.onerror = function () {
+          objectRequest.onerror = function (): void {
             reject(Error('Error text'));
           };
 
-          objectRequest.onsuccess = function () {
-            if (objectRequest.result) {
-              const result = (objectRequest.result as T[]).filter(item => !resolver || resolver(item));
-              if (result) {
-                resolve(result);
-                return;
-              }
-            }
-            resolve([]);
+          objectRequest.onsuccess = function (): void {
+            const result = objectRequest.result.filter(item => !resolver || resolver(item));
+            resolve(result);
           };
         };
       },

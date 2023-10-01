@@ -1,7 +1,7 @@
 export interface MetaInfo {
   title: string;
-  keywords: string;
+  keywords?: string;
   description: string;
-  robots: string;
-  metaTitle: string;
+  robots?: string;
+  metaTitle?: string;
 }

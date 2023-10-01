@@ -1,3 +1,4 @@
+import { AsyncPipe, DecimalPipe, NgFor, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input, OnChanges } from '@angular/core';
 import maxBy from 'lodash-es/maxBy';
 import { BehaviorSubject } from 'rxjs';
@@ -11,17 +12,18 @@ import { someTest } from '../../../tests/some';
 import { duplicateArrayTest } from '../../../tests/spread';
 import { Test } from '../../../tests/test.model';
 import { uniqueTest } from '../../../tests/unique';
+import { ButtonComponent } from '../../button/button.component';
 
 interface TestResult extends Test {
   results: Result[];
 }
 
 interface Result extends Scenario {
-  time?: number;
+  time: number | null | undefined;
   percentage?: number;
 }
 
-const tests: { [index: string]: Test } = {
+const tests: { [index: string]: Test | undefined } = {
   ['duplicateArrayTest']: duplicateArrayTest,
   ['forTest']: forTest,
   ['keyByTest']: keyByTest,
@@ -35,6 +37,14 @@ const tests: { [index: string]: Test } = {
   selector: 'app-performance-block',
   templateUrl: './performance-block.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    NgIf,
+    NgFor,
+    ButtonComponent,
+    AsyncPipe,
+    DecimalPipe,
+  ],
 })
 export class PerformanceBlockComponent implements OnChanges {
   @Input() block!: Block;

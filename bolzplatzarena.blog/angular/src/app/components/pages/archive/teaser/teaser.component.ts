@@ -1,4 +1,6 @@
+import { DatePipe, NgFor, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { environment } from '../../../../../environments/environment';
 import { Teaser } from '../../../../models/teaser';
 
@@ -6,6 +8,13 @@ import { Teaser } from '../../../../models/teaser';
   selector: 'app-teaser',
   templateUrl: './teaser.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    RouterLink,
+    NgIf,
+    NgFor,
+    DatePipe,
+  ],
 })
 export class TeaserComponent {
 

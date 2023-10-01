@@ -1,14 +1,22 @@
+import { NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Signal, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 import { PageType } from '../../models/page-type.enum';
 import { ContentService } from '../../services/content.service';
+import { NavigationComponent } from '../navigation/navigation.component';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    RouterLink,
+    NgIf,
+    NavigationComponent,
+  ],
 })
 export class HeaderComponent {
   readonly navigationOpen = signal(false);
@@ -26,7 +34,7 @@ export class HeaderComponent {
     ));
   }
 
-  toggleNavigation() {
+  toggleNavigation(): void {
     this.navigationOpen.update(open => !open);
   }
 }

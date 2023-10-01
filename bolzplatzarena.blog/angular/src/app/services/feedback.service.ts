@@ -31,7 +31,7 @@ export class FeedbackService {
   }
 
   byPage(page: Page): Observable<PostComment[]> {
-    return this.commentStorage.commentsByContentId(page.id);
+    return this.commentStorage.getCommentsByContentId(page.id);
   }
 
   private update(): Promise<unknown> {

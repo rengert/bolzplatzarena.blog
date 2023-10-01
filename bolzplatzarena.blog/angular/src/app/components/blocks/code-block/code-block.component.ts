@@ -5,6 +5,7 @@ import { Block } from '../../../models/block';
   selector: 'app-code-block',
   templateUrl: './code-block.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class CodeBlockComponent {
   @Input() block!: Block;

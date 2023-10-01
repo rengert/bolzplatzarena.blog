@@ -1,14 +1,22 @@
+import { NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Config } from '../../models/config';
 import { GameData } from '../../models/game-data';
 import { GameService } from '../../services/game.service';
 import { StorageService } from '../../services/storage.service';
+import { BoardComponent } from './board/board.component';
 
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    NgIf,
+    BoardComponent,
+    RouterLink,
+  ],
 })
 export class GameComponent implements OnInit {
   readonly gameData = signal<GameData | undefined>(undefined);
@@ -26,21 +34,21 @@ export class GameComponent implements OnInit {
   }
 
   resultGame(result: boolean): void {
-    result ? this.win() : this.lose();
+    result ? this.handleWin() : this.handleLose();
   }
 
   private setupGame(config: Config): void {
     this.gameData.set(this.storage.loadGame() ?? this.game.createGameData(config));
   }
 
-  private win(): void {
+  private handleWin(): void {
     alert('You win!');
 
     this.storage.cleanGame();
     void this.router.navigate(['../nonogramm']);
   }
 
-  private lose(): void {
+  private handleLose(): void {
     const choice = confirm('You lose! Neustarten?');
     const current = this.gameData();
     if (choice && current) {

@@ -11,7 +11,11 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { NonogrammRoutingModule } from './nonogramm-routing.module';
 
 @NgModule({
-  declarations: [
+  imports: [
+    CommonModule,
+    NonogrammRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     BlockComponent,
     BoardComponent,
     CaptionComponent,
@@ -19,12 +23,6 @@ import { NonogrammRoutingModule } from './nonogramm-routing.module';
     HeartsComponent,
     NonogrammComponent,
     SettingsComponent,
-  ],
-  imports: [
-    CommonModule,
-    NonogrammRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
   ],
 })
 export class NonogrammModule {

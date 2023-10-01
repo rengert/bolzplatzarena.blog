@@ -3,6 +3,6 @@ import { Field } from './field';
 
 export interface Block {
   type: BlockType,
-  body: Field,
+  body?: Field,
   rawCode?: Field,
 }

@@ -6,18 +6,26 @@ import { Page } from '../models/page';
 import { PageType } from '../models/page-type.enum';
 
 function isPage(page: Page | MetaInfo | undefined): page is Page {
-  return (page as Page)?.type !== undefined;
+  if (page === undefined) {
+    return false;
+  }
+  const test = page as { type: unknown };
+  return test.type !== undefined;
 }
 
 function log(
   target: unknown,
   propertyKey: string,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   descriptor: TypedPropertyDescriptor<any>,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
 ): TypedPropertyDescriptor<any> {
   const originalMethod = descriptor.value;
-  descriptor.value = function (...args: unknown[]) {
+  descriptor.value = function (...args: unknown[]): unknown {
+    // eslint-disable-next-line no-console
     console.log(`The method ${propertyKey} args are: `, args);
     const result = originalMethod.apply(this, args);
+    // eslint-disable-next-line no-console
     console.log('The return value is: ', result);
     return result;
   };

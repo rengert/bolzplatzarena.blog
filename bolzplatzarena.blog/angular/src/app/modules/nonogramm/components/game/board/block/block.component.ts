@@ -1,3 +1,4 @@
+import { NgIf } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -7,7 +8,6 @@ import {
   Input,
   OnChanges,
   Output,
-  SimpleChanges,
 } from '@angular/core';
 import { Config } from '../../../../models/config';
 import { GameBlock } from '../../../../models/game-block';
@@ -17,6 +17,8 @@ import { GameBlock } from '../../../../models/game-block';
   templateUrl: './block.component.html',
   styleUrls: ['./block.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [NgIf],
 })
 export class BlockComponent implements OnChanges {
   @Input() config!: Config;
@@ -45,8 +47,8 @@ export class BlockComponent implements OnChanges {
     this.action.emit(this.failed);
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes.block && this.block.show) {
+  ngOnChanges(): void {
+    if (this.block.show) {
       this.class = `board-size-${this.config.size}`;
       this.good = this.block.expected;
       this.none = !this.block.expected;

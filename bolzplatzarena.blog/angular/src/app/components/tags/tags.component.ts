@@ -1,3 +1,4 @@
+import { AsyncPipe, NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -6,11 +7,18 @@ import { MetaInfo } from '../../models/meta-info';
 import { Teaser } from '../../models/teaser';
 import { MetaDataService } from '../../services/meta-data.service';
 import { PageService } from '../../services/page.service';
+import { TeaserComponent } from '../pages/archive/teaser/teaser.component';
 
 @Component({
   selector: 'app-tags',
   templateUrl: './tags.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    NgFor,
+    TeaserComponent,
+    AsyncPipe,
+  ],
 })
 export class TagsComponent {
   @HostBinding() readonly class = 'block md:p-0 p-4';
@@ -28,7 +36,7 @@ export class TagsComponent {
         keywords: '',
         robots: 'follow,no-index',
       } as MetaInfo)),
-      switchMap(tag => page.archive().then(
+      switchMap(tag => page.getArchive().then(
         teasers => teasers.filter(({ tags }) => tags.some(({ title }) => title.toLowerCase() === tag)),
       )),
     );

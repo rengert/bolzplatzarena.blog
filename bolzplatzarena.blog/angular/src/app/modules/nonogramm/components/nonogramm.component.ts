@@ -1,11 +1,13 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-nonogramm',
   templateUrl: './nonogramm.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [RouterLink],
 })
 export class NonogrammComponent {
   protected readonly gameStarted: boolean;
@@ -20,7 +22,7 @@ export class NonogrammComponent {
 
   newGame(): void {
     this.storage.cleanGame();
-
+    
     void this.router.navigate(['game'], { relativeTo: this.route });
   }
 }
