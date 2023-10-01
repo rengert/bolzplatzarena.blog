@@ -64,7 +64,9 @@
         "@typescript-eslint/no-explicit-any": 0,
         "@typescript-eslint/no-floating-promises": "error",
         "@typescript-eslint/no-shadow": "error",
-        "@typescript-eslint/no-unnecessary-condition": "error"
+        "@typescript-eslint/no-unnecessary-condition": "error",
+        "require-await": "off",
+        "@typescript-eslint/require-await": "error"
       }
     },
     {
