@@ -57,6 +57,7 @@
           "error",
           3
         ],
+        "no-console": "error",
         "no-nested-ternary": "error",
         "no-shadow": "off",
         "@typescript-eslint/await-thenable": "error",
