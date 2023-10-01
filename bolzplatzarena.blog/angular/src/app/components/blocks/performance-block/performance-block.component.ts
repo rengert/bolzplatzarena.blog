@@ -19,11 +19,11 @@ interface TestResult extends Test {
 }
 
 interface Result extends Scenario {
-  time?: number;
+  time: number | null | undefined;
   percentage?: number;
 }
 
-const tests: { [index: string]: Test } = {
+const tests: { [index: string]: Test | undefined } = {
   ['duplicateArrayTest']: duplicateArrayTest,
   ['forTest']: forTest,
   ['keyByTest']: keyByTest,

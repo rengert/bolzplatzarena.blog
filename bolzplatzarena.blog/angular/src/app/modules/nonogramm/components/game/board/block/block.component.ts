@@ -8,7 +8,6 @@ import {
   Input,
   OnChanges,
   Output,
-  SimpleChanges,
 } from '@angular/core';
 import { Config } from '../../../../models/config';
 import { GameBlock } from '../../../../models/game-block';
@@ -48,8 +47,8 @@ export class BlockComponent implements OnChanges {
     this.action.emit(this.failed);
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes.block && this.block.show) {
+  ngOnChanges(): void {
+    if (this.block.show) {
       this.class = `board-size-${this.config.size}`;
       this.good = this.block.expected;
       this.none = !this.block.expected;

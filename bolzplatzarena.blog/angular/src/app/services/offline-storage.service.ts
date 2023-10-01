@@ -101,21 +101,15 @@ export class OfflineStorageService {
         dbRequest.onsuccess = function (event): void {
           const database = (event.currentTarget as IDBOpenDBRequest).result;
           const store = database.transaction([storeName]).objectStore(storeName);
-          const objectRequest = store.getAll();
+          const objectRequest: IDBRequest<T[]> = store.getAll();
 
           objectRequest.onerror = function (): void {
             reject(Error('Error text'));
           };
 
           objectRequest.onsuccess = function (): void {
-            if (objectRequest.result) {
-              const result = (objectRequest.result as T[]).find(item => resolver(item));
-              if (result) {
-                resolve(result);
-                return;
-              }
-            }
-            resolve(undefined);
+            const result = (objectRequest.result as T[]).find(item => resolver(item));
+            resolve(result);
           };
         };
       },
@@ -137,21 +131,15 @@ export class OfflineStorageService {
         dbRequest.onsuccess = function (event): void {
           const database = (event.currentTarget as IDBOpenDBRequest).result;
           const store = database.transaction([storeName]).objectStore(storeName);
-          const objectRequest = store.getAll();
+          const objectRequest: IDBRequest<T[]> = store.getAll();
 
           objectRequest.onerror = function (): void {
             reject(Error('Error text'));
           };
 
           objectRequest.onsuccess = function (): void {
-            if (objectRequest.result) {
-              const result = (objectRequest.result as T[]).filter(item => !resolver || resolver(item));
-              if (result) {
-                resolve(result);
-                return;
-              }
-            }
-            resolve([]);
+            const result = objectRequest.result.filter(item => !resolver || resolver(item));
+            resolve(result);
           };
         };
       },

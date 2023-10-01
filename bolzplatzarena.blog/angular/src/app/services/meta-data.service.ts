@@ -6,7 +6,11 @@ import { Page } from '../models/page';
 import { PageType } from '../models/page-type.enum';
 
 function isPage(page: Page | MetaInfo | undefined): page is Page {
-  return (page as Page)?.type !== undefined;
+  if (page === undefined) {
+    return false;
+  }
+  const test = page as { type: unknown };
+  return test.type !== undefined;
 }
 
 function log(
