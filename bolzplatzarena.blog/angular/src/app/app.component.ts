@@ -1,4 +1,5 @@
-import { NgFor, NgIf } from '@angular/common';
+import { NgFor, NgIf, registerLocaleData } from '@angular/common';
+import localeDe from '@angular/common/locales/de';
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
@@ -57,6 +58,7 @@ export class AppComponent {
   protected projects = projects;
 
   constructor(update: SwUpdate, feedback: FeedbackService, readonly app: AppContextService) {
+    registerLocaleData(localeDe, 'de');
     update.versionUpdates.pipe(
       switchMap(() => update.activateUpdate()),
       tap(() => this.versionUpdate.set(true)),
