@@ -7,10 +7,29 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="Bolzplatzarena.AspNetCore" Version="0.0.4" />
+    <PackageReference Include="Markdig" Version="0.33.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Cryptography.Internal" Version="7.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="7.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.11" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="7.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.Extensions" Version="6.0.22" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="7.0.11" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="7.0.11" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.7.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.7.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.11" />
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="7.0.11" />
+    <PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.11" />
+    <PackageReference Include="Microsoft.NETCore.Platforms" Version="7.0.4" />
+    <PackageReference Include="Microsoft.NETCore.Targets" Version="5.0.0" />
+    <PackageReference Include="NETStandard.Library" Version="2.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Piranha" Version="10.3.0" />
     <PackageReference Include="Piranha.AspNetCore" Version="10.3.0" />
     <PackageReference Include="Piranha.AspNetCore.Identity.SQLite" Version="10.3.0" />
