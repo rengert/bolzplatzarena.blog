@@ -20,7 +20,7 @@
     </section>
   </div>
 </main>
-@if (versionUpdate()) {
+@defer (when versionUpdate()) {
   <div class="sticky flex justify-between items-center bottom-16 m-4 bg-blue-600 rounded-lg text-white px-4 py-2">
     <div>
       Es gibt eine neue Version der Bolzplatzarena!

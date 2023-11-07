@@ -5,7 +5,7 @@
   <ul>
     @for (item of navigation | async;track item) {
       <li class="hover:bg-gray-50">
-        @if (!item.link?.startsWith('http')) {
+        @if (!item.link.startsWith('http')) {
           <a
               [routerLink]="[item.link]"
               class="h-12 p-2 flex flex-col justify-center border-b border-gray-300">

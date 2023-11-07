@@ -4,10 +4,10 @@
 @if (block.type === BlockType.CodeBlock) {
   <app-code-block [block]="block"></app-code-block>
 }
-@if (block.type === BlockType.PerformanceBlock) {
+@defer (when block.type === BlockType.PerformanceBlock) {
   <app-performance-block [block]="block"></app-performance-block>
 }
-@if (block.type === BlockType.SoundBlock) {
+@defer (when block.type === BlockType.SoundBlock) {
   <app-sound></app-sound>
 }
 @if (block.type === BlockType.SearchBlock) {

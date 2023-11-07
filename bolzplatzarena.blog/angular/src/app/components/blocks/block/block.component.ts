@@ -15,11 +15,11 @@ import { SoundBlockComponent } from '../sound-block/sound-block.component';
   standalone: true,
   imports: [
     NgIf,
-    HtmlBlockComponent,
     CodeBlockComponent,
+    HtmlBlockComponent,
     PerformanceBlockComponent,
-    SoundBlockComponent,
     SearchComponent,
+    SoundBlockComponent,
   ],
 })
 export class BlockComponent {
