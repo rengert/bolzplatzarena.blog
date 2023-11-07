@@ -1,5 +1,6 @@
-<app-board *ngIf="gameData()" [boardData]="gameData()" (resultEvent)="resultGame($event)" class="block"></app-board>
-
+@if (gameData()) {
+  <app-board [boardData]="gameData()" (resultEvent)="resultGame($event)" class="block"></app-board>
+}
 <div class="flex justify-center pt-4">
   <button class="mr-2 mb-2 px-2 py-1 border border-blue-600 rounded inline-block cursor-pointer" routerLink="../">
     Aufgeben

@@ -1,25 +1,32 @@
-<div *ngIf="testResult$ | async as testResult" class="shadow-md rounded-lg p-4 mt-4 border-2 relative">
-  <ng-container *ngIf="animating">
-    <div
-      class="absolute rounded-lg top-0 bottom-0 left-0 right-0 flex justify-center items-center bg-blue-400 bg-opacity-50">
-      <div class="w-12 h-12 border-4 border-blue-800 rounded-full animate-loader"
-           style="border-right-color: transparent"></div>
-    </div>
-  </ng-container>
-  <h3>{{ testResult.name }}</h3>
-  <div *ngFor="let item of testResult.results" class="pt-2">
-    <span class="text-sm">{{ item.name }} - {{ item.time | number }}ms</span>
-    <div class="mt-2 bg-gray-200 dark:bg-black rounded-full overflow-hidden">
-      <div [style.width.%]="item.percentage"
-           class="bg-blue-200 h-4"
-           role="progressbar"
-           [attr.aria-valuenow]="item.percentage"
-           [attr.aria-valuemin]="0"
-           [attr.aria-valuemax]="100">
+@if (testResult$ | async;as testResult) {
+  <div class="shadow-md rounded-lg p-4 mt-4 border-2 relative">
+    @if (animating) {
+      <div
+          class="absolute rounded-lg top-0 bottom-0 left-0 right-0 flex justify-center items-center bg-blue-400 bg-opacity-50">
+        <div
+            class="w-12 h-12 border-4 border-blue-800 rounded-full animate-loader"
+            style="border-right-color: transparent">
+        </div>
       </div>
+    }
+    <h3>{{ testResult.name }}</h3>
+    @for (item of testResult.results;track item) {
+      <div class="pt-2">
+        <span class="text-sm">{{ item.name }} - {{ item.time | number }}ms</span>
+        <div class="mt-2 bg-gray-200 dark:bg-black rounded-full overflow-hidden">
+          <div
+              [style.width.%]="item.percentage"
+              class="bg-blue-200 h-4"
+              role="progressbar"
+              [attr.aria-valuenow]="item.percentage"
+              [attr.aria-valuemin]="0"
+              [attr.aria-valuemax]="100">
+          </div>
+        </div>
+      </div>
+    }
+    <div class="pt-2 text-right">
+      <app-button (click)="runTest()">Test starten</app-button>
     </div>
   </div>
-  <div class="pt-2 text-right">
-    <app-button (click)="runTest()">Test starten</app-button>
-  </div>
-</div>
+}

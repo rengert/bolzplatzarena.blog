@@ -2,16 +2,18 @@
   <div class="flex flex-col max-w-[64rem] mx-auto lg:flex-row lg:items-center lg:justify-between">
     <div class="flex justify-between items-center">
       <div>
-        <a routerLink="/" class="text-gray-800 text-xl font-bold md:text-2xl">Bolzplatzarena</a>
-        <ng-container *ngIf="title()"> - <h1 class="inline">{{ title() }}</h1></ng-container>
+        <a class="text-gray-800 text-xl font-bold md:text-2xl" routerLink="/">Bolzplatzarena</a>
+        @if (title()) {
+          - <h1 class="inline">{{ title() }}</h1>
+        }
       </div>
       <div>
-        <button type="button"
+        <button (click)="toggleNavigation()"
+                aria-label="Öffne / Schließe die Navigation"
                 class="block text-gray-800 hover:text-gray-600 focus:text-gray-600 focus:outline-none lg:hidden"
                 name="Öffne / Schließe die Navigation"
-                aria-label="Öffne / Schließe die Navigation"
-                (click)="toggleNavigation()">
-          <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+                type="button">
+          <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
             <path
                 d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z">
             </path>
@@ -20,11 +22,13 @@
       </div>
     </div>
     <div class="lg:flex flex-col md:flex-row md:-mx-4 hidden">
-      <a routerLink="/" class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0">Startseite</a>
-      <a routerLink="/suche" class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0">Suche</a>
-      <a routerLink="/impressum" class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0">Impressum</a>
+      <a class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0" routerLink="/">Startseite</a>
+      <a class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0" routerLink="/suche">Suche</a>
+      <a class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0" routerLink="/impressum">Impressum</a>
     </div>
   </div>
 </header>
 
-<app-navigation *ngIf="navigationOpen()" [header]="true" class="absolute w-screen h-5/6 top-16 p-2"></app-navigation>
+@if (navigationOpen()) {
+  <app-navigation [header]="true" class="absolute w-screen h-5/6 top-16 p-2"></app-navigation>
+}

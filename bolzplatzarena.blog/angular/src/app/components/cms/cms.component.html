@@ -1,37 +1,45 @@
-<ng-container *ngIf="data$ | async as data else loading">
-  <ng-container *ngIf="data.page as page else notFound" [ngSwitch]="page.type">
-    <ng-container *ngSwitchCase="PageType.Archive">
-      <app-archive [page]="page"></app-archive>
-    </ng-container>
-    <ng-container *ngSwitchCase="PageType.CleanPage">
-      <app-block *ngFor="let block of page.blocks" [block]="block"></app-block>
-    </ng-container>
-    <ng-container *ngSwitchDefault>
-      <div class="lg:max-w-4xl mb-4 bg-white rounded-lg shadow-md p-3">
-        <h1 class="text-2xl">{{ page.title }}</h1>
-        <small *ngIf="page.author">{{ page.dateTime | date }} - {{ page.author }}</small>
-        <app-block *ngFor="let block of page.blocks" [block]="block"></app-block>
-      </div>
-      <app-feedback *ngIf="page.type === PageType.Post" [page]="page"></app-feedback>
-      <app-suggestion *ngIf="page.type === PageType.Post" [page]="page"></app-suggestion>
-    </ng-container>
-  </ng-container>
-</ng-container>
-
-<ng-template #notFound>
-  <div class="max-w-4xl mb-4 px-5 py-6 bg-white rounded-lg shadow-md lg:px-10">
-    <h1 class="text-2xl">404 - Ist da etwas verschwunden?</h1>
-    <img src="assets/not-found-bolzplatzarena.png" alt="Hier gibt es nichts zu sehen" class="mx-auto my-4">
-    <p>Wir haben uns wirklich bemüht, aber scheinbar haben wir vergessen eine Seite hochzuladen oder das Internet war
-      leider schon alle.</p>
-    <p>Am Besten ist es, wenn du es erneut probierst und einen der Links in der Navigation benutzt.</p>
-    <p>Wenn es dann leider immer noch nicht funktioniert, habe ich es einfach verbockt und du könntest meinen Tag
-      retten, indem du mir sagst, wie du den Fehler produziert hast. So kann ich den Fehler schnellstmöglich
-      korrigieren, so dass du möglichst der/ die Einzige bleibst mit dieser durchaus negativen Erfahrung.</p>
-  </div>
-</ng-template>
-
-<ng-template #loading>
+@if (data$ | async;as data) {
+  @if (data.page;as page) {
+    @switch (page.type) {
+      @case (PageType.Archive) {
+        <app-archive [page]="page"></app-archive>
+      }
+      @case (PageType.CleanPage) {
+        @for (block of page.blocks;track block) {
+          <app-block [block]="block"></app-block>
+        }
+      }
+      @default {
+        <div class="lg:max-w-4xl mb-4 bg-white rounded-lg shadow-md p-3">
+          <h1 class="text-2xl">{{ page.title }}</h1>
+          @if (page.author) {
+            <small>{{ page.dateTime | date }} - {{ page.author }}</small>
+          }
+          @for (block of page.blocks;track block) {
+            <app-block [block]="block"></app-block>
+          }
+        </div>
+        @if (page.type === PageType.Post) {
+          <app-feedback [page]="page"></app-feedback>
+        }
+        @if (page.type === PageType.Post) {
+          <app-suggestion [page]="page"></app-suggestion>
+        }
+      }
+    }
+  } @else {
+    <div class="max-w-4xl mb-4 px-5 py-6 bg-white rounded-lg shadow-md lg:px-10">
+      <h1 class="text-2xl">404 - Ist da etwas verschwunden?</h1>
+      <img alt="Hier gibt es nichts zu sehen" class="mx-auto my-4" src="assets/not-found-bolzplatzarena.png">
+      <p>Wir haben uns wirklich bemüht, aber scheinbar haben wir vergessen eine Seite hochzuladen oder das Internet war
+        leider schon alle.</p>
+      <p>Am Besten ist es, wenn du es erneut probierst und einen der Links in der Navigation benutzt.</p>
+      <p>Wenn es dann leider immer noch nicht funktioniert, habe ich es einfach verbockt und du könntest meinen Tag
+        retten, indem du mir sagst, wie du den Fehler produziert hast. So kann ich den Fehler schnellstmöglich
+        korrigieren, so dass du möglichst der/ die Einzige bleibst mit dieser durchaus negativen Erfahrung.</p>
+    </div>
+  }
+} @else {
   <div class="border border-light-blue-300 shadow rounded-md p-4 max-w-4xl w-full mb-4">
     <div class="animate-pulse flex space-x-4">
       <div class="rounded-full bg-blue-400 h-12 w-12"></div>
@@ -45,4 +53,4 @@
       </div>
     </div>
   </div>
-</ng-template>
+}
