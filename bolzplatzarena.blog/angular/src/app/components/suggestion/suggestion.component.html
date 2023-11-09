@@ -1,9 +1,11 @@
-<ng-container *ngIf="suggestions$ | async as suggestion">
-  <ng-container *ngIf="suggestion.length">
+@if (suggestions$ | async;as suggestion) {
+  @if (suggestion.length) {
     <app-section-header title="Interessante Artikel"></app-section-header>
-    <div *ngFor="let item of suggestion" class="p-3 mb-4 bg-white md:rounded-lg shadow-md">
-      <a [routerLink]="[item.router]">{{ item.headline }}</a>
-      <div [routerLink]="[item.router]" [innerHTML]="item.teaser"></div>
-    </div>
-  </ng-container>
-</ng-container>
+    @for (item of suggestion;track item) {
+      <div class="p-3 mb-4 bg-white md:rounded-lg shadow-md">
+        <a [routerLink]="[item.router]">{{ item.headline }}</a>
+        <div [routerLink]="[item.router]" [innerHTML]="item.teaser"></div>
+      </div>
+    }
+  }
+}

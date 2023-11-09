@@ -1,1 +1,3 @@
-<span *ngFor="let item of numbers" [class]="numbersClass" [class.done]="item.done">{{ item.items }}</span>
+@for (item of numbers; track item) {
+  <span [class]="numbersClass" [class.done]="item.done">{{ item.items }}</span>
+}

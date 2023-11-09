@@ -1,18 +1,23 @@
-<app-section-header *ngIf="!header" title="Navigation"></app-section-header>
+@if (!header) {
+  <app-section-header title="Navigation"></app-section-header>
+}
 <nav class="flex flex-col bg-white rounded-lg shadow-md">
   <ul>
-    <li *ngFor="let item of navigation | async" class="hover:bg-gray-50">
-      <a *ngIf="!item.link?.startsWith('http') else link"
-         [routerLink]="[item.link]"
-         class="h-12 p-2 flex flex-col justify-center border-b border-gray-300">
-        {{ item.title }}
-      </a>
-      <ng-template #link>
-        <a [href]="[item.link]" target="_blank" class="h-16 p-2 flex flex-col justify-center border-b border-gray-300">
-          {{ item.title }}
-        </a>
-      </ng-template>
-    </li>
+    @for (item of navigation | async;track item) {
+      <li class="hover:bg-gray-50">
+        @if (!item.link.startsWith('http')) {
+          <a
+              [routerLink]="[item.link]"
+              class="h-12 p-2 flex flex-col justify-center border-b border-gray-300">
+            {{ item.title }}
+          </a>
+        } @else {
+          <a [href]="[item.link]" target="_blank"
+             class="h-16 p-2 flex flex-col justify-center border-b border-gray-300">
+            {{ item.title }}
+          </a>
+        }
+      </li>
+    }
   </ul>
 </nav>
-

@@ -1,1 +1,3 @@
-<app-teaser *ngFor="let post of page.posts" [teaser]="post" class="sm:mb-6 block sm:w-1/2"></app-teaser>
+@for (post of page.posts; track post) {
+  <app-teaser [teaser]="post" class="sm:mb-6 block sm:w-1/2"></app-teaser>
+}

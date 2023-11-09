@@ -1,5 +1,15 @@
-<app-html-block *ngIf="block.type === BlockType.HtmlBlock" [block]="block"></app-html-block>
-<app-code-block *ngIf="block.type === BlockType.CodeBlock" [block]="block"></app-code-block>
-<app-performance-block *ngIf="block.type === BlockType.PerformanceBlock" [block]="block"></app-performance-block>
-<app-sound *ngIf="block.type === BlockType.SoundBlock"></app-sound>
-<app-search *ngIf="block.type === BlockType.SearchBlock"></app-search>
+@if (block.type === BlockType.HtmlBlock) {
+  <app-html-block [block]="block"></app-html-block>
+}
+@if (block.type === BlockType.CodeBlock) {
+  <app-code-block [block]="block"></app-code-block>
+}
+@defer (when block.type === BlockType.PerformanceBlock) {
+  <app-performance-block [block]="block"></app-performance-block>
+}
+@defer (when block.type === BlockType.SoundBlock) {
+  <app-sound></app-sound>
+}
+@if (block.type === BlockType.SearchBlock) {
+  <app-search></app-search>
+}

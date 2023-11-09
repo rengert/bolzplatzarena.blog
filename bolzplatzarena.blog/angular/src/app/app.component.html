@@ -5,12 +5,13 @@
       <router-outlet></router-outlet>
       <app-section-header title="Interessante Projekte"></app-section-header>
       <div class="p-3 bg-white sm:rounded-lg shadow-md">
-        <a *ngFor="let project of projects"
-           [href]="project.url"
-           target="_blank"
-           rel="noopener"
-           class="block py-2"
-           [title]="project.description">{{ project.title }}</a>
+        @for (project of projects;track project) {
+          <a [href]="project.url"
+             target="_blank"
+             rel="noopener"
+             class="block py-2"
+             [title]="project.description">{{ project.title }}</a>
+        }
       </div>
     </section>
     <section class="w-4/12 pl-8 hidden lg:block">
@@ -19,14 +20,15 @@
     </section>
   </div>
 </main>
-<div *ngIf="versionUpdate()"
-     class="sticky flex justify-between items-center bottom-16 m-4 bg-blue-600 rounded-lg text-white px-4 py-2">
-  <div>
-    Es gibt eine neue Version der Bolzplatzarena!
+@defer (when versionUpdate()) {
+  <div class="sticky flex justify-between items-center bottom-16 m-4 bg-blue-600 rounded-lg text-white px-4 py-2">
+    <div>
+      Es gibt eine neue Version der Bolzplatzarena!
+    </div>
+    <div>
+      <button class="bg-white text-black rounded-lg px-2 py-1 ml-4" (click)="versionUpdate.set(false)">So what</button>
+      <button class="bg-white text-black rounded-lg px-2 py-1 ml-4" (click)="reload()">Aktualisieren</button>
+    </div>
   </div>
-  <div>
-    <button class="bg-white text-black rounded-lg px-2 py-1 ml-4" (click)="versionUpdate.set(false)">So what</button>
-    <button class="bg-white text-black rounded-lg px-2 py-1 ml-4" (click)="reload()">Aktualisieren</button>
-  </div>
-</div>
+}
 <footer class="block sticky bottom-0 left-0 p-4 border-t border-gray-300"></footer>
