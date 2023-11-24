@@ -28,7 +28,7 @@ namespace Bolzplatzarena.Blog.Controllers
 
 		[OutputCache(Duration=120, VaryByRouteValueNames=new [] { "slug" })]
 		[ResponseCache(Duration = 120, VaryByQueryKeys = new [] {"slug" })]
-		public async Task<Page> BySlug(string slug)
+		public async Task<Page> BySlug(string? slug)
 		{
 			DynamicPage? page;
 			if (!string.IsNullOrWhiteSpace(slug))
