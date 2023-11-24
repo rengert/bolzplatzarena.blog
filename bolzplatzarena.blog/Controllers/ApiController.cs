@@ -30,7 +30,7 @@ namespace Bolzplatzarena.Blog.Controllers
 		[ResponseCache(Duration = 120, VaryByQueryKeys = new [] {"slug" })]
 		public async Task<Page> BySlug(string slug)
 		{
-			DynamicPage page;
+			DynamicPage? page;
 			if (!string.IsNullOrWhiteSpace(slug))
 			{
 				page = await _api.Pages.GetBySlugAsync(slug);
@@ -81,9 +81,12 @@ namespace Bolzplatzarena.Blog.Controllers
 				Robots = "index,follow"
 			};
 
-			if (result.Type == "ArchivePage")
+			if (result.Type != "ArchivePage")
 			{
-				var model = await _api.Pages.GetByIdAsync<ArchivePage>(page.Id);
+				return result;
+			}
+
+			var model = await _api.Pages.GetByIdAsync<ArchivePage>(page.Id);
 				var archive = await _service.Find(model, null, null, "");
 				result.Posts = archive.Posts.Select(post => new Teaser
 				{
@@ -95,7 +98,6 @@ namespace Bolzplatzarena.Blog.Controllers
 					Category = post.Category,
 					Image = ((post.Teaser.Image?.Media?.PublicUrl ?? post.PrimaryImage?.Media?.PublicUrl) ?? "").Replace("~", ""),
 				}).ToList();
-			}
 
 			return result;
 		}
