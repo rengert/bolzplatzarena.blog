@@ -8,14 +8,14 @@ namespace Bolzplatzarena.Blog.Blocks
 	[BlockType(Name = "Code", Category = "Content", Icon = "fas fa-font")]
 	public class CodeBlock : Block
 	{
-		public TextField RawCode { get; set; }
+		public TextField? RawCode { get; set; }
 
 		[Field()]
-		public StringField Filename { get; set; }
+		public required StringField Filename { get; set; }
 
-		public StringField Language { get; set; }
+		public required StringField Language { get; set; }
 
-		public CheckBoxField RunCode { get; set; }
+		public required CheckBoxField RunCode { get; set; }
 
 		public string ToHtml()
 		{

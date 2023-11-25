@@ -9,7 +9,7 @@ namespace Bolzplatzarena.Blog.Models.Regions
 		public StringField Author { get; set; }
 
 		[Field]
-		public ImageField Image { get; set; }
+		public ImageField? Image { get; set; }
 
 		[Field]
 		public HtmlField Body { get; set; }
