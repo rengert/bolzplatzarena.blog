@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.ResponseCompression;
-using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,14 +18,9 @@ using Piranha.Data.EF.SQLite;
 
 namespace Bolzplatzarena.Blog
 {
-	public class Startup
+	public class Startup(IConfiguration configuration)
 	{
-		private IConfiguration Configuration { get; }
-
-		public Startup(IConfiguration configuration)
-		{
-			Configuration = configuration;
-		}
+		private IConfiguration Configuration { get; } = configuration;
 
 		// This method gets called by the runtime. Use this method to add services to the container.
 		// For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
@@ -44,7 +38,14 @@ namespace Bolzplatzarena.Blog
 			});
 
 			services.AddResponseCaching();
-			services.AddOutputCache();
+			services.AddOutputCache(options =>
+			{
+				options.AddBasePolicy(builder => builder.Tag("tag-all"));
+				options.AddPolicy("Blog", builder => builder.Expire(TimeSpan.FromMinutes(2)).SetVaryByRouteValue("slug"));
+				options.AddPolicy("Images", builder => builder.Expire(TimeSpan.FromMinutes(120)).SetVaryByQuery("image", "width", "height"));
+				options.AddPolicy("NoCache", builder => builder.NoCache());
+				options.AddPolicy("NoLock", builder => builder.SetLocking(false));
+			});
 			services.AddResponseCompression(options => { options.EnableForHttps = true; });
 			services.Configure<GzipCompressionProviderOptions>(options =>
 			{

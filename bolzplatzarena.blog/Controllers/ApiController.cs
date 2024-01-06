@@ -8,6 +8,7 @@ using Bolzplatzarena.Blog.Models.Requests;
 using Bolzplatzarena.Blog.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OutputCaching;
+using Microsoft.CodeAnalysis;
 using Piranha;
 using Piranha.Models;
 
@@ -26,8 +27,9 @@ namespace Bolzplatzarena.Blog.Controllers
 			_service = service;
 		}
 
-		[OutputCache(Duration=120, VaryByRouteValueNames=new [] { "slug" })]
-		[ResponseCache(Duration = 120, VaryByQueryKeys = new [] {"slug" })]
+		[HttpGet]
+		[OutputCache(PolicyName = "Blog")]
+		[ResponseCache(Duration = 120, VaryByQueryKeys = new [] {"**slug" })]
 		public async Task<Page> BySlug(string? slug)
 		{
 			DynamicPage? page;

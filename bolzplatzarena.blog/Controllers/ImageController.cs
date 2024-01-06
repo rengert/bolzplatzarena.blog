@@ -2,6 +2,7 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OutputCaching;
 
 namespace Bolzplatzarena.Blog.Controllers;
 
@@ -13,8 +14,11 @@ public class ImageController: Controller
 
 	// Method do load a image from server
 	[HttpGet("{**image}")]
+	[OutputCache(PolicyName = "Images")]
+	[ResponseCache(Duration = 1800, VaryByQueryKeys = new [] { "width", "height" } )]
 	public async Task<IActionResult> GetImage(string image, [FromQuery] int width = 0, [FromQuery] int height = 0)
 	{
+		
 		var clearedImage = image.Replace("uploads/", "/");
 		var url = "https://ik.imagekit.io/bolzplatzarena/blog/" + image + "?tr=w-" + width + ",h-" + height;
 		try
