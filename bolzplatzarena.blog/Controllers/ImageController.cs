@@ -20,7 +20,7 @@ public class ImageController: Controller
 	{
 		
 		var clearedImage = image.Replace("uploads/", "/");
-		var url = "https://ik.imagekit.io/bolzplatzarena/blog/" + image + "?tr=w-" + width + ",h-" + height;
+		var url = "https://ik.imagekit.io/bolzplatzarena/blog/" + clearedImage + "?tr=w-" + width + ",h-" + height;
 		try
 		{
 			var imageBytes = await client.GetByteArrayAsync(url);

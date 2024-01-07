@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { Article, Thing, WebSite, WithContext } from 'schema-dts';
+import { environment } from '../../environments/environment';
 import { MetaInfo } from '../models/meta-info';
 import { Page } from '../models/page';
 import { PageType } from '../models/page-type.enum';
@@ -20,6 +21,9 @@ function log(
   descriptor: TypedPropertyDescriptor<any>,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
 ): TypedPropertyDescriptor<any> {
+  if (environment.production) {
+    return descriptor;
+  }
   const originalMethod = descriptor.value;
   descriptor.value = function (...args: unknown[]): unknown {
     // eslint-disable-next-line no-console
