@@ -25,7 +25,7 @@ export class TeaserComponent {
 
   get teaserImage(): string | undefined {
     if (this.teaser.image) {
-      return `${environment.apiUrl}/api/image/${this.teaser.image}?width=325&height=160`;
+      return `${environment.apiUrl}/api/image${this.teaser.image}?width=325&height=160`;
     }
     return undefined;
   }

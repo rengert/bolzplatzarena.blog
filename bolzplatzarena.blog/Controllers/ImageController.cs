@@ -15,7 +15,7 @@ public class ImageController: Controller
 	// Method do load a image from server
 	[HttpGet("{**image}")]
 	[OutputCache(PolicyName = "Images")]
-	[ResponseCache(Duration = 1800, VaryByQueryKeys = new [] { "width", "height" } )]
+	[ResponseCache(Duration = 60 * 60 * 24 * 7, VaryByQueryKeys = new [] { "width", "height" } )]
 	public async Task<IActionResult> GetImage(string image, [FromQuery] int width = 0, [FromQuery] int height = 0)
 	{
 		
