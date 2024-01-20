@@ -3,8 +3,6 @@ import localeDe from '@angular/common/locales/de';
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
-import { timer } from 'rxjs';
-import { filter, switchMap, tap } from 'rxjs/operators';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
@@ -59,15 +57,6 @@ export class AppComponent {
 
   constructor(update: SwUpdate, feedback: FeedbackService, readonly app: AppContextService) {
     registerLocaleData(localeDe, 'de');
-    update.versionUpdates.pipe(
-      switchMap(() => update.activateUpdate()),
-      tap(() => this.versionUpdate.set(true)),
-    ).subscribe();
-    timer(0, 5 * 60 * 1000).pipe(
-      filter(() => update.isEnabled),
-      switchMap(() => update.checkForUpdate()),
-    ).subscribe();
-
     feedback.init();
   }
 

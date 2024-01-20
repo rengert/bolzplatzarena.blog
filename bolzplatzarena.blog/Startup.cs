@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.IO.Compression;
 using Bolzplatzarena.Blog.Blocks;
 using Bolzplatzarena.Blog.Services;
@@ -6,7 +7,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.ResponseCompression;
-using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,14 +19,9 @@ using Piranha.Data.EF.SQLite;
 
 namespace Bolzplatzarena.Blog
 {
-	public class Startup
+	public class Startup(IConfiguration configuration)
 	{
-		private IConfiguration Configuration { get; }
-
-		public Startup(IConfiguration configuration)
-		{
-			Configuration = configuration;
-		}
+		private IConfiguration Configuration { get; } = configuration;
 
 		// This method gets called by the runtime. Use this method to add services to the container.
 		// For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
@@ -44,12 +39,21 @@ namespace Bolzplatzarena.Blog
 			});
 
 			services.AddResponseCaching();
-			services.AddOutputCache();
+			services.AddOutputCache(options =>
+			{
+				options.AddBasePolicy(builder => builder.Tag("tag-all"));
+				options.AddPolicy("Blog", builder => builder.Expire(TimeSpan.FromMinutes(2)).SetVaryByRouteValue("slug"));
+				options.AddPolicy("Images", builder => builder.Expire(TimeSpan.FromMinutes(60 * 24 * 7)).SetVaryByQuery("image", "width", "height"));
+				options.AddPolicy("NoCache", builder => builder.NoCache());
+				options.AddPolicy("NoLock", builder => builder.SetLocking(false));
+			});
 			services.AddResponseCompression(options => { options.EnableForHttps = true; });
 			services.Configure<GzipCompressionProviderOptions>(options =>
 			{
 				options.Level = CompressionLevel.Optimal;
 			});
+			services.AddTransient<IStartupFilter, StartupFilter>();
+
 			// Service setup
 			services.AddPiranha(options =>
 			{
@@ -108,17 +112,7 @@ namespace Bolzplatzarena.Blog
 			App.Modules.Get<Piranha.Manager.Module>()
 				.Scripts.Add("~/js/manager.js");
 
-
-			const string cachePeriod = "31536000";
-			app.UseStaticFiles(new StaticFileOptions()
-			{
-				OnPrepareResponse = ctx =>
-				{
-					ctx.Context.Response.Headers.Append("Cache-Control", $"public, max-age={cachePeriod}");
-				}
-			});
 			app.UseStatusCodePagesWithReExecute("/not-found");
-			app.UseStaticFiles();
 			app.UsePiranha(options =>
 			{
 				options.UseManager();
@@ -127,7 +121,15 @@ namespace Bolzplatzarena.Blog
 			});
 			app.UseSpa(spa =>
 			{
-				spa.Options.SourcePath = "angular";
+				spa.Options.SourcePath = "angular/dist/angular/browser";
+				spa.Options.DefaultPageStaticFileOptions = new StaticFileOptions()
+				{
+					OnPrepareResponse = ctx =>
+					{
+						ctx.Context.Response.Headers.Append("Cache-Control", "public,max-age=3600");
+						ctx.Context.Response.Headers.Append("Expires", DateTime.UtcNow.AddHours(1).ToString("R", CultureInfo.InvariantCulture));
+					}
+				};
 			});
 			app.UseMiddleware<SitemapMiddleware>();
 			app.UseRouting();

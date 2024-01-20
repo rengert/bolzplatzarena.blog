@@ -49,18 +49,80 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
+    <Content Update="wwwroot\ngsw.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="angular\src\app\components" />
     <Folder Include="assets\images" />
-    <Folder Include="wwwroot\fonts" />
-    <Folder Include="wwwroot\images" />
-    <Folder Include="wwwroot\uploads" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="assets\images\systemische-beratung-mediation-karlsruhe.jpg" />
+    <None Include="wwwroot\assets\coding-bolzplatzarena.png" />
+    <None Include="wwwroot\assets\icons\apple-icon-180.png" />
+    <None Include="wwwroot\assets\icons\apple-splash-1125-2436.jpg" />
+    <None Include="wwwroot\assets\icons\apple-splash-1136-640.jpg" />
+    <None Include="wwwroot\assets\icons\apple-splash-1170-2532.jpg" />
+    <None Include="wwwroot\assets\icons\apple-splash-1242-2208.jpg" />
+    <None Include="wwwroot\assets\icons\apple-splash-1242-2688.jpg" />
+    <None Include="wwwroot\assets\icons\apple-splash-1284-2778.jpg" />
+    <None Include="wwwroot\assets\icons\apple-splash-1334-750.jpg" />
+    <None Include="wwwroot\assets\icons\apple-splash-1536-2048.jpg" />
+    <None Include="wwwroot\assets\icons\apple-splash-1620-2160.jpg" />
+    <None Include="wwwroot\assets\icons\apple-splash-1668-2224.jpg" />
+    <None Include="wwwroot\assets\icons\apple-splash-1668-2388.jpg" />
+    <None Include="wwwroot\assets\icons\apple-splash-1792-828.jpg" />
+    <None Include="wwwroot\assets\icons\apple-splash-2048-1536.jpg" />
+    <None Include="wwwroot\assets\icons\apple-splash-2048-2732.jpg" />
+    <None Include="wwwroot\assets\icons\apple-splash-2160-1620.jpg" />
+    <None Include="wwwroot\assets\icons\apple-splash-2208-1242.jpg" />
+    <None Include="wwwroot\assets\icons\apple-splash-2224-1668.jpg" />
+    <None Include="wwwroot\assets\icons\apple-splash-2388-1668.jpg" />
+    <None Include="wwwroot\assets\icons\apple-splash-2436-1125.jpg" />
+    <None Include="wwwroot\assets\icons\apple-splash-2532-1170.jpg" />
+    <None Include="wwwroot\assets\icons\apple-splash-2688-1242.jpg" />
+    <None Include="wwwroot\assets\icons\apple-splash-2732-2048.jpg" />
+    <None Include="wwwroot\assets\icons\apple-splash-2778-1284.jpg" />
+    <None Include="wwwroot\assets\icons\apple-splash-640-1136.jpg" />
+    <None Include="wwwroot\assets\icons\apple-splash-750-1334.jpg" />
+    <None Include="wwwroot\assets\icons\apple-splash-828-1792.jpg" />
+    <None Include="wwwroot\assets\icons\icon-128x128.png" />
+    <None Include="wwwroot\assets\icons\icon-144x144.png" />
+    <None Include="wwwroot\assets\icons\icon-152x152.png" />
+    <None Include="wwwroot\assets\icons\icon-192x192.png" />
+    <None Include="wwwroot\assets\icons\icon-384x384.png" />
+    <None Include="wwwroot\assets\icons\icon-512x512.png" />
+    <None Include="wwwroot\assets\icons\icon-72x72.png" />
+    <None Include="wwwroot\assets\icons\icon-96x96.png" />
+    <None Include="wwwroot\assets\icons\manifest-icon-128.png" />
+    <None Include="wwwroot\assets\icons\manifest-icon-144.png" />
+    <None Include="wwwroot\assets\icons\manifest-icon-152.png" />
+    <None Include="wwwroot\assets\icons\manifest-icon-192.png" />
+    <None Include="wwwroot\assets\icons\manifest-icon-384.png" />
+    <None Include="wwwroot\assets\icons\manifest-icon-512.png" />
+    <None Include="wwwroot\assets\icons\manifest-icon-72.png" />
+    <None Include="wwwroot\assets\icons\manifest-icon-96.png" />
+    <None Include="wwwroot\assets\not-found-bolzplatzarena.png" />
+    <None Include="wwwroot\assets\programming.svg" />
+    <None Include="wwwroot\chunk-3NSREKK3.js" />
+    <None Include="wwwroot\chunk-ANZK24LV.js" />
+    <None Include="wwwroot\chunk-AVOXVMHK.js" />
+    <None Include="wwwroot\chunk-EFJUARS3.js" />
+    <None Include="wwwroot\chunk-PKKRECOV.js" />
+    <None Include="wwwroot\chunk-XQ2DFT2S.js" />
+    <None Include="wwwroot\chunk-ZETGQDFU.js" />
+    <None Include="wwwroot\favicon.ico" />
+    <None Include="wwwroot\index.html" />
+    <None Include="wwwroot\main-ZGJUK2HD.js" />
+    <None Include="wwwroot\manifest.webmanifest" />
+    <None Include="wwwroot\ngsw-worker.js" />
+    <None Include="wwwroot\polyfills-LZBJRJJE.js" />
+    <None Include="wwwroot\safety-worker.js" />
+    <None Include="wwwroot\styles-35SISEDG.css" />
+    <None Include="wwwroot\worker-basic.min.js" />
   </ItemGroup>
 
   <ItemGroup>
@@ -188,6 +250,8 @@
     <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\xcode.css" />
     <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\xt256.css" />
     <_ContentIncludedByDefault Remove="wwwroot\highlight\styles\zenburn.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\manager.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\scripts.js" />
   </ItemGroup>
 
 </Project>

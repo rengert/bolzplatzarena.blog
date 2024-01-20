@@ -8,6 +8,7 @@ using Bolzplatzarena.Blog.Models.Requests;
 using Bolzplatzarena.Blog.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OutputCaching;
+using Microsoft.CodeAnalysis;
 using Piranha;
 using Piranha.Models;
 
@@ -15,28 +16,20 @@ namespace Bolzplatzarena.Blog.Controllers
 {
 	[ApiController]
 	[Route("[controller]/[action]/{**slug}")]
-	public class ApiController : Controller
+	public class ApiController(IApi api, IBlogService service) : Controller
 	{
-		private readonly IApi _api;
-		private readonly IBlogService _service;
-
-		public ApiController(IApi api, IBlogService service)
-		{
-			_api = api;
-			_service = service;
-		}
-
-		[OutputCache(Duration=120, VaryByRouteValueNames=new [] { "slug" })]
-		[ResponseCache(Duration = 120, VaryByQueryKeys = new [] {"slug" })]
+		[HttpGet]
+		[OutputCache(PolicyName = "Blog")]
+		[ResponseCache(Duration = 120, VaryByQueryKeys = new [] {"**slug" })]
 		public async Task<Page> BySlug(string? slug)
 		{
 			DynamicPage? page;
 			if (!string.IsNullOrWhiteSpace(slug))
 			{
-				page = await _api.Pages.GetBySlugAsync(slug);
+				page = await api.Pages.GetBySlugAsync(slug);
 				if (page == null)
 				{
-					var post = await _api.Posts.GetBySlugAsync<Post>("blog", slug.Replace("blog/", ""));
+					var post = await api.Posts.GetBySlugAsync<Post>("blog", slug.Replace("blog/", ""));
 					return new Page
 					{
 						Id = post.Id,
@@ -58,7 +51,7 @@ namespace Bolzplatzarena.Blog.Controllers
 			}
 			else
 			{
-				var allPages = await _api.Pages.GetAllAsync();
+				var allPages = await api.Pages.GetAllAsync();
 				page =  allPages.FirstOrDefault(item => item.SortOrder == 0);
 			}
 
@@ -86,8 +79,8 @@ namespace Bolzplatzarena.Blog.Controllers
 				return result;
 			}
 
-			var model = await _api.Pages.GetByIdAsync<ArchivePage>(page.Id);
-				var archive = await _service.Find(model, null, null, "");
+			var model = await api.Pages.GetByIdAsync<ArchivePage>(page.Id);
+				var archive = await service.Find(model, null, null, "");
 				result.Posts = archive.Posts.Select(post => new Teaser
 				{
 					Title = post.Title,
@@ -102,10 +95,11 @@ namespace Bolzplatzarena.Blog.Controllers
 			return result;
 		}
 
-		[OutputCache(Duration=10, VaryByRouteValueNames=new [] { "slug" })]
+		[OutputCache(PolicyName = "Blog")]
+		[ResponseCache(Duration = 120)]
 		public async Task<IEnumerable<Page>> Sitemap()
 		{
-			var sitemap = await _api.Sites.GetSitemapAsync();
+			var sitemap = await api.Sites.GetSitemapAsync();
 			return sitemap.Select(page => new Page
 			{
 				Id = page.Id,
@@ -115,16 +109,17 @@ namespace Bolzplatzarena.Blog.Controllers
 			});
 		}
 
-		[OutputCache(Duration=10, VaryByRouteValueNames=new [] { "slug" })]
+		[OutputCache(PolicyName = "Blog")]
+		[ResponseCache(Duration = 120)]
 		public Task<IEnumerable<Piranha.Models.Comment>> Comments()
 		{
-			return _service.GetCommentsAsync();
+			return service.GetCommentsAsync();
 		}
 
 		[HttpPost]
 		public Task<Models.Comment> Comment(CommentRequest comment)
 		{
-			return _service.CreateCommentAsync(comment);
+			return service.CreateCommentAsync(comment);
 		}
 	}
 }

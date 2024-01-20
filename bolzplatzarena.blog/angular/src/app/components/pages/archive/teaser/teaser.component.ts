@@ -1,4 +1,4 @@
-import { DatePipe, NgFor, NgIf } from '@angular/common';
+import { DatePipe, NgFor, NgIf, NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { environment } from '../../../../../environments/environment';
@@ -14,6 +14,7 @@ import { Teaser } from '../../../../models/teaser';
     NgIf,
     NgFor,
     DatePipe,
+    NgOptimizedImage,
   ],
 })
 export class TeaserComponent {
@@ -24,7 +25,7 @@ export class TeaserComponent {
 
   get teaserImage(): string | undefined {
     if (this.teaser.image) {
-      return `${environment.apiUrl}${this.teaser.image}`;
+      return `${environment.apiUrl}/api/image${this.teaser.image}?width=325&height=160`;
     }
     return undefined;
   }

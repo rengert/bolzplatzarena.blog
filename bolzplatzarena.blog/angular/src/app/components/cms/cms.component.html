@@ -1,21 +1,24 @@
-@if (data$ | async;as data) {
-  @if (data.page;as page) {
+@if (data$ | async; as data) {
+  @if (data.page; as page) {
     @switch (page.type) {
       @case (PageType.Archive) {
         <app-archive [page]="page"></app-archive>
       }
       @case (PageType.CleanPage) {
-        @for (block of page.blocks;track block) {
+        @for (block of page.blocks; track block) {
           <app-block [block]="block"></app-block>
         }
       }
       @default {
         <div class="lg:max-w-4xl mb-4 bg-white rounded-lg shadow-md p-3">
           <h1 class="text-2xl">{{ page.title }}</h1>
+          @if (page.image) {
+            <img [ngSrc]="getImage(page.image)" [alt]="page.title" width="682" height="340" priority="true">
+          }
           @if (page.author) {
             <small>{{ page.dateTime | date }} - {{ page.author }}</small>
           }
-          @for (block of page.blocks;track block) {
+          @for (block of page.blocks; track block) {
             <app-block [block]="block"></app-block>
           }
         </div>
