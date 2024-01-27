@@ -1,4 +1,4 @@
-import { AsyncPipe, NgFor } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import FuzzySearch from 'fuzzy-search';
@@ -15,16 +15,14 @@ import { TeaserComponent } from '../../pages/archive/teaser/teaser.component';
   standalone: true,
   imports: [
     FormsModule,
-    NgFor,
     TeaserComponent,
     AsyncPipe,
   ],
 })
 export class SearchComponent {
-  readonly search$: Observable<Teaser[]>;
-  readonly refresh$ = new BehaviorSubject<string | undefined>(undefined);
-
-  searchString = '';
+  protected searchString = '';
+  protected readonly search$: Observable<Teaser[]>;
+  protected readonly refresh$ = new BehaviorSubject<string | undefined>(undefined);
 
   constructor(page: PageService) {
     this.search$ = from(page.getArchive()).pipe(
@@ -37,7 +35,7 @@ export class SearchComponent {
     );
   }
 
-  search(value: string): void {
+  protected search(value: string): void {
     this.refresh$.next(value);
   }
 }

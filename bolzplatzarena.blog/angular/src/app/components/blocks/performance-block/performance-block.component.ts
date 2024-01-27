@@ -1,5 +1,5 @@
-import { AsyncPipe, DecimalPipe, NgFor, NgIf } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnChanges } from '@angular/core';
+import { AsyncPipe, DecimalPipe } from '@angular/common';
+import { ChangeDetectionStrategy, Component, input, OnChanges } from '@angular/core';
 import maxBy from 'lodash-es/maxBy';
 import { BehaviorSubject } from 'rxjs';
 import { Block } from '../../../models/block';
@@ -39,22 +39,20 @@ const tests: { [index: string]: Test | undefined } = {
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
-    NgIf,
-    NgFor,
     ButtonComponent,
     AsyncPipe,
     DecimalPipe,
   ],
 })
 export class PerformanceBlockComponent implements OnChanges {
-  @Input() block!: Block;
+  readonly block = input.required<Block>();
 
   animating = false;
   test: Test = uniqueTest;
   readonly testResult$ = new BehaviorSubject<TestResult | undefined>(undefined);
 
   ngOnChanges(): void {
-    this.test = tests[this.block.body?.value ?? ''] ?? uniqueTest;
+    this.test = tests[this.block().body?.value ?? ''] ?? uniqueTest;
     this.testResult$.next(this.getResults());
   }
 

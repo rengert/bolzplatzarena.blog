@@ -1,5 +1,4 @@
-import { NgIf } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { Block } from '../../../models/block';
 import { BlockType } from '../../../models/block-type.enum';
 import { CodeBlockComponent } from '../code-block/code-block.component';
@@ -14,7 +13,6 @@ import { SoundBlockComponent } from '../sound-block/sound-block.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
-    NgIf,
     CodeBlockComponent,
     HtmlBlockComponent,
     PerformanceBlockComponent,
@@ -23,7 +21,7 @@ import { SoundBlockComponent } from '../sound-block/sound-block.component';
   ],
 })
 export class BlockComponent {
-  @Input() block!: Block;
+  readonly block = input.required<Block>();
 
   readonly BlockType = BlockType;
 }

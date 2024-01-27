@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { Block } from '../../../models/block';
 
 @Component({
@@ -8,5 +8,5 @@ import { Block } from '../../../models/block';
   standalone: true,
 })
 export class HtmlBlockComponent {
-  @Input() block?: Block;
+  readonly block = input<Block>();
 }
