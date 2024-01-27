@@ -1,9 +1,9 @@
 <h2 [routerLink]="[teaser().link]" class="text-xl text-gray-700 font-bold hover:underline cursor-pointer">
   {{ teaser().title }}
 </h2>
-@if (teaserImage) {
+@if (teaserImage()) {
   <img
-      [ngSrc]="teaserImage"
+      [ngSrc]="teaserImage()"
       [alt]="teaser().title"
       width="325"
       height="160"
