@@ -1,5 +1,5 @@
 <div class="flex justify-center p-4">
-  @for (item of items;track item) {
+  @for (item of items(); track $index) {
     <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

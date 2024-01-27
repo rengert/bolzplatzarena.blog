@@ -1,5 +1,4 @@
-import { NgFor } from '@angular/common';
-import { ChangeDetectionStrategy, Component, HostBinding, Input, OnChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, input, OnChanges } from '@angular/core';
 import { Caption } from '../../../../models/caption';
 import { Config } from '../../../../models/config';
 
@@ -9,18 +8,22 @@ import { Config } from '../../../../models/config';
   styleUrls: ['./caption.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NgFor],
+  // eslint-disable-next-line @angular-eslint/no-host-metadata-property
+  host: {
+    '[class.vertical]': 'vertical()',
+  },
 })
 export class CaptionComponent implements OnChanges {
-  @Input() config!: Config;
-  @Input() numbers!: Caption[];
-  @Input() @HostBinding('class.vertical') vertical = false;
+  readonly config = input.required<Config>();
+  readonly numbers = input.required<Caption[]>();
 
-  @HostBinding('class') cssClass = '';
-  @HostBinding('class') numbersClass = '';
+  readonly vertical = input<boolean>(false);
+
+  @HostBinding('class') protected cssClass = '';
+  @HostBinding('class') protected numbersClass = '';
 
   ngOnChanges(): void {
-    this.numbersClass = `text-length-${this.numbers.length}`;
-    this.cssClass = `board-size-${this.config.size}`;
+    this.numbersClass = `text-length-${this.numbers().length}`;
+    this.cssClass = `board-size-${this.config().size}`;
   }
 }

@@ -1,29 +1,13 @@
-import { NgFor } from '@angular/common';
-import { ChangeDetectionStrategy, Component, HostBinding, Input, OnChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 
 @Component({
   selector: 'app-hearts',
   templateUrl: './hearts.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NgFor],
 })
-export class HeartsComponent implements OnChanges {
-  @Input() hearts!: number;
+export class HeartsComponent {
+  readonly hearts = input.required<number>();
 
-  @HostBinding('class') heartClass = '';
-
-  items: number[] = [];
-
-  ngOnChanges(): void {
-    try {
-      this.items = [];
-      for (let i = 1; i <= this.hearts; i++) {
-        this.items.push(i);
-      }
-      this.heartClass = `hearts-${this.hearts}`;
-    } catch {
-      //
-    }
-  }
+  protected items = computed(() => Array(this.hearts()).fill(0));
 }

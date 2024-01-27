@@ -20,9 +20,9 @@ export class NonogrammComponent {
     this.gameStarted = !!this.storage.loadGame();
   }
 
-  newGame(): void {
+  protected newGame(): void {
     this.storage.cleanGame();
-    
+
     void this.router.navigate(['game'], { relativeTo: this.route });
   }
 }
