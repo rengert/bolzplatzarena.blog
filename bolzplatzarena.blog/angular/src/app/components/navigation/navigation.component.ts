@@ -1,5 +1,5 @@
-import { AsyncPipe, NgFor, NgIf } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Page } from '../../models/page';
 import { NavigationService } from '../../services/navigation.service';
@@ -11,17 +11,15 @@ import { SectionHeaderComponent } from '../section-header/section-header.compone
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
-    NgIf,
-    SectionHeaderComponent,
-    NgFor,
-    RouterLink,
     AsyncPipe,
+    RouterLink,
+    SectionHeaderComponent,
   ],
 })
 export class NavigationComponent {
-  @Input() header = false;
+  readonly header = input(false);
 
-  readonly navigation: Promise<Page[]>;
+  protected readonly navigation: Promise<Page[]>;
 
   constructor(navigation: NavigationService) {
     this.navigation = navigation.get();

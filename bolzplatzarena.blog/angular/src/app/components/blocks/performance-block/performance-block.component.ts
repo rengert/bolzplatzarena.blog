@@ -1,7 +1,6 @@
-import { AsyncPipe, DecimalPipe, NgFor, NgIf } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnChanges } from '@angular/core';
+import { AsyncPipe, DecimalPipe } from '@angular/common';
+import { ChangeDetectionStrategy, Component, input, OnChanges, signal } from '@angular/core';
 import maxBy from 'lodash-es/maxBy';
-import { BehaviorSubject } from 'rxjs';
 import { Block } from '../../../models/block';
 import { forTest } from '../../../tests/for';
 import { keyByTest } from '../../../tests/key-by';
@@ -39,29 +38,27 @@ const tests: { [index: string]: Test | undefined } = {
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
-    NgIf,
-    NgFor,
     ButtonComponent,
     AsyncPipe,
     DecimalPipe,
   ],
 })
 export class PerformanceBlockComponent implements OnChanges {
-  @Input() block!: Block;
+  readonly block = input.required<Block>();
 
-  animating = false;
-  test: Test = uniqueTest;
-  readonly testResult$ = new BehaviorSubject<TestResult | undefined>(undefined);
+  protected animating = false;
+  protected test: Test = uniqueTest;
+  protected readonly testResult$ = signal<TestResult | undefined>(undefined);
 
   ngOnChanges(): void {
-    this.test = tests[this.block.body?.value ?? ''] ?? uniqueTest;
-    this.testResult$.next(this.getResults());
+    this.test = tests[this.block().body?.value ?? ''] ?? uniqueTest;
+    this.testResult$.set(this.getResults());
   }
 
-  runTest(): void {
+  protected runTest(): void {
     this.animating = true;
     setTimeout(() => {
-      this.testResult$.next(this.getResults(true));
+      this.testResult$.set(this.getResults(true));
       this.animating = false;
     }, 16);
   }

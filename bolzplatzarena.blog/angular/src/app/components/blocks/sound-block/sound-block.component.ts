@@ -7,7 +7,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   standalone: true,
 })
 export class SoundBlockComponent {
-  async playSound(): Promise<void> {
+  protected async playSound(): Promise<void> {
     const delay = 150;
     const types: OscillatorType[] = ['sine', 'sawtooth', 'square', 'triangle'];
     const data1 = 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.';
@@ -26,7 +26,7 @@ export class SoundBlockComponent {
     await Promise.all(promises);
   }
 
-  async playStringsAsSound(data: string [], type: OscillatorType, index: number): Promise<void> {
+  private async playStringsAsSound(data: string [], type: OscillatorType, index: number): Promise<void> {
     const context = new AudioContext();
     const oscillator = context.createOscillator();
     const gain = context.createGain();

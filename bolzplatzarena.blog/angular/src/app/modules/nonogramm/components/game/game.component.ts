@@ -1,4 +1,3 @@
-import { NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { Config } from '../../models/config';
@@ -12,14 +11,10 @@ import { BoardComponent } from './board/board.component';
   templateUrl: './game.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [
-    NgIf,
-    BoardComponent,
-    RouterLink,
-  ],
+  imports: [BoardComponent, RouterLink],
 })
 export class GameComponent implements OnInit {
-  readonly gameData = signal<GameData | undefined>(undefined);
+  protected readonly gameData = signal<GameData | undefined>(undefined);
 
   constructor(
     private readonly game: GameService,
@@ -33,7 +28,7 @@ export class GameComponent implements OnInit {
     this.setupGame(config);
   }
 
-  resultGame(result: boolean): void {
+  protected resultGame(result: boolean): void {
     result ? this.handleWin() : this.handleLose();
   }
 

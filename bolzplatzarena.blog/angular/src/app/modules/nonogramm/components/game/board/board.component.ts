@@ -1,5 +1,12 @@
-import { NgFor } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, OnChanges, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  HostBinding,
+  input,
+  OnChanges,
+  Output,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Caption } from '../../../models/caption';
 import { GameBlock } from '../../../models/game-block';
@@ -20,51 +27,50 @@ const HEART_LIMIT = 3;
   standalone: true,
   imports: [
     HeartsComponent,
-    NgFor,
     CaptionComponent,
     BlockComponent,
     FormsModule,
   ],
 })
 export class BoardComponent implements OnChanges {
-  @Input() boardData!: GameData;
+  readonly boardData = input.required<GameData>();
 
   @Output() readonly resultEvent = new EventEmitter<boolean>();
 
-  @HostBinding() class = '';
+  @HostBinding() protected class = '';
 
-  columnHints!: Caption[][];
-  rowHints!: Caption[][];
-  hearts!: number;
-  selectType = true;
+  protected columnHints!: Caption[][];
+  protected rowHints!: Caption[][];
+  protected hearts!: number;
+  protected selectType = true;
 
   constructor(private readonly storage: StorageService) {
   }
 
   ngOnChanges(): void {
-    this.class = `block board-size-${this.boardData.config.size}`;
+    this.class = `block board-size-${this.boardData().config.size}`;
 
     this.checkBoard();
   }
 
-  onAction(failed: boolean): void {
+  protected onAction(failed: boolean): void {
     if (failed) {
-      this.boardData.failed++;
-      this.hearts = HEART_LIMIT - this.boardData.failed;
+      this.boardData().failed++;
+      this.hearts = HEART_LIMIT - this.boardData().failed;
     }
     this.checkBoard();
   }
 
   private checkBoard(): void {
-    this.columnHints = generateColumnHints(this.boardData);
-    this.rowHints = generateRowHints(this.boardData);
+    this.columnHints = generateColumnHints(this.boardData());
+    this.rowHints = generateRowHints(this.boardData());
 
-    this.hearts = HEART_LIMIT - this.boardData.failed;
-    this.storage.saveGame(this.boardData);
-    if (this.boardData.failed >= HEART_LIMIT) {
+    this.hearts = HEART_LIMIT - this.boardData().failed;
+    this.storage.saveGame(this.boardData());
+    if (this.boardData().failed >= HEART_LIMIT) {
       this.resultEvent.emit(false);
     }
-    const blocks = this.boardData.current
+    const blocks = this.boardData().current
       .reduce((blocksFromData, row) => [...blocksFromData, ...row.data], [] as GameBlock[]);
     const missing = blocks.filter(({ expected, show }) => expected && !show);
     if (missing.length === 0) {

@@ -1,11 +1,10 @@
-import { NgIf } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
   HostBinding,
   HostListener,
-  Input,
+  input,
   OnChanges,
   Output,
 } from '@angular/core';
@@ -18,40 +17,38 @@ import { GameBlock } from '../../../../models/game-block';
   styleUrls: ['./block.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NgIf],
 })
 export class BlockComponent implements OnChanges {
-  @Input() config!: Config;
-  @Input() block!: GameBlock;
-  @Input() selectExpected = false;
+  readonly config = input.required<Config>();
+  readonly block = input.required<GameBlock>();
+  readonly selectExpected = input<boolean>(false);
 
   @Output() readonly action = new EventEmitter<boolean>();
+  @HostBinding() protected class = '';
+  @HostBinding('class.failed') protected failed = false;
+  @HostBinding('class.good') protected good = false;
 
-  @HostBinding() class = '';
-  @HostBinding('class.failed') failed = false;
-  @HostBinding('class.good') good = false;
-
-  none = false;
+  protected none = false;
 
   @HostListener('click')
   onClick(): void {
-    if (this.block.show) {
+    if (this.block().show) {
       return;
     }
 
-    this.block.show = true;
-    this.failed = !this.block.expected && this.selectExpected || (!this.selectExpected && this.block.expected);
-    this.good = this.block.expected;
-    this.none = !this.block.expected;
+    this.block().show = true;
+    this.failed = !this.block().expected && this.selectExpected() || (!this.selectExpected() && this.block().expected);
+    this.good = this.block().expected;
+    this.none = !this.block().expected;
 
     this.action.emit(this.failed);
   }
 
   ngOnChanges(): void {
-    if (this.block.show) {
-      this.class = `board-size-${this.config.size}`;
-      this.good = this.block.expected;
-      this.none = !this.block.expected;
+    if (this.block().show) {
+      this.class = `board-size-${this.config().size}`;
+      this.good = this.block().expected;
+      this.none = !this.block().expected;
     }
   }
 }

@@ -1,6 +1,6 @@
-import { NgFor, NgIf, registerLocaleData } from '@angular/common';
+import { registerLocaleData } from '@angular/common';
 import localeDe from '@angular/common/locales/de';
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
 import { FooterComponent } from './components/footer/footer.component';
@@ -41,26 +41,19 @@ const projects: Project[] = [
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
+    FooterComponent,
     HeaderComponent,
+    NavigationComponent,
     RouterOutlet,
     SectionHeaderComponent,
-    NgFor,
-    NavigationComponent,
     TagCloudComponent,
-    NgIf,
-    FooterComponent,
   ],
 })
 export class AppComponent {
-  protected readonly versionUpdate = signal(false);
   protected projects = projects;
 
   constructor(update: SwUpdate, feedback: FeedbackService, readonly app: AppContextService) {
     registerLocaleData(localeDe, 'de');
     feedback.init();
-  }
-
-  reload(): void {
-    window.location.reload();
   }
 }

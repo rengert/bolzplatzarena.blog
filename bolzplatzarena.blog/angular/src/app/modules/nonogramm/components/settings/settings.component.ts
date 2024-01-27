@@ -1,4 +1,3 @@
-import { NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -12,11 +11,7 @@ import { StorageService } from '../../services/storage.service';
   templateUrl: './settings.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    NgFor,
-  ],
+  imports: [FormsModule, ReactiveFormsModule],
 })
 export class SettingsComponent implements OnInit {
   readonly form = new FormGroup({
@@ -32,14 +27,14 @@ export class SettingsComponent implements OnInit {
   ) {
   }
 
-  save(): void {
-    const config = this.form.getRawValue() as Config;
-    this.storage.saveConfig(config);
-    void this.router.navigate(['../nonogramm']);
-  }
-
   ngOnInit(): void {
     const config = this.storage.loadConfig();
     this.form.patchValue(config);
+  }
+
+  protected save(): void {
+    const config = this.form.getRawValue() as Config;
+    this.storage.saveConfig(config);
+    void this.router.navigate(['../nonogramm']);
   }
 }

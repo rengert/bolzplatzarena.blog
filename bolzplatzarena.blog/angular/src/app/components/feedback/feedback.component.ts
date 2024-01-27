@@ -1,5 +1,5 @@
-import { AsyncPipe, DatePipe, NgFor, NgIf } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnChanges } from '@angular/core';
+import { AsyncPipe, DatePipe } from '@angular/common';
+import { ChangeDetectionStrategy, Component, input, OnChanges } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Page } from '../../models/page';
@@ -20,8 +20,6 @@ enum FormState {
   standalone: true,
   imports: [
     SectionHeaderComponent,
-    NgIf,
-    NgFor,
     FormsModule,
     ReactiveFormsModule,
     AsyncPipe,
@@ -29,28 +27,27 @@ enum FormState {
   ],
 })
 export class FeedbackComponent implements OnChanges {
-  @Input() page!: Page;
+  readonly page = input.required<Page>();
 
-  readonly FormState = FormState;
-  readonly form = new FormGroup({
+  protected readonly FormState = FormState;
+  protected readonly form = new FormGroup({
     name: new FormControl<string>('', Validators.required),
     comment: new FormControl<string>('', Validators.required),
   });
 
-  readonly state$ = new BehaviorSubject(FormState.Unknown);
-
-  comments$: Observable<PostComment[]> | undefined;
+  protected readonly state$ = new BehaviorSubject(FormState.Unknown);
+  protected comments$: Observable<PostComment[]> | undefined;
 
   constructor(private readonly feedback: FeedbackService) {
   }
 
   ngOnChanges(): void {
-    this.comments$ = this.feedback.byPage(this.page);
+    this.comments$ = this.feedback.byPage(this.page());
   }
 
-  async submit(): Promise<void> {
+  protected async submit(): Promise<void> {
     if (!await this.feedback.send({
-      slug: this.page.link,
+      slug: this.page().link,
       name: this.form.value.name ?? '',
       comment: this.form.value.comment ?? '',
     })) {

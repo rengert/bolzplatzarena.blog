@@ -1,4 +1,3 @@
-import { NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Signal, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
@@ -14,13 +13,12 @@ import { NavigationComponent } from '../navigation/navigation.component';
   standalone: true,
   imports: [
     RouterLink,
-    NgIf,
     NavigationComponent,
   ],
 })
 export class HeaderComponent {
-  readonly navigationOpen = signal(false);
-  readonly title: Signal<string | undefined>;
+  protected readonly navigationOpen = signal(false);
+  protected readonly title: Signal<string | undefined>;
 
   constructor(private readonly content: ContentService, router: Router) {
     router.events.pipe(
@@ -34,7 +32,7 @@ export class HeaderComponent {
     ));
   }
 
-  toggleNavigation(): void {
+  protected toggleNavigation(): void {
     this.navigationOpen.update(open => !open);
   }
 }
