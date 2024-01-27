@@ -8,5 +8,5 @@ import { Block } from '../../../models/block';
   standalone: true,
 })
 export class HtmlBlockComponent {
-  readonly block = input<Block>();
+  readonly block = input.required<Block>();
 }
