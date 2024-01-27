@@ -1,5 +1,4 @@
-import { NgFor } from '@angular/common';
-import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, input } from '@angular/core';
 import { Page } from '../../../models/page';
 import { TeaserComponent } from './teaser/teaser.component';
 
@@ -8,10 +7,10 @@ import { TeaserComponent } from './teaser/teaser.component';
   templateUrl: './archive.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NgFor, TeaserComponent],
+  imports: [TeaserComponent],
 })
 export class ArchiveComponent {
-  @HostBinding() readonly class = 'flex flex-wrap md:p-0 p-4';
+  readonly page = input.required<Page>();
 
-  @Input() page!: Page;
+  @HostBinding() protected readonly class = 'flex flex-wrap md:p-0 p-4';
 }

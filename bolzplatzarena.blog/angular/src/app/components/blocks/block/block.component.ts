@@ -23,5 +23,5 @@ import { SoundBlockComponent } from '../sound-block/sound-block.component';
 export class BlockComponent {
   readonly block = input.required<Block>();
 
-  readonly BlockType = BlockType;
+  protected readonly BlockType = BlockType;
 }

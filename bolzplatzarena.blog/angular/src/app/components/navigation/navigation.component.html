@@ -1,9 +1,9 @@
-@if (!header) {
+@if (!header()) {
   <app-section-header title="Navigation"></app-section-header>
 }
 <nav class="flex flex-col bg-white rounded-lg shadow-md">
   <ul>
-    @for (item of navigation | async;track item) {
+    @for (item of navigation | async; track item) {
       <li class="hover:bg-gray-50">
         @if (!item.link.startsWith('http')) {
           <a

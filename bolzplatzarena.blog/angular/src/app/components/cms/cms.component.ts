@@ -1,13 +1,4 @@
-import {
-  AsyncPipe,
-  DatePipe,
-  NgFor,
-  NgIf,
-  NgOptimizedImage,
-  NgSwitch,
-  NgSwitchCase,
-  NgSwitchDefault,
-} from '@angular/common';
+import { AsyncPipe, DatePipe, NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
@@ -24,13 +15,8 @@ import { SuggestionComponent } from '../suggestion/suggestion.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
-    NgIf,
-    NgSwitch,
-    NgSwitchCase,
     ArchiveComponent,
-    NgFor,
     BlockComponent,
-    NgSwitchDefault,
     FeedbackComponent,
     SuggestionComponent,
     AsyncPipe,
@@ -39,15 +25,15 @@ import { SuggestionComponent } from '../suggestion/suggestion.component';
   ],
 })
 export class CmsComponent {
-  readonly data$: Observable<Content>;
+  protected readonly data$: Observable<Content>;
 
-  readonly PageType = PageType;
+  protected readonly PageType = PageType;
 
   constructor(content: ContentService) {
     this.data$ = content.data$;
   }
 
-  getImage(image: string): string {
+  protected getImage(image: string): string {
     return `${environment.apiUrl}/api/image${image}?width=682&height=340`;
   }
 }

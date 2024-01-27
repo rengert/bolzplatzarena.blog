@@ -1,4 +1,4 @@
-import { AsyncPipe, NgFor } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -14,16 +14,12 @@ import { TeaserComponent } from '../pages/archive/teaser/teaser.component';
   templateUrl: './tags.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [
-    NgFor,
-    TeaserComponent,
-    AsyncPipe,
-  ],
+  imports: [AsyncPipe, TeaserComponent],
 })
 export class TagsComponent {
-  @HostBinding() readonly class = 'block md:p-0 p-4';
+  @HostBinding() protected readonly class = 'block md:p-0 p-4';
 
-  readonly posts$: Observable<Teaser[]>;
+  protected readonly posts$: Observable<Teaser[]>;
 
   constructor(route: ActivatedRoute, page: PageService, metaData: MetaDataService) {
     this.posts$ = route.params.pipe(

@@ -1,4 +1,4 @@
-import { NgIf, ViewportScroller } from '@angular/common';
+import { ViewportScroller } from '@angular/common';
 import { ChangeDetectionStrategy, Component, HostListener, signal } from '@angular/core';
 
 @Component({
@@ -7,11 +7,10 @@ import { ChangeDetectionStrategy, Component, HostListener, signal } from '@angul
   templateUrl: './footer.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NgIf],
 })
 export class FooterComponent {
-  readonly date = new Date();
-  readonly scrolled = signal(false);
+  protected readonly date = new Date();
+  protected readonly scrolled = signal(false);
 
   constructor(private readonly scroll: ViewportScroller) {
   }
@@ -20,7 +19,7 @@ export class FooterComponent {
     this.scrolled.set(window.scrollY > 0);
   }
 
-  scrollToTop(): void {
+  protected scrollToTop(): void {
     this.scroll.scrollToPosition([0, 0]);
   }
 }
